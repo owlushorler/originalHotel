@@ -7,7 +7,7 @@ function Nav2(){
         <div className="ac" >
             <nav style={{marginRight:"16vw"}} ><a className="aa" href=""><img style={{width:"3vw",marginLeft:"-3vw", marginRight:"1vw"}} src={nnn} alt="oo"/>H COUNTROL</a></nav>
             <nav><Link className="aa"  to='/' >HOME</Link></nav>
-            <nav><a className="aa" href="">FACILITIES</a></nav>
+            <nav><Link className="aa"  to='/fac' >FACILITY</Link></nav>
             <nav><Link className="aa"  to='/room' >ROOMS</Link></nav>
             <nav><Link className="aa"  to='/about' >ABOUT</Link></nav>
             <nav><a className="aa" href="">CONTACT</a></nav>
