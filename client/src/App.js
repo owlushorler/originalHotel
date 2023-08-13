@@ -20,6 +20,7 @@ import Footer from './components/User/footer/footer';
 import Rooms from './components/User/rooms/room/room';
 import BookingForm from './components/User/rooms/bookingForm/BookingForm';
 import About from './components/User/about/about';
+import Fac from './components/User/facil/fac';
 function App() {
   return (
     <div >
@@ -37,6 +38,7 @@ function App() {
             <Route path="/room" element={ <Rooms/>} />
             <Route path='/booking' element={<BookingForm/>}/>
             <Route path='/about' element={<About/>}/>
+            <Route path='/fac' element={<Fac/>}/>
             
         
             {/* <Route
