@@ -1,0 +1,51 @@
+[
+    {
+        "type": "premium",
+        "features": ["fan", "AC", "king size bed"],
+        "images": ["yung"],
+        "id": 1
+    },
+
+    {
+        "type": "premium",
+        "features": ["fan", "AC", "king size bed"],
+        "images": ["yung"],
+        "id": 2
+    },
+
+    {
+        "type": "premium",
+        "features": ["fan", "AC", "king size bed"],
+        "images": ["yung"],
+        "id": 3
+    },
+
+    {
+        "type": "premium",
+        "features": ["fan", "AC", "king size bed"],
+        "images": ["yung"],
+        "id": 4
+    },
+
+    {
+        "type": "premium",
+        "features": ["fan", "AC", "king size bed"],
+        "images": ["yung"],
+        "id": 5
+    },
+
+
+    {
+        "type": "premium",
+        "features": ["fan", "AC", "king size bed"],
+        "images": ["yung"],
+        "id": 6
+    },
+
+    {
+        "type": "premium",
+        "features": ["fan", "AC", "king size bed"],
+        "images": ["yung"],
+        "id": 7
+    }
+]

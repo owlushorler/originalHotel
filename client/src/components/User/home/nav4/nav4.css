@@ -1,0 +1,24 @@
+.bo{
+    display: grid;
+    grid-template-columns: 25vw 25vw 25vw;
+    box-shadow: 0vw .0vw 1vw .02vw black;
+    margin-top: 10vw;
+    width: 70vw;
+    gap: 1vw;
+    padding: 1vw;
+    background-color: white;
+    color: black;
+    
+    margin-left: -13vw;
+   
+}
+
+.dii{
+    background-color: goldenrod;
+    border: none;
+    border-radius: 3px;
+    width: 16vw;
+    font-size: 1vw;
+    height: 3vw;
+    
+}

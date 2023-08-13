@@ -1,0 +1,37 @@
+.emailInput {
+    /* background-color: white; */
+    /* border-bottom: 2px solid #d4af37; */
+    /* border-radius: 10px; */
+    width: 400px;
+    fill: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #d4af37;
+    font-size: 18px;
+    margin-bottom: 26px;
+    color: #fff;
+}
+
+.usernameInput {
+    /* background-color: white; */
+    /* border-bottom: 2px solid #d4af37; */
+    /* border-radius: 10px; */
+    width: 400px;
+    fill: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #d4af37;
+    font-size: 18px;
+    margin-bottom: 26px;
+    color: #cfcbcb;
+}
+
+.usernameInput::placeholder {
+    /* color: #fff; */
+    color: #cfcbcb;
+}
+
+.emailInput::placeholder {
+    /* color: #fff; */
+    color: #cfcbcb;
+}

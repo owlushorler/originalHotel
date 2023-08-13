@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&family=Montserrat:wght@100;400;500;600;700&family=Nunito+Sans:wght@400;600&family=Poppins:wght@200;300;400;500;600;700;800&family=Raleway:wght@500;600;700&family=Rubik:wght@400;500;600;700&display=swap');
+
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* overflow-y: hidden; */
+}
+
+
+
+.contain {
+    height: 100vh;
+    /* background-image: url(./The\ best\ new\ hotels\ in\ the\ world_\ 2022\ Hot\ List\ 1.png); */
+    background-image: url(../../../../imagesfolder//background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 5rem;
+}
+
+.formHolder {
+    text-align: center;
+    margin: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    border: 1px solid;
+    border-radius: 20px;
+    background-color: rgba(21, 17, 5, 0.4);
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+}
+
+.depart {
+    display: flex;
+    /* border: 1px solid; */
+    width: 25rem;
+    margin-bottom: 0.6rem;
+}
+
+.employeeInput {
+    /* background-color: white; */
+    /* border-bottom: 2px solid #d4af37; */
+    /* border-radius: 10px; */
+    width: 400px;
+    fill: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #d4af37;
+    font-size: 18px;
+    margin-bottom: 26px;
+    color: #fff;
+}
+
+.employeeInput::placeholder {
+    color: #cfcbcb;
+}
+
+.employeeDropDown {
+    background-color: #d4af37;
+    height: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    width: 18rem;
+    border: none;
+    outline: none
+}
+
+.ageInput {
+    margin-bottom: 1rem;
+    margin-left: 0.2rem;
+    border-radius: 10px;
+    border: none;
+    height: 1.5rem;
+    background-color: #d4af37;
+    overflow-x: none;
+    overflow-y: hidden;
+    padding-left: 0.5rem;
+}
+
+label {
+    color: #fff
+}
+
+
+
+input {
+    outline: none;
+}
+
+/* .employeeDropDown:hover {
+    background-color: white;
+} */
+
+.formButton {
+    background-color: #d4af37;
+    border: none;
+    border-radius: 10px;
+    height: 1.9rem;
+    width: 7rem;
+    margin-left: 8rem;
+    /* outline: none; */
+}
+
+.formButton:hover {
+    background-color: white;
+    color: #d4af37;
+    outline: none;
+    opacity: 0.7;
+    transition: 1s;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+}
+
+.selectHover {
+    background-color: white;
+}
+
+option {
+    background-color: white;
+    color: #d4af37;
+}
+
+.employeeDropDown option:hover {
+    background-color: white;
+}
+
+.fileInput {
+    background-color: #d4af37;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    /* padding-left: 1rem; */
+}

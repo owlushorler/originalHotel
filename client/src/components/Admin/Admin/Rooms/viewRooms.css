@@ -1,0 +1,17 @@
+.roomCard {
+    background-color: brown;
+    width: 25rem;
+    height: 20rem;
+    margin: 1rem;
+    padding: 1rem;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+}
+
+.roomCard button {
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #fff;
+}

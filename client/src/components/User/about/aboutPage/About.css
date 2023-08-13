@@ -1,0 +1,200 @@
+.container {
+    background-image: url(../../../imagesfolder/hotel-room-design-compressed-1.webp);
+    background-repeat: no-repeat;
+    /* background-image: cover; */
+    /* min-height: 30vh; */
+    display: flex;
+    flex-direction: column;
+    padding-top: 3.5rem;
+    color: #d4af37;
+    /* margin-bottom: 3rem; */
+  }
+  
+  .card_up {
+    height: 22rem;
+    width: 20vw;
+    margin-left: 3rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .card {
+    gap: 0.8rem;
+    height: 10rem;
+    margin-top: 1.1rem;
+  }
+  
+  .card2 {
+    display: flex;
+    flex-direction: column;
+    width: 16vw;
+    margin-left: 23rem;
+    margin-top: -22rem;
+    height: 10rem;
+    background: url(../../../imagesfolder/hotel-room-design-compressed-1.webp);
+  }
+  .card3 {
+    width: 16vw;
+    margin-left: 23rem;
+    height: 11rem;
+    background: url(../../../imagesfolder/hotel-room-design-compressed-1.webp);
+  }
+  .side {
+    width: 25rem;
+    height: 20rem;
+    margin-left: 38rem;
+    margin-top: -32rem;
+    font-size: 0.6rem;
+  }
+  
+  .images {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+  }
+  .client {
+    display: flex;
+    justify-content: space-between;
+  }
+  .phone {
+    width: 2rem;
+    height: 2rem;
+    /* margin-top: 5.5rem; */
+  }
+  .word {
+    background-color: #d4af37;
+    border-style: none;
+    width: 7rem;
+    height: 3rem;
+    /* border:#d4af37; */
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+  .word:hover {
+    background-color: #d4af;
+  }
+  
+  .base {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* color: #d4af37; */
+  }
+  .we {
+    margin-left: 1.5rem;
+    font-size: 12px;
+  }
+  .w {
+    font-size: 12px;
+    margin-left: 0.7rem;
+    margin-top: 0.7rem;
+    padding-top: -1.8rem;
+  }
+  .four_cards {
+    display: flex;
+    background-color: beige;
+    height: 58vh;
+    justify-content: center;
+    gap: 2rem;
+    padding: 5rem;
+  }
+  .base2 {
+    text-align: center;
+    margin-top: 2.8rem;
+    width: 30rem;
+    font-size: 0.8rem;
+    margin-left: 28rem;
+  }
+  .box {
+    /* border-style: solid; */
+    width: 32vh;
+    height: 25vh;
+    background-color: white;
+    font-size: 5px;
+    font-style: bold;
+    /* text-align:center; */
+    padding: 3rem;
+  }
+  .base3 {
+    width: 5rem;
+    height: 4rem;
+    padding-bottom: -3rem;
+    margin-top: -1.7rem;
+  }
+  .base4 {
+    font-size: 8px;
+    margin-left: 0.6rem;
+    margin-bottom: 0.3rem;
+    margin-top: 0.6rem;
+  }
+  .base5 {
+    font-size: 6px;
+    margin-left: 0.8rem;
+  }
+  
+  /* /* AboutApp.css */
+  
+  /* Your existing styles */
+  
+  /* Media queries */
+  @media screen and (max-width: 768px) {
+    /* Styles for screens up to 768px wide */
+    .card_up {
+      width: 90vw; /* Adjust the width for smaller screens */
+      height: auto;
+    }
+  
+    .card {
+      flex-direction: column;
+      gap: 0.8rem;
+      height: auto;
+      margin-top: 1rem;
+    }
+  
+    .card2,
+    .card3 {
+      width: 90vw;
+      margin-left: 0;
+      margin-top: 1.1rem;
+      height: auto;
+    }
+  
+    .side {
+      width: 90vw;
+      height: auto;
+      margin-left: 0;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+  
+    /* Adjust other styles as needed */
+  }
+  
+  @media screen and (max-width: 576px) {
+    /* Styles for screens up to 576px wide */
+    .side {
+      font-size: 0.8rem;
+    }
+  
+    .base {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  
+    .four_cards {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 3rem;
+    }
+  
+    .box {
+      width: 80vw;
+      height: auto;
+      padding: 2rem;
+    }
+  
+    /* Adjust other styles as needed */
+  }
+  

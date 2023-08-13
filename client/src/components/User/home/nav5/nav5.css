@@ -1,0 +1,62 @@
+.lo{
+
+    margin-top: 9vw;
+    
+}
+
+.pp{
+    width: 4vw;
+    height: 4vw;
+    margin-left: 3vw
+    
+}
+
+.ppp{
+    font-size: 1vw;
+    margin-left: 1vw;
+    
+}
+.p{
+    font-size: 1vw;
+    margin-left: 1vw;
+    
+}
+
+.qq{
+    
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    
+    margin-left: 23vw; 
+    margin-top: 3vw;
+}
+
+.qqq{
+    box-shadow: .0vw .0vw .1vw 0.044vw black;
+    padding: 1vw;
+    
+}
+.qqq:hover{
+    box-shadow: .0vw .0vw .08vw .1vw black;
+    width: 13vw;
+    transition: 1px;
+    cursor: pointer;
+    background-color: whitesmoke;
+    
+
+}
+.ran{
+    margin-left: 39vw;
+    font-size: 3vw;
+}
+
+.rann{
+    margin-left: 35vw;
+    font-size: 3vw;
+}
+
+.ds{
+    margin-left: 28vw;
+    font-size: 1.5vw;
+}

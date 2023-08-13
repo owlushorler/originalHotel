@@ -1,0 +1,46 @@
+.wew{
+    background-color: whitesmoke;
+    width: 80vw;
+    margin-bottom: -10vw;
+    margin-left: 10vw;
+    padding-bottom: 2vw;
+    
+    
+}
+.yoy{
+    margin-top:15vw;
+    font-style: oblique;
+}
+.wee{
+    font-size: 1.2vw;
+    padding-top: 2vw;
+    margin-top: -40vw;
+    text-align: center;   
+}
+.ooo{
+    font-size: 2vw;
+    text-align: center;
+}
+.ol{
+    padding-left: 22vw;
+    border-radius: 6vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom:"2vw" 
+}
+.dii:hover{
+    cursor: pointer;
+    background-color: gold;
+}
+.fot{
+    
+    padding-top: 5vw;
+    height: 30vw;
+    color: white;
+    background-color: rgb(17, 17, 45);
+    width: 100vw;
+    display:  flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

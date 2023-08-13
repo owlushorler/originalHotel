@@ -1,0 +1,25 @@
+.page-slide-enter {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.page-slide-enter-active {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: opacity 300ms, transform 300ms;
+}
+
+.page-slide-exit {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.page-slide-exit-active {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 300ms, transform 300ms;
+}
+
+CSSTransition {
+    border: 10px solid blue
+}

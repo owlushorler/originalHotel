@@ -1,0 +1,31 @@
+.mm{
+    
+    width: 100vw;
+    height: 35vw;
+    background-color: black;
+    z-index: 1;
+
+
+}
+.mmm{
+    position: relative;
+}
+.nn{
+    position: absolute;
+    left: 2vw;
+    top: 4vw;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: none;
+    margin-left: 25vw;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.low{
+    background-color: goldenrod;
+    border: none;
+    width: 10vw;
+    font-size: 1vw;
+    height: 2vw;margin-left: 17vw;
+    border-radius: .5vw;
+}

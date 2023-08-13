@@ -1,0 +1,11 @@
+/* YourStyles.css */
+
+.layered-background {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    background-image: url('../../../../imagesfolder/Rectangle\ 1104.png'), url('../../../../imagesfolder/Mask\ Group@2x.png');
+    background-size: cover, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+}

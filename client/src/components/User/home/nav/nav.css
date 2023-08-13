@@ -1,0 +1,21 @@
+.na{
+    background-color: goldenrod;
+    width: 100vw;
+    height: 2.5vw;
+    display: flex;
+    padding-left: 20vw;
+    gap: 3vw;
+    
+}
+
+.ab{
+    display: flex;
+    flex-direction: row;
+    align-items:first baseline ;
+    
+    gap: .5vw;
+    font-size: 1vw;
+    margin-top: 1vw;
+    
+    
+}
