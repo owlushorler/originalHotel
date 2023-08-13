@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./superAdmin.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
@@ -8,9 +8,19 @@ export default function SuperAdmin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [response, setResponse] = useState(null)
+  const [reply, setReply] = useState(null)
   const navigate = useNavigate();
    
+  useEffect(() => {
+    const rememberedCredentials = localStorage.getItem('rememberedCredentials');
+  
+    if (rememberedCredentials) {
+      const { username, password } = JSON.parse(rememberedCredentials);
+      setUsername(username);
+      setPassword(password);
+      setRememberMe(true);
+    }
+  }, []);
 
 
   async function handleClick (e) {
@@ -32,20 +42,32 @@ export default function SuperAdmin() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(user),
-        });
-  
-        if (response.ok) {
+        })
+       
+        if (response) {
           const data = await response.json();
-          setResponse(data);
-          alert(response)
-          if(response.authentication == "Super Admin"){
-            navigate('/superAdmin')
-          }else {
-            navigate("/admin")
+          console.log(data)
+          setReply(data);
+          if(response.ok){
+            // alert(response)
+            // console.log(response)
+            if(data === "Super Admin"){
+              alert(response)
+              navigate('/superAdmin')
+            }else {
+              alert(response)
+              navigate("/admin/admin")
+            }
+            if (rememberMe) {
+              // Store credentials in a cookie or local storage
+              localStorage.setItem('rememberedCredentials', JSON.stringify({ username, password }));
+            }
+          } else {
+            console.error('Request failed:', response.statusText);
+            // console.log(data)
+            setReply("Invalid Credentials")
           }
-        } else {
-          console.error('Request failed:', response.statusText);
-        }
+          }
       } catch (error) {
         console.error('Error sending data:', error.message);
       }
@@ -97,7 +119,9 @@ export default function SuperAdmin() {
         <button className="loginButton" onClick={handleClick}>
           Login
         </button>
-
+        <div>
+          <p className="errorPop">{reply}</p>
+        </div>
       </form>
     </div>
     </div>

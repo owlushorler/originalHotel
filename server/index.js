@@ -3,12 +3,16 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 const route = require('./routes/routes')
 const cors = require('cors')
+const cookie = require('cookie-parser')
+const cookieParser = require('cookie-parser')
 
 const app = express()
 app.use(express.json())
+app.use(cookieParser())
 app.use(cors({
     origin: "*"
 }))
+app.use('/uploads', express.static('uploads'))
 app.use(route)
 
 const uri = process.env.uri
