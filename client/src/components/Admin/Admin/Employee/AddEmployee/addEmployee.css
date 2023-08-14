@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&family=Montserrat:wght@100;400;500;600;700&family=Nunito+Sans:wght@400;600&family=Poppins:wght@200;300;400;500;600;700;800&family=Raleway:wght@500;600;700&family=Rubik:wght@400;500;600;700&display=swap');
 
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -16,6 +20,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 5rem;
+}
+
+.contain h1 {
+    text-align: center;
+    color: #d4af37;
 }
 
 .formHolder {
@@ -36,6 +45,11 @@ body {
     /* border: 1px solid; */
     width: 25rem;
     margin-bottom: 0.6rem;
+}
+
+.row {
+    margin-left: 0.01rem;
+    /* border: 1px solid */
 }
 
 .employeeInput {
@@ -99,7 +113,7 @@ input {
     border-radius: 10px;
     height: 1.9rem;
     width: 7rem;
-    margin-left: 8rem;
+    margin-left: 9.2rem;
     /* outline: none; */
 }
 
@@ -114,7 +128,7 @@ input {
 .form {
     display: flex;
     flex-direction: column;
-    width: 30vw;
+    width: 35vw;
 }
 
 .selectHover {
@@ -135,4 +149,5 @@ option {
     border-radius: 10px;
     margin-bottom: 1.5rem;
     /* padding-left: 1rem; */
+    width: 31.5vw;
 }

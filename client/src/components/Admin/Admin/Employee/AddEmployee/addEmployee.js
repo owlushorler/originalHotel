@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios"
 import "./addEmployee.css"
+import { Link, useNavigate } from "react-router-dom";
 
 function AddEmployee (){
     const [department, setDepartment] = useState("")
     const [age, setAge] = useState("")
     const [input1, setInput1] = useState("")
     const [input2, setInput2] = useState("")
+    const [image, setImage] = useState("")
+    const navigate = useNavigate();
     
     
     const handleChangeDepart = (e)=>{
@@ -21,41 +24,55 @@ function AddEmployee (){
     const handleInput2 = (e)=>{
         setInput2(e.target.value);
     }
+    const handleImage = (e)=>{
+        setImage(e.target.files[0])
+    }
     
     const handleSubmit = async (event) =>{
         event.preventDefault()
-        let employeeData = {
-            firstName: input1,
-            lastName: input2,
-            department: department,
-            age: age
-        }
-        console.log(employeeData)
-        let dta = await fetch("http://localhost:5002/employee/addEmployee", {
-                method: "post",
-                headers:{
-                        "Content-Type": "application/json"
-                    },
-                body: JSON.stringify(employeeData)
-                }).then(response=>response.json()).then(data=>{
-                        console.log(data)
-                    })
-                    
-                    console.log(dta)
-                }
-
-        // axios.post("http://localhost:5000/employee/addEmployee", employeeData).then(()=>{
-        //     console.log(employeeData)
-        // })
+        // let employeeData = {
+        //     firstName: input1,
+        //     lastName: input2,
+        //     department: department,
+        //     age: age,
+        //     image: image
+        // }
+        // console.log(image);
         // console.log(employeeData)
-        
-    
+        const formData = new FormData()
+        formData.append("firstName", input1)
+        formData.append("lastName", input2)
+        formData.append("department", department)
+        formData.append("age", age)
+        formData.append("file", image)
+        // let dta = await fetch("http://localhost:5002/employee/addEmployee", {
+        //         method: "post",
+        //         headers:{
+        //                 "Content-Type": "application/json"
+        //             },
+        //         body: JSON.stringify(employeeData)
+        //         }).then(response=>response.json()).then(data=>{
+        //                 console.log(data)
+        //             })
+        //             // this.setState({ image: event.target.files[0] });
+        //             console.log(dta)
+        //         }
+
+        axios.post("http://localhost:5002/employee/addEmployee", formData)
+         .then((res)=> {
+            console.log(res)
+            navigate('/employees')
+         })
+         .catch(err=> console.log(err))
+    }
+        // console.log(employeeData) 
 
     return (
         <>
             <div className="container-fluid contain ">
+                    <h1>ADD EMPLOYEE</h1>
                 <div className="formHolder ">
-                    <form className="form container-sm" onSubmit={handleSubmit}>
+                    <form className="form container-sm" action="/upload" method="POST" enctype="multipart/form-data" onSubmit={handleSubmit}>
                         <div className="row">
                             <div className="col-md-6">
                                 <input className="employeeInput " type="text"  placeholder="First Name"  onChange={handleInput1}/>
@@ -69,9 +86,9 @@ function AddEmployee (){
                                         <option value="Bar">Bar</option>
                                     </select>
                                     <label>Age</label>
-                                    <input className="ageInput" type="number" min="18" max= "65" placeholder=""  onChange={handleChangeAge}/>
+                                    <input className="ageInput" type="number" min="18" max= "65" placeholder="18"  onChange={handleChangeAge}/>
                                 </div>
-                                <input className="fileInput" type="file" />
+                                <input className="fileInput" type="file" onChange={handleImage} />
                                 <button className="formButton" type="submit">DONE</button>
                             </div>
                         </div>

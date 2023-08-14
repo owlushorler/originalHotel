@@ -1,128 +1,52 @@
 import { useState, useEffect } from 'react'
-import images from "./employee.jpg"
 import  './EmployeeCard.css';
+import { Link } from 'react-router-dom';
 
   const ViewEmployeeCard = () => {
   const [data, setData] = useState([])
-  // const {image, fullName, age, department} = employee;
-   const EmployeeData = [
-             
-        {
-          image: images,
-          fullName: "John Doe",
-          age: 30,
-          department: "Engineer",
-          id: 1
-        },
-        {
-          image: images,
-          fullName: "Jane Smith",
-          age: 25,
-          department: "Product",
-          id: 2
-        },
-        {
-          image: images,
-          fullName: "Andrew Amos",
-          age: 20,
-          department: "Security",
-          id: 3
-        },
-        {
-          image: images,
-          fullName: "Elvis Comorule",
-          age: 22,
-          department: "Human Resource",
-          id: 4
-        },
-        {
-          image: images,
-          fullName: "Elvis Comorule",
-          age: 22,
-          department: "Human Resource",
-          id: 5
-        },
-        {
-          image: images,
-          fullName: "Elvis Comorule",
-          age: 22,
-          department: "Human Resource",
-          id: 6
-        },
-        {
-          image: images,
-          fullName: "Elvis Comorule",
-          age: 22,
-          department: "Human Resource",
-          id: 7
-        },
-        {
-          image: images,
-          fullName: "Elvis Comorule",
-          age: 22,
-          department: "Human Resource",
-          id: 8
-        },
-        {
-          image: images,
-          fullName: "Elvis Comorule",
-          age: 22,
-          department: "Human Resource",
-          id: 9
-        },
-        {
-          image: images,
-          fullName: "Elvis Comorule",
-          age: 22,
-          department: "Human Resource",
-          id: 10
-        },
-        {
-          image: images,
-          fullName: "Elvis Comorule",
-          age: 22,
-          department: "Human Resource",
-          id: 11
-        },
-        {
-          image: images,
-          fullName: "Bernard Abiodun",
-          age: 22,
-          department: "IT",
-          id: 12
-        },
-
-   ];
+  const [error, setError]= useState('')
+  const [password, setPassword] = useState('')
+  const [passwordError, setPasswordError] = useState('')
+  const [selectedItemId, setSelectedItemId] = useState(null)
    useEffect(() => {
-    // Function to fetch data from the API endpoint
-    // async function fetchData() {
-    //   try {
-    //     const response = await fetch('https://api.example.com/data'); // Replace with your API endpoint
-    //     const jsonData = await response.json();
-    //     setData(jsonData);
-    //   } catch (error) {
-    //     console.error('Error fetching data:', error);
-    //   }
-    // }
 
-    // fetchData();
+    async function fetchData() {
+      try {
+        const response = await fetch('http://localhost:5002/admin/viewEmployees'); // Replace with your API endpoint
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    fetchData();
     
-    setData(EmployeeData)
   }, []);
 
+  const handlePassword =(e)=>{
+    setPassword(e.target.value)
+  }
+
    const handleDelete = async (itemId) => {
-    // try {
-    //   // Perform the delete operation on the API endpoint
-    //   await fetch(`https://api.example.com/data/${itemId}`, {
-    //     method: 'DELETE',
-    //   });
-    let con = prompt("Confirm your password");
-    // if(con == )
-      setData((prevData) => prevData.filter((item) => item.id !== itemId));
-    //   setData(() => prevData.filter((item) => item.id !== itemId));
-    // } catch (error) {
-    //   console.error('Error deleting item:', error);
-    // }
+    try {
+      // if(password === req.password){
+        // Perform the delete operation on the API endpoint
+        await fetch(`http://localhost:5002/admin/viewEmployees/${itemId}`, {
+          method: 'DELETE',
+        });
+      // let con = prompt("Confirm your password");
+      // // if(con == )
+        setData((prevData) => prevData.filter((item) => item._id !== itemId));
+        // const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+        // modal.hide();
+      // } else {
+      //   setPasswordError('Wrong Password')
+      //   alert(passwordError)
+      // }
+    } catch (error) {
+      console.error('Error deleting item:', error);
+    }
   };
 
   return (
@@ -132,21 +56,55 @@ import  './EmployeeCard.css';
           <div className='container'>
               {data.map((employee)=>{
                 return (
-                <div className='card ' key={employee.id}>
+                <div className='card ' key={employee._id}>
                 <div className='cardImage'>
                     <img src={employee.image} alt='' className='employeeimage' />
                 </div>
                   <div className="employee-details">
-                    <h2>{employee.fullName}</h2>
+                    <h2>{`${employee.firstName} ${employee.lastName}`}</h2>
                     <p>Age: {employee.age}</p>
                     <p>Department: {employee.department}</p>
                   </div>
-                  <button className='btn btn-primary cardButton' onClick={() => handleDelete(employee.id)}>Delete</button>
+                  
+                  <button
+            type="button"
+            className="btn btn-primary cardButton"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            onClick={() => setSelectedItemId(employee._id)} // Set the selected item ID
+          >
+            Delete
+          </button>
+                    <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div className="modal-dialog">
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div className="modal-body">
+                            <input type='password' onChange={handlePassword} />
+                          </div>
+                          <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-primary">Save changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             );
               })};
+              <p>{error}</p>
           </div>
-              <button>Add Employee</button>
+              <button className='addEmployeeBtn'><Link to="/addEmployee">Add Employee</Link></button>
+
+          
+{/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+ */}
+
     </div>
    </>
   );

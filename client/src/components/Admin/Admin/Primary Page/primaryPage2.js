@@ -5,7 +5,7 @@ import "./primaryPage2.css"
 import image from "../../../imagesfolder/checked-user-512.png";
 import image2 from "../../../imagesfolder/emplloyee.png";
 import image3 from "../../../imagesfolder/bed-2.png";
-import image4 from "../../../imagesfolder/Admin-icon.png";
+import image4 from "../../../imagesfolder/icons8-booking-58.png";
 import image5 from "../../../imagesfolder/bed.png";
 import ViewEmployeeCard from '../Employee/EmployeeCard';
 import ViewRooms from '../Rooms/viewRooms';
@@ -40,7 +40,7 @@ function PrimaryPage(){
 
             <Link  to="/rooms">
                 <div className="primaryCard">
-                    <img src={image3} />
+                    <img src={image4} />
                     <h3> Manage Booking</h3>
                 </div>
             </Link>
