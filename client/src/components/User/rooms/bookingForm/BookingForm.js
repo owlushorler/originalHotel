@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./bookingForm.css";
+import Nav2 from "../../home/nav2/nav2";
 
 function BookingForm() {
   const navigate = useNavigate();
@@ -58,6 +59,8 @@ function BookingForm() {
   };
 
   return (
+    <div>
+      <Nav2/>
     <div className="main-container">
       <div className="mini-container">
         <h2>Booking Form</h2>
@@ -114,6 +117,7 @@ function BookingForm() {
           </button>
         </form>
       </div>
+    </div>
     </div>
   );
 }
