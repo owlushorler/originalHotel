@@ -14,13 +14,33 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import "./styles.css"
 import AddAdmin from './components/Admin/Super Admin/ViewAdmin/AddAdmin/AddAdmin';
 import ViewAdmin from './components/Admin/Super Admin/ViewAdmin/viewAdmin';
+import Nav3 from './components/User/home/nav3/nav3';
+import Rooms from './components/User/rooms/room/room';
+import About from './components/User/about/about';
+import BookingForm from './components/User/rooms/bookingForm/BookingForm';
+import Fac from './components/User/facil/fac';
+
 
 function App() {
   return (
+    <div>
+
     <div className="App">
+      
           <Router>
+          
+        
           {/* <LandingPage /> */}
             <Routes>
+    
+            {/*USER ROUT */}
+            <Route path="/" element={< Nav3/>} />
+            <Route path="/room" element={< Rooms/>} />
+            <Route path="/about" element={< About/>} />
+            <Route path="/booking" element={<BookingForm/>} />
+            <Route path="/fac" element={<Fac/>} />
+            
+
 
               <Route path="/admin" element={< LandingPage/>} />
               <Route path="/login" element={<SuperAdmin />} />
@@ -49,6 +69,8 @@ function App() {
   
       </Router>
           
+        </div>
+
         </div>
   );
 }
