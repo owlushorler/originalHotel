@@ -1,19 +1,35 @@
 import 'font-awesome/css/font-awesome.min.css';
 import {Link} from "react-router-dom"
 import "./primaryPage.css"
+import { useState, useEffect } from "react";
 import image from "../../../imagesfolder/checked-user-512.png";
 import image2 from "../../../imagesfolder/emplloyee.png";
 import image3 from "../../../imagesfolder/bed-2.png";
 import image4 from "../../../imagesfolder/Admin-icon.png";
 import image5 from "../../../imagesfolder/icons8-booking-58.png";
+import Cookies from 'js-cookie'
+import SuperAdmin from '../../Admin/Login/SuperAdmin';
+import Navbar from '../../Admin/Primary Page/navbar';
 
+
+const myStyle = {
+    marginLeft: "3rem",
+    display: "inline",
+    justifySelf: "end",
+    border: "7rem solid",
+}
 
 
 function PrimaryPageSuper(){
+    const token = Cookies.get('jwt');
+    console.log(token)
+    const [isLoggedIn, setIsLoggedIn]= useState(token !== undefined)
     return(
         <>
+         {isLoggedIn ? (
+             <div className="container13">
+                <Navbar  />
         <div className="container1">
-
             
                <Link to='/superAdmin/admin'>
                <div className="primaryCard">
@@ -50,9 +66,11 @@ function PrimaryPageSuper(){
                 </div>
             </Link>
 
-
-           
         </div>
+        </div>
+              ) :  (
+                <SuperAdmin />
+            )}
         </>
     )
 }

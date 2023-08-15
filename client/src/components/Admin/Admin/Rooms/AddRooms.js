@@ -1,11 +1,21 @@
 import React from 'react';
+import { useState, useEffect } from 'react'
 import './addRooms.css';
 // import image1 from '../images/image.png'
-function AddRooms(){
+import Cookies from 'js-cookie'
+import jwt from "jwt-decode"
+import Navbar from '../Primary Page/navbar';
 
+function AddRooms(){
+const token = Cookies.get('jwt');
+
+const [isLoggedIn, setIsLoggedIn]= useState(token !== undefined)
 
 return (
+    <>
+    {isLoggedIn ? (
         <div className='room'>
+            <Navbar />
             <div className='container1'>
             <h2 className='Room'>First Name</h2>
             <hr></hr>
@@ -45,8 +55,11 @@ return (
             </div>
           
 
-
         </div>
+            ) :  (
+                <SuperAdmin />
+            )}
+          </>
 )
 }
 

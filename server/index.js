@@ -4,14 +4,14 @@ const mongoose = require('mongoose')
 const route = require('./routes/routes')
 const cors = require('cors')
 const cookie = require('cookie-parser')
-const cookieParser = require('cookie-parser')
 
 const app = express()
 app.use(express.json())
-app.use(cookieParser())
+app.use(cookie())
 app.use(cors({
-    origin: "*"
-}))
+    origin: 'http://localhost:3000',
+    credentials: true,
+}));
 app.use('/uploads', express.static('uploads'))
 app.use(route)
 

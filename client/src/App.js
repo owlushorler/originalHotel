@@ -14,11 +14,22 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import "./styles.css"
 import AddAdmin from './components/Admin/Super Admin/ViewAdmin/AddAdmin/AddAdmin';
 import ViewAdmin from './components/Admin/Super Admin/ViewAdmin/viewAdmin';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Navbar from './components/Admin/Admin/Primary Page/navbar';
 
 function App() {
+  // function componentDidMount() {
+  //   // Initialize Bootstrap dropdowns
+  //   const dropdownToggle = document.getElementById('dropdownMenuButton');
+  //   const dropdown = new bootstrap.Dropdown(dropdownToggle);
+  // }
+  // componentDidMount()
   return (
     <div className="App">
+
           <Router>
+            {/* <Navbar /> */}
           {/* <LandingPage /> */}
             <Routes>
 
@@ -32,6 +43,7 @@ function App() {
                 <Route path="/addEmployee" element={<AddEmployee />} />
                 <Route path="/superAdmin/addAdmin" element={<AddAdmin />} />
                 <Route path="/superAdmin/admin" element={<ViewAdmin />} />
+
             </Routes>
         
               {/* <SuperAdmin /> */}

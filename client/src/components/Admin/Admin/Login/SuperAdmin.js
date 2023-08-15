@@ -3,12 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import "./superAdmin.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import Cookies from 'js-cookie'
+import jwt from "jwt-decode"
 
 export default function SuperAdmin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [reply, setReply] = useState(null)
+  const [notification, setNotification] = useState(null)
   const navigate = useNavigate();
    
   useEffect(() => {
@@ -38,44 +40,47 @@ export default function SuperAdmin() {
       try {
         const response = await fetch("http://localhost:5002/login", {
           method: 'POST',
+          withCredentials: 'include',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(user),
-        })
-       
-        if (response) {
-          const data = await response.json();
-          console.log(data)
-          setReply(data);
-          if(response.ok){
-            // alert(response)
-            // console.log(response)
-            if(data === "Super Admin"){
-              alert(response)
-              navigate('/superAdmin')
-            }else {
-              alert(response)
-              navigate("/admin/admin")
-            }
-            if (rememberMe) {
-              // Store credentials in a cookie or local storage
-              localStorage.setItem('rememberedCredentials', JSON.stringify({ username, password }));
-            }
+        });
+        console.log("fuck")
+        if (response.ok) {
+          const data = await response.json()
+          const decoded = jwt(data.token)
+          console.log(decoded)
+          const yes = Cookies.set('jwt', data.token, {
+            expires: new Date(2000000000000)
+          })
+          // const yes = Cookies.get('jwt')
+          console.log(yes)
+          if (data.user === "Super Admin") {
+            setNotification("Login successful as Super Admin");
+            navigate('/superAdmin');
           } else {
-            console.error('Request failed:', response.statusText);
-            // console.log(data)
-            setReply("Invalid Credentials")
+            setNotification("Login successful as Admin");
+            navigate("/admin/admin");
           }
+  
+          if (rememberMe) {
+            localStorage.setItem('rememberedCredentials', JSON.stringify({ username, password }));
           }
+        } else {
+          setNotification("Invalid credentials"); 
+        }
       } catch (error) {
         console.error('Error sending data:', error.message);
+        setNotification('Error loading data, Please try again'); 
       }
-
-
     } else {
-      alert("Password should be 8 characters or more.");
+      setNotification("Password less than 8");
     }
+
+
+
+
 
   }
   function handleRememberMe(e) {
@@ -120,7 +125,7 @@ export default function SuperAdmin() {
           Login
         </button>
         <div>
-          <p className="errorPop">{reply}</p>
+          <p className="errorPop">{notification}</p>
         </div>
       </form>
     </div>
