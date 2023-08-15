@@ -1,7 +1,9 @@
+import Nav2 from "../home/nav2/nav2"
 function Fac(){
     return(
         <div>
-            man ofthe mantch
+            <Nav2/>
+            samuel pls link all your work to this page 
         </div>
     )
 }
