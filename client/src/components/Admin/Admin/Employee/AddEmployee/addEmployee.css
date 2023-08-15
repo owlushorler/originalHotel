@@ -20,6 +20,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 5rem;
+    width: 100vw;
 }
 
 .contain h1 {
@@ -32,7 +33,7 @@ body {
     margin: auto;
     padding-top: 4rem;
     padding-bottom: 4rem;
-    border: 1px solid;
+    /* border: 1px solid; */
     border-radius: 20px;
     background-color: rgba(21, 17, 5, 0.4);
     width: 40vw;
@@ -43,20 +44,21 @@ body {
 .depart {
     display: flex;
     /* border: 1px solid; */
-    width: 25rem;
+    width: 30vw;
     margin-bottom: 0.6rem;
 }
 
 .row {
     margin-left: 0.01rem;
-    /* border: 1px solid */
+    /* border: 1px solid; */
+    padding-left: 3rem;
 }
 
 .employeeInput {
     /* background-color: white; */
     /* border-bottom: 2px solid #d4af37; */
     /* border-radius: 10px; */
-    width: 400px;
+    width: 30vw;
     fill: none;
     background: transparent;
     border: none;
@@ -76,7 +78,7 @@ body {
     border-radius: 10px;
     margin-bottom: 1rem;
     margin-right: 1rem;
-    width: 18rem;
+    width: 30vw;
     border: none;
     outline: none
 }
@@ -112,9 +114,10 @@ input {
     border: none;
     border-radius: 10px;
     height: 1.9rem;
-    width: 7rem;
+    width: 8vw;
     margin-left: 9.2rem;
     /* outline: none; */
+    position: relative;
 }
 
 .formButton:hover {
@@ -149,5 +152,45 @@ option {
     border-radius: 10px;
     margin-bottom: 1.5rem;
     /* padding-left: 1rem; */
-    width: 31.5vw;
+    width: 30vw;
+}
+
+
+/* Default styles */
+
+/* ... your existing styles ... */
+
+/* Media query for screens with a maximum width of 768px */
+@media only screen and (max-width: 768px) {
+    .formHolder {
+        width: 80vw;
+
+    }
+
+    .employeeInput,
+    .employeeDropDown,
+    .ageInput,
+    .fileInput {
+        width: 70vw;
+        /* Adjust the input and dropdown width for smaller screens */
+    }
+
+    .depart {
+        width: 70vw;
+        /* Adjust the width of the department input for smaller screens */
+        flex-direction: column;
+        /* Stack the department inputs vertically on smaller screens */
+    }
+
+    .formButton {
+        width: 100%;
+        /* Make the button fill the container width */
+        margin-left: 0.1rem;
+        /* Reset the margin for smaller screens */
+    }
+
+    .row {
+        padding-left: 0.5rem;
+        border: 1px solid;
+    }
 }

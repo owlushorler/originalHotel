@@ -1,16 +1,24 @@
 import { useState, useEffect } from 'react'
 import  './EmployeeCard.css';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie'
+import SuperAdmin from '../Login/SuperAdmin';
+import Navbar from '../Primary Page/navbar';
+
 
   const ViewEmployeeCard = () => {
+  const token = Cookies.get('jwt');
+  console.log(token)
   const [data, setData] = useState([])
   const [error, setError]= useState('')
   const [password, setPassword] = useState('')
   const [passwordError, setPasswordError] = useState('')
   const [selectedItemId, setSelectedItemId] = useState(null)
+  const [isLoggedIn, setIsLoggedIn]= useState(token !== undefined)
    useEffect(() => {
 
     async function fetchData() {
+
       try {
         const response = await fetch('http://localhost:5002/admin/viewEmployees'); // Replace with your API endpoint
         const jsonData = await response.json();
@@ -51,12 +59,16 @@ import { Link } from 'react-router-dom';
 
   return (
     <>
+    {isLoggedIn ? (
+      <div>
+          <Navbar />
+
        <div className='major'>
-          <h1 className='h2 text' >Company Employees</h1>
+          <h1 className='h2 text' >COMPANY EMPLOYEES</h1>
           <div className='container'>
               {data.map((employee)=>{
                 return (
-                <div className='card ' key={employee._id}>
+                <div className='card2 ' key={employee._id}>
                 <div className='cardImage'>
                     <img src={employee.image} alt='' className='employeeimage' />
                 </div>
@@ -68,7 +80,7 @@ import { Link } from 'react-router-dom';
                   
                   <button
             type="button"
-            className="btn btn-primary cardButton"
+            className="btn cardButton btn-primary "
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
             onClick={() => setSelectedItemId(employee._id)} // Set the selected item ID
@@ -106,6 +118,11 @@ import { Link } from 'react-router-dom';
  */}
 
     </div>
+    </div>
+     ) :  (
+      <SuperAdmin />
+  )}
+
    </>
   );
 };

@@ -2,13 +2,20 @@ import { useState, useEffect } from "react";
 import axios from "axios"
 import "./addEmployee.css"
 import { Link, useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie'
+import SuperAdmin from "../../Login/SuperAdmin";
+import Navbar from "../../Primary Page/navbar";
+
 
 function AddEmployee (){
+    const token = Cookies.get('jwt');
+    // console.log(token)
     const [department, setDepartment] = useState("")
     const [age, setAge] = useState("")
     const [input1, setInput1] = useState("")
     const [input2, setInput2] = useState("")
     const [image, setImage] = useState("")
+    const [isLoggedIn, setIsLoggedIn]= useState(token !== undefined)
     const navigate = useNavigate();
     
     
@@ -27,6 +34,8 @@ function AddEmployee (){
     const handleImage = (e)=>{
         setImage(e.target.files[0])
     }
+
+
     
     const handleSubmit = async (event) =>{
         event.preventDefault()
@@ -69,6 +78,9 @@ function AddEmployee (){
 
     return (
         <>
+        {isLoggedIn ? (
+            <div>
+                <Navbar />
             <div className="container-fluid contain ">
                     <h1>ADD EMPLOYEE</h1>
                 <div className="formHolder ">
@@ -95,6 +107,11 @@ function AddEmployee (){
                     </form>
                 </div>
             </div>
+            </div>
+        ) :  (
+            <SuperAdmin />
+        )}
+
 
             
         </>

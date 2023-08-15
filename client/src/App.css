@@ -23,3 +23,7 @@
 .welcome {
   border: 10px solid blue
 }
+
+/* * {
+  overflow-x: auto;
+} */

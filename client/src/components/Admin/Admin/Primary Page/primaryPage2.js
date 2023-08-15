@@ -1,6 +1,7 @@
 import 'font-awesome/css/font-awesome.min.css';
 import {Link} from "react-router-dom"
 import { Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from "react";
 import "./primaryPage2.css"
 import image from "../../../imagesfolder/checked-user-512.png";
 import image2 from "../../../imagesfolder/emplloyee.png";
@@ -9,14 +10,18 @@ import image4 from "../../../imagesfolder/icons8-booking-58.png";
 import image5 from "../../../imagesfolder/bed.png";
 import ViewEmployeeCard from '../Employee/EmployeeCard';
 import ViewRooms from '../Rooms/viewRooms';
-
-
+import Cookies from 'js-cookie'
+import SuperAdmin from '../Login/SuperAdmin';
 
 
 function PrimaryPage(){
+    const token = Cookies.get('jwt');
+    const [isLoggedIn, setIsLoggedIn]= useState(token !== undefined)
     return(
         <>
+         {isLoggedIn ? (
         <div className="container1">
+            {/* <Navbar  className= "navB"/> */}
             <Link to="/employees">
                 <div className="primaryCard">
                     <img src={image2} />
@@ -46,6 +51,9 @@ function PrimaryPage(){
             </Link>
 
         </div>
+         ) :  (
+            <SuperAdmin/>
+        )}
         </>
     )
 }
