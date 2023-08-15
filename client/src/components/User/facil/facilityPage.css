@@ -1,0 +1,301 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+ }
+  /* .header-nav{
+     display: flex;
+     margin: auto;
+     
+  } */
+  /* .banner-brand{
+      display: flex;
+      justify-content: space-between; */
+  /* } */
+   /* .banner{
+      display: flex;
+      margin-left: 9rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      margin-right: 10rem;
+      
+   } */
+/* .banner img{
+  width: 5rem;
+  height: 5rem;
+}  */
+/* .banner.pop{
+  font-size: 7px; */
+/* } */
+/* .navbar a{
+  display: flex;
+   align-items:center;
+   justify-content: space-around;
+   padding: 1.8rem;
+   text-decoration: none;
+   color:dimgray;
+   font-size: 12px; */
+   
+
+/* } */
+/* .btn-1{
+  text-decoration: none;
+  background-color: rgb(235, 172, 11);
+  border: none;
+  padding: .3rem;
+  border-radius: 4px;
+} */
+/* .btn-1:hover{
+   background-color:gold;
+   transition: 2s ease-in;
+} */
+.hero img{
+ width: 100%;
+ height: 50vh;  
+  margin-bottom: 2rem;
+  margin: auto;
+}
+.BANNER-HERO {
+   position: relative;
+}
+.place{
+   position: absolute;
+    top: 8rem;
+    left: 35rem;
+    color: white;
+    background-color: goldenrod;
+    padding: 6px;
+    border-radius:5px;
+    
+}
+
+ .DIV-WRAPPER{
+   display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+     margin: 50px  50px;
+     padding: 10px;
+     
+  }
+  .wrap{
+    background-color: rgb(236, 236, 232);
+  }
+
+  .head{
+     text-align: center;
+      margin-top: 7rem;
+  }
+   .head h1 h5{
+     font-size: 10px;
+   }
+
+  .DIV-WRAPPER img{
+    width: 4rem;
+    
+}
+ .rest{
+   border: 1px solid black;
+     text-align: center;
+    font-size: 11px;
+    padding: 15px;
+    
+ }
+  /* .image img{
+     text-align: center;
+  }
+  h4{
+    text-align: center;
+  } */
+   
+ .spa{
+   border: 1px solid black;
+    text-align: center;
+    font-size: 11px;
+    padding: 15px;
+ }
+ .swim{
+   border: 1px solid black;
+    text-align: center;
+    font-size: 11px;
+    padding: 15px;
+ }
+ .fit{
+   border: 1px solid black;
+    text-align: center;
+    font-size: 11px;
+    padding: 15px;
+ }
+ .wif{
+   border: 1px solid black;
+    text-align: center;
+    font-size: 11px;
+    padding: 15px;
+ }
+ .car{
+   border: 1px solid black;
+    text-align: center;
+    font-size: 11px;
+    padding: 15px;
+ }
+ .wrapper img{
+  width: 100vw;
+  height: 90vh;
+ }
+ /* .Rest img {
+  background-color: goldenrod;
+  padding: 5px;
+  border-radius: 8px;
+} */
+    
+ .mid a{
+  color:gray;
+  text-decoration:none;
+ }
+ .section1{
+   display: flex;
+   justify-content: space-around;
+   margin-top: 5rem;
+ }
+ .sectionDiv-1{
+   height: .5rem;
+   font-size: 10px;
+ }
+  
+ .bob img{
+   width: 25px;
+    border-radius: 20px;
+    background-color: goldenrod;
+    font-size: 5px;
+    padding: 7px;
+    margin-top: 20px;
+    
+ }
+ .bob .p1{
+    position: relative;
+     bottom: 2.5rem;
+   font-size: 10px;
+   margin-left: 2.5rem;
+ }
+ h2{
+   font-size: 1rem;
+ }
+ .sectionDiv-2{
+   font-size:1rem ;
+   background-color:rgb(253, 246, 234);
+    overflow: hidden;
+ }
+ .article-1{
+   padding: .5rem;
+ }
+ .form-1{
+    padding: 1rem;
+ }
+ .text{
+   margin: 5px;
+   border:none;
+ }
+  .subject{
+   width: 97.5%;
+   margin-left: 5px;
+  }
+  .area{
+   width: 97.5%;
+   height: 40vh;
+  }
+  .submit{
+    background-color: goldenrod;
+    padding: 6px;
+    border-radius:3px;
+  }
+  .submit:hover{
+    background-color: gold;
+  }
+  .form2{
+   margin: 8px auto;
+   text-align: center;
+   width: 82%;
+    height: 35vh;
+    padding: 15px;
+    background-color:rgb(253, 246, 234);
+    position: relative;
+    top:9rem;
+    border-radius: 5px;
+    z-index: 10;
+    
+   
+  }
+  .text1{
+   border: none;
+    padding: 4px;
+  }
+  .button2{
+   border:none;
+   padding: 6px;
+   background-color: goldenrod;
+   border-radius:3px;
+  }
+  .button2:hover{
+    background-color: gold;
+  }
+  .footer{
+    display: flex;
+    justify-content: space-around;
+     width: 100%;
+    height: 95vh;
+     background-color: #080830;
+     margin-top: 30px;
+     color:white;
+  }
+   .DIV6{
+    margin-top: 10rem;
+     font-size: 12px;
+   }
+   .logo3{
+     width: 8rem;
+   }
+  .logo3 img{
+    width: 1rem;
+  }
+  .logo7 img{
+     width: 5vw;
+
+  }
+   .link{
+    margin-top: 10rem;
+     font-size: 12px;
+     margin-left: 5px;
+   }
+  .link img{
+    width: 1rem;
+    background-color:gold ;
+    
+  }
+   .link a{
+    color:white;
+    text-decoration: none;
+    margin-left: 1px;
+    
+    
+  }
+   .contact-info{
+    margin-top: 10rem;
+    font-size: 12px;
+   
+   }
+  .contact-info img{
+     width: 1rem;
+     background-color: gold;
+     padding: 2px;
+     border-radius: 10px;
+  }
+   .footer-4{
+    margin-top: 10rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+   }
+  .footer-4 img{
+    width: 6rem;
+    padding: 2px;
+  }
+  
