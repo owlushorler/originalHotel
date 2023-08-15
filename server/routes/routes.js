@@ -20,7 +20,7 @@ route.post("/superAdmin/addAdmin", addAdmin, mailer)
 
 route.post("/employee/addEmployee", upload.single("file") , addEmployee)
 
-route.get("/rooms", verifyToken, getRooms)
+route.get("/rooms", getRooms)
 
 route.delete("/rooms/:id", deleteRoom)
 
@@ -30,9 +30,9 @@ route.delete("/superAdmin/viewAdmins/:_id", deleteAdmin)
 
 route.post("/login", loginAdmin)
 
-route.post("/admin/customers/addCustomer", verifyToken, addCustomers)
+route.post("/admin/customers/addCustomer", addCustomers)
 
-route.post("rooms/addRooms", verifyToken, upload.array("images", 8), addRoom)
+route.post("rooms/addRooms", upload.array("images", 8), addRoom)
 
 route.get("/admin/viewEmployees", getEmployees)
 
