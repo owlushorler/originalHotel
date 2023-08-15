@@ -13,13 +13,16 @@ function SubscriptionForm() {
   const handleSubscribe = async () => {
     if (email) {
       try {
-        const response = await fetch(" http://localhost:5010/api/subscription", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email }),
-        });
+        const response = await fetch(
+          " http://localhost:5010/api/subscription",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email }),
+          }
+        );
 
         if (response.ok) {
           setIsSubscribed(true);
@@ -34,27 +37,17 @@ function SubscriptionForm() {
   };
 
   return (
-    <div className="sub-container">
+    <div className="su">
       <p>GET UPDATE</p>
       <h3>Get Latest Updates And Deals</h3>
-      <div className="subscription-form">
+      <div className="sub">
         <input
           type="email"
           placeholder="Enter your email"
           value={email}
           onChange={handleEmailChange}
         />
-        <button
-          className="button"
-          style={{
-            backgroundColor: "#d4af37",
-            borderRadius: "5px",
-            border: "none",
-            height: "6vh",
-            cursor: "pointer"
-          }}
-          onClick={handleSubscribe}
-        >
+        <button className="subscription-button" onClick={handleSubscribe}>
           Subscribe
         </button>
         {isSubscribed && <p className="success-message">You are subscribed!</p>}

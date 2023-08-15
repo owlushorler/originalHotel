@@ -1,58 +1,69 @@
-
-
-.dropdown-container {
+.drop-con {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     align-items: center;
-   justify-content: center;
-   width: 100%;
-
-}
-
-
-#dropdown {
-     height: 15vh; 
-     margin-top: -50px; 
-     width: 100%;
-     
-     
-}
-
-.button {
-    background-color: #d4af37;
-    border: none;
-margin-top: -50px; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 78%;
+    justify-content: center;
+    margin-left: 11.5vw;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    margin-top: -20vh;
+    z-index: 1;
+    position: absolute;
+    background-color: #efece3;
     border-radius: 5px;
-         height: 15vh;
-        z-index: 1;
 }
-.button:hover {
-background-color:antiquewhite;
-transition: 0.2s;
 
+label {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
-p {
-   
-   color: #d4af37;
+
+
+.btn {
+    background-color: #d4af37;
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 3px;
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
 }
+
+.availability {
+    color: #d4af37;
+    margin-top: 50px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 1252px) {
+    .drop-con {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 20px;
+        position: static;
+        box-shadow: none;
+    }
+}
+
 @media screen and (max-width: 768px) {
-
-    #dropdown-basic {
-        height: 8vh;
-    }
-    .button {
-        margin-top: 40px;
-        height: 5vh;
-        
-    }
-
-
-    .dropdown-container {
-        margin-bottom: 10px;
-    }
-
-
-    .dropdown {
-        margin: 5px;
+    .drop-con {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 20px;
+        position: static;
+        box-shadow: none;
     }
 }

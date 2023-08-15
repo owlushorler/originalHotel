@@ -10,20 +10,17 @@ import {
   faSquare,
 } from "@fortawesome/free-solid-svg-icons";
 
-
 import "./cardSchemes.css";
 
-
-
-import card1Image from "../../../imagesfolder/deluxe-room-king-1-2000px.jpg";
-import card2Image from "../../../imagesfolder/singles.jpg";
-import card3Image from "../../../imagesfolder/family.jpg";
-import card4Image from "../../../imagesfolder/single1.jpg";
-import card5Image from "../../../imagesfolder/deluxee.jpeg";
-import card6Image from "../../../imagesfolder/couple.jpg";
-import card7Image from "../../../imagesfolder/cuple.jpg";
-import card8Image from "../../../imagesfolder/singling.jpg";
-import card9Image from "../../../imagesfolder/fami.jpg";
+import card1Image from "../images/deluxe-room-king-1-2000px.jpg";
+import card2Image from "../images/singles.jpg";
+import card3Image from "../images/family.jpg";
+import card4Image from "../images/single1.jpg";
+import card5Image from "../images/deluxee.jpeg";
+import card6Image from "../images/couple.jpg";
+import card7Image from "../images/cuple.jpg";
+import card8Image from "../images/singling.jpg";
+import card9Image from "../images/fami.jpg";
 
 function CardSchemes() {
   const cardData = [
@@ -31,46 +28,55 @@ function CardSchemes() {
       title: "Deluxe Room",
       imageSrc: card1Image,
       persons: "4 Persons",
+      cash: "$440",
     },
     {
       title: "Single Room",
       imageSrc: card2Image,
       persons: "2 Persons",
+      cash: "$220",
     },
     {
       title: "Family Room",
       imageSrc: card3Image,
       persons: "4 Persons",
+      cash: "$440",
     },
     {
       title: "Couple Room",
       imageSrc: card4Image,
       persons: "2 Persons",
+      cash: "$220",
     },
     {
       title: "Deluxe Room",
       imageSrc: card5Image,
       persons: "4 Persons",
+      cash: "$440",
     },
     {
       title: "Couple Room",
       imageSrc: card6Image,
       persons: "2 Persons",
+      cash: "$220",
     },
     {
       title: "Deluxe Room",
       imageSrc: card7Image,
       persons: "4 Persons",
+      cash: "$440",
     },
     {
       title: "Single Room",
       imageSrc: card8Image,
       persons: "2 Persons",
+      cash: "$220",
     },
     {
       title: "Family Room",
       imageSrc: card9Image,
       persons: "4 Persons",
+      cash: "$440",
     },
   ];
 
@@ -101,7 +107,7 @@ function CardSchemes() {
                     fontSize: "20px",
                   }}
                 >
-                  $220
+                  {card.cash}
                 </span>
                 /Per Night
               </p>
@@ -127,7 +133,6 @@ function CardSchemes() {
                 <p
                   style={{
                     fontSize: "13px",
-                    // width: "100px",
                     paddingLeft: "5px",
                   }}
                 >
@@ -154,9 +159,9 @@ function CardSchemes() {
               </div>
             </div>
 
-            <button className="link-button">
-              <Link style={{textDecoration: "none", color: "black"}} to="/booking">
-                BOOKING NOW
+            <button className="cardBtn">
+              <Link to="/booking" className="cardBtn-refer">
+                BOOK NOW
               </Link>
             </button>
           </Card.Body>
@@ -167,4 +172,3 @@ function CardSchemes() {
 }
 
 export default CardSchemes;
-
