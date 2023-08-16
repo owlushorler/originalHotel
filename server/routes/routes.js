@@ -6,6 +6,9 @@ const loginAdmin = require("../controllers/adminLoginController")
 const deleteAdmin = require("../controllers/deleteAdmin")
 const deleteEmployee = require("../controllers/deleteEmployeeByIdController")
 const deleteRoom = require("../controllers/deleteRooms")
+const updateAdmin = require("../controllers/updateAdmin")
+const updateEmployee = require("../controllers/updateEmployee")
+const updateRoom = require("../controllers/updateRoom")
 const getAdmin = require("../controllers/viewAdmins")
 const getEmployees = require("../controllers/viewEmployees")
 const getRooms = require("../controllers/viewRooms")
@@ -16,28 +19,33 @@ const mailer = require("../middlewares/nodemailer")
 const express = require("express")
 const route = express.Router()
 
-route.post("/superAdmin/addAdmin", addAdmin, mailer)
+route.post("/api/admin", addAdmin, mailer)
 
-route.post("/employee/addEmployee", upload.single("file") , addEmployee)
+route.post("/api/employees", upload.single("file") , addEmployee)
 
-route.get("/rooms", getRooms)
+route.get("/api/rooms", getRooms)
 
-route.delete("/rooms/:id", deleteRoom)
+route.delete("/api/rooms/:_id", deleteRoom)
 
-route.get("/superAdmin/viewAdmins", getAdmin)
+route.get("/api/admins", getAdmin)
 
-route.delete("/superAdmin/viewAdmins/:_id", deleteAdmin)
+route.delete("/api/admins/:_id", deleteAdmin)
 
-route.post("/login", loginAdmin)
+route.post("/api/login", loginAdmin)
 
-route.post("/admin/customers/addCustomer", addCustomers)
+route.post("/api/customers", addCustomers)
 
-route.post("rooms/addRooms", upload.array("images", 8), addRoom)
+route.post("/api/rooms", upload.array("images", 8), addRoom)
 
-route.get("/admin/viewEmployees", getEmployees)
+route.get("/api/employees", getEmployees)
 
-route.delete("/admin/viewEmployees/:_id", deleteEmployee)
+route.delete("/api/employees/:_id", deleteEmployee)
 
+route.put("/api/employees", updateEmployee)
+
+route.put("/api/admin", updateAdmin)
+
+route.put("/api/rooms", updateRoom)
 
 
 

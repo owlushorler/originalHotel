@@ -2,40 +2,37 @@ import React, { useState } from "react";
 import "./superAdmin.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios"
+import Cookies from 'js-cookie'
+import jwt from "jwt-decode"
 
-async function  ChangePassword() {
+export default function ChangeUsername() {
+    const token = Cookies.get('jwt');
+    const decoded = jwt(token)
+
+
+
+
+
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [response, setResponse] = useState('')
   const [error, setError] = useState("");
 
-  async function handleChangePassword(e) {
+//   useEffect(() => {
+//     async function fetchData() {
+//       try {
+//         const response = await fetch('http://localhost:5002/api/admins'); // Replace with your API endpoint
+//         const jsonData = await response.json();
+//         setData(jsonData.);
+//       } catch (error) {
+//         console.error('Error fetching data:', error);
+//       }
+//     }
+
+//     fetchData();
+
+  function handleChangePassword(e) {
     e.preventDefault();
-    const user ={
-      oldUsername: decoded.username,
-      newUsername: newUsername,
-      newPassword: newPassword
-    }
-    try {
-      // Perform the delete operation on the API endpoint
-      axios.put(`http://localhost:5002/api/admin`, user)
-      .then((res)=>{
-        console.log(res)
-        setResponse(res)
-        navigate('/login')
-
-      })
-      ;
-    // let con = prompt("Confirm your password");
-    // if(con == )
-      setData((prevData) => prevData.filter((item) => item._id !== itemId));
-      // setData(() => prevData.filter((item) => item.id !== itemId));
-    } catch (error) {
-      console.error('Error deleting item:', error);
-    }
-
     if (
       oldPassword.trim() === "" ||
       newPassword.trim() === "" ||

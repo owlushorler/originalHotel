@@ -9,7 +9,7 @@ import Navbar from '../../Admin/Primary Page/navbar';
    useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('http://localhost:5002/superAdmin/viewAdmins'); // Replace with your API endpoint
+        const response = await fetch('http://localhost:5002/api/admins'); // Replace with your API endpoint
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
@@ -25,7 +25,7 @@ import Navbar from '../../Admin/Primary Page/navbar';
    const handleDelete = async (itemId) => {
     try {
       // Perform the delete operation on the API endpoint
-      await fetch(`http://localhost:5002/superAdmin/viewAdmins/${itemId}`, {
+      await fetch(`http://localhost:5002/api/admins/${itemId}`, {
         method: 'DELETE',
       });
     // let con = prompt("Confirm your password");
@@ -42,7 +42,7 @@ import Navbar from '../../Admin/Primary Page/navbar';
     <div>
       <Navbar />
        <div className='major'>
-          <h1 className='h2 text' >Company Admins</h1>
+          <h1 className='h2 text' >COMPANY ADMINS</h1>
           <div className='container'>
               {data.map((employee)=>{
                 return (
@@ -57,7 +57,7 @@ import Navbar from '../../Admin/Primary Page/navbar';
             );
               })};
           </div>
-              <button className='addEmployeeBtn'><Link to="/superAdmin/addAdmin">Add Admin</Link></button>
+              <button className='addEmployeeBtn'><Link style={{textDecoration: "none", color: "#fff"}} to="/superAdmin/addAdmin">Add Admin</Link></button>
     </div>
     </div>
    </>

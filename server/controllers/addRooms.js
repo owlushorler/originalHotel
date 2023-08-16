@@ -8,7 +8,7 @@ const addRoom = async (req, res) =>{
     console.log(req.body)
     console.log(req.files)
     const {error, value} = roomJoi.validate(req.body)
-    if(error) return res.status(http.StatusCodes.BAD_REQUEST).send(error.message)
+    if(error) return res.status(http.StatusCodes.BAD_REQUEST).json(error.message)
     try {
         const files = req.files
         const Room = await room.create({
@@ -16,14 +16,16 @@ const addRoom = async (req, res) =>{
             features: value.features,
             images: (files.map((file)=>{
                 file.path
-            }))
+            })),
+            capacity: value.capacity,
+            availability: false
         })
         console.log(Room)
-        if(!Room) return res.status(http.StatusCodes.BAD_REQUEST).send("Error adding room")
-        res.status(http.StatusCodes.CREATED).send("Room successfully added")
+        if(!Room) return res.status(http.StatusCodes.BAD_REQUEST).json("Error adding room")
+        res.status(http.StatusCodes.CREATED).json("Room successfully added")
     } catch (error) {
         console.log(error)
-        return res.status(http.StatusCodes.BAD_REQUEST).send(error.message)
+        return res.status(http.StatusCodes.BAD_REQUEST).json(error.message)
     }
 }
 

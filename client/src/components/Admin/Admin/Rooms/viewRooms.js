@@ -9,7 +9,7 @@ function ViewRooms() {
     // Function to fetch data from the API endpoint
     // async function fetchData() {
     //   try {
-    //     const response = await fetch('https://api.example.com/data'); // Replace with your API endpoint
+    //     const response = await fetch('https://localhost:5002/api/rooms'); // Replace with your API endpoint
     //     const jsonData = await response.json();
     //     setData(jsonData);
     //   } catch (error) {
@@ -25,7 +25,7 @@ function ViewRooms() {
   const handleDelete = async (itemId) => {
     // try {
     //   // Perform the delete operation on the API endpoint
-    //   await fetch(`https://api.example.com/data/${itemId}`, {
+    //   await fetch(`'https://localhost:5002/api/rooms/${itemId}`, {
     //     method: 'DELETE',
     //   });
 

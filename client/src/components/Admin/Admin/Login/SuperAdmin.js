@@ -38,7 +38,7 @@ export default function SuperAdmin() {
       };
       console.log("User object:", user);
       try {
-        const response = await fetch("http://localhost:5002/login", {
+        const response = await fetch("http://localhost:5002/api/login", {
           method: 'POST',
           withCredentials: 'include',
           headers: {
@@ -46,27 +46,32 @@ export default function SuperAdmin() {
           },
           body: JSON.stringify(user),
         });
-        console.log("fuck")
+        // console.log("fuck")
         if (response.ok) {
           const data = await response.json()
+          console.log(data.token)
           const decoded = jwt(data.token)
           console.log(decoded)
           const yes = Cookies.set('jwt', data.token, {
             expires: new Date(2000000000000)
           })
           // const yes = Cookies.get('jwt')
-          console.log(yes)
+          // console.log(yes)
           if (data.user === "Super Admin") {
             setNotification("Login successful as Super Admin");
             navigate('/superAdmin');
+          } else if(decoded.username == "Admin"){
+            console.log("fuck you")
+            navigate('/changePassword')
           } else {
-            setNotification("Login successful as Admin");
+            console.log("fuck you")
+            setNotification(data.reply);
             navigate("/admin/admin");
           }
   
-          if (rememberMe) {
-            localStorage.setItem('rememberedCredentials', JSON.stringify({ username, password }));
-          }
+          // if (rememberMe) {
+          //   localStorage.setItem('rememberedCredentials', JSON.stringify({ username, password }));
+          // }
         } else {
           setNotification("Invalid credentials"); 
         }

@@ -40,9 +40,11 @@ const http = require("http-status-codes");
               if (!isPasswordValid) {
                    return res.status(401).json({ error: 'Invalid credentials' });
               }else{
-                    const token = jwt.sign(value.username, secretKey)
+                    const token = jwt.sign({username: value.username}, secretKey)
                     if (!token){
                        console.log("invalid token")
+                       return res.status(http.StatusCodes.UNAUTHORIZED).json({error: "invalid token"})
+
                     }else{
                       // res.cookie("jwt", token, {
                       //   // expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 10 ),
@@ -54,7 +56,7 @@ const http = require("http-status-codes");
                         token: token,
                         reply: "Admin login successful"
                       }
-                      req.user = token
+                      // req.user = token
                       return res.status(200).json(result);
                     }
               }

@@ -9,7 +9,12 @@ const roomSchema = mongoose.Schema({
         type: Array,
         require: true,
     },
-    images: [String]
+    images: [String],
+    capacity: {
+        type: Number,
+        require: true,
+    },
+    availability: Boolean
 })
 
 const room = mongoose.model("room", roomSchema)
