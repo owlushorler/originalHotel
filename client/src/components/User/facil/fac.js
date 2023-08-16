@@ -30,10 +30,10 @@ import Nav2 from "../home/nav2/nav2"
 const fac = () => {
 
   return (
-      <>
-            <Nav2/>
-    <div className='sbg'>
       
+           
+    <div className='sbg'>
+    <Nav2/>
            
             <div className='BANNER-HERO'>
                  <div className="hero">
@@ -173,8 +173,9 @@ const fac = () => {
           
         </div>
 
-    </div>
-    </>
+        </div>
+        </div>
+    
   )
 }
 
