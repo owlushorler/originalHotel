@@ -10,7 +10,7 @@ function Nav2(){
             <nav><Link className="aa"  to='/fac' >FACILITY</Link></nav>
             <nav><Link className="aa"  to='/room' >ROOMS</Link></nav>
             <nav><Link className="aa"  to='/about' >ABOUT</Link></nav>
-            <nav><a className="aa" href="">CONTACT</a></nav>
+            <nav><Link className="aa"  to='/contact' >CONTACT</Link></nav>
             <nav><button className="di" > <Link style={{textDecoration: "none", color: "black"}} to="/booking">
                 BOOKING NOW
               </Link></button></nav>

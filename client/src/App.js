@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+// import logo from './l/superAdmin/adminogo.svg';
 import './App.css';
 import AddEmployee from './components/Admin/Admin/Employee/AddEmployee/addEmployee';
 import PrimaryPageSuper from './components/Admin/Super Admin/Primary Page/primaryPage';
@@ -13,74 +13,72 @@ import LandingPage from './components/Admin/LandingPage/LandingPage';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import "./styles.css"
 import AddAdmin from './components/Admin/Super Admin/ViewAdmin/AddAdmin/AddAdmin';
-import Nav2 from './components/User/home/nav2/nav2';
+import ViewAdmin from './components/Admin/Super Admin/ViewAdmin/viewAdmin';
+
 import Nav3 from './components/User/home/nav3/nav3';
-import Topnav from './components/User/home/nav/nav';
-import Footer from './components/User/footer/footer';
 import Rooms from './components/User/rooms/room/room';
-import BookingForm from './components/User/rooms/bookingForm/BookingForm';
 import About from './components/User/about/about';
+import BookingForm from './components/User/rooms/bookingForm/BookingForm';
 import Fac from './components/User/facil/fac';
+import ContactPage from './components/User/contactPage/ContactPage';
+
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Navbar from './components/Admin/Admin/Primary Page/navbar';
+
+
 function App() {
+  // function componentDidMount() {
+  //   // Initialize Bootstrap dropdowns
+  //   const dropdownToggle = document.getElementById('dropdownMenuButton');
+  //   const dropdown = new bootstrap.Dropdown(dropdownToggle);
+  // }
+  // componentDidMount()
   return (
-    <div >
-     
-      <div>
-    
-          <Router>
-          <Topnav/>
-          <Nav2/>
-         
+    <div>
+
+    <div className="App">
+
+
           
+            {/* <Navbar /> */}
+      
+          <Router>
+          
+
           {/* <LandingPage /> */}
             <Routes>
-            <Route path="/" element={ <Nav3/>} />
-            <Route path="/room" element={ <Rooms/>} />
-            <Route path='/booking' element={<BookingForm/>}/>
-            <Route path='/about' element={<About/>}/>
-            <Route path='/fac' element={<Fac/>}/>
+    
+            {/*USER ROUT */}
+            <Route path="/" element={< Nav3/>} />
+            <Route path="/room" element={< Rooms/>} />
+            <Route path="/about" element={< About/>} />
+            <Route path="/booking" element={<BookingForm/>} />
+            <Route path="/fac" element={<Fac/>} />
+            <Route path="/contact" element={<ContactPage/>} />
             
-        
-            {/* <Route
-          path="/"
-          element={
-            <TransitionGroup>
-              <CSSTransition
-                classNames="page-slide"
-                timeout={{ enter: 300, exit: 300 }}
-              >
-                < LandingPage/>
-              </CSSTransition>
-            </TransitionGroup>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <TransitionGroup>
-              <CSSTransition
-                classNames="page-slide"
-                timeout={{ enter: 300, exit: 300 }}
-              >
-                <SuperAdmin />
-              </CSSTransition>
-            </TransitionGroup>
-          }
-        /> */}
+            
+
+
               <Route path="/admin" element={< LandingPage/>} />
               <Route path="/login" element={<SuperAdmin />} />
               <Route path="/superAdmin" element={<PrimaryPageSuper />} />
-              <Route path="/admin" element={<PrimaryPage />} />
+              <Route path="/admin/admin" element={<PrimaryPage />} />
               <Route path="/employees" element={<ViewEmployeeCard />} />
                 {/* <Route path="/customers" element={<Customers />} /> */}
                 <Route path="/rooms" element={<ViewRooms />} />
+                <Route path="/addEmployee" element={<AddEmployee />} />
+                <Route path="/superAdmin/addAdmin" element={<AddAdmin />} />
+                <Route path="/superAdmin/admin" element={<ViewAdmin />} />
+
             </Routes>
         
               {/* <SuperAdmin /> */}
               {/* <PrimaryPage /> */}
               {/* <PrimaryPageSuper />   */}
         
-
+ 
               {/* <AddEmployee /> */}
               {/* <ViewRooms /> */}
               {/* <AddAdmin /> */}
@@ -90,9 +88,9 @@ function App() {
 
   
       </Router>
-
+          
         </div>
-    
+
         </div>
   );
 }

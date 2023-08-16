@@ -1,3 +1,4 @@
+
 import React from 'react'
  
  import './facilityPage.css'
@@ -23,13 +24,14 @@ import logo from './logo.png';
   import fit from './fitness.png';
   import wifi from './wifi1.png';
   import car from './car3.jpg';
+import Nav2 from "../home/nav2/nav2"
 // import FacilityCard from './FacilityCard' ;
 
 const fac = () => {
 
   return (
       <>
-
+            <Nav2/>
     <div className='sbg'>
       
            
@@ -109,7 +111,9 @@ const fac = () => {
                <input type="text" className='text1' placeholder='Enter your Email'/>
                 <button className='button2'>SUBSCRIBE</button>
              </form>
-        </div>
+
+
+   
 
         </div>
 

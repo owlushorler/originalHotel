@@ -108,3 +108,46 @@ body {
 .error-message {
     color: orange;
 }
+
+.errorPop {
+    color: #fff;
+    justify-self: center;
+    margin: 1rem 0rem 0rem 3.7rem
+}
+
+/* Default styles */
+
+/* ... your existing styles ... */
+
+/* Media query for screens with a maximum width of 768px */
+@media only screen and (max-width: 768px) {
+    .login {
+      width: 80%; /* Adjust the width for smaller screens */
+      padding: 2rem; /* Add padding for better spacing */
+      margin: 10px auto;
+    }
+  
+    .loginTitle {
+      font-size: 36px; /* Reduce font size for smaller screens */
+    }
+  
+    .loginButton {
+      width: 100%; /* Make the button fill the container width */
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  
+    .inputWithIcon {
+      padding: 8px; /* Adjust padding for smaller screens */
+    }
+  
+    .loginInput {
+      padding-left: 25px; /* Adjust padding for smaller screens */
+    }
+  
+    .inputIcon {
+      top: 30%;
+      left: 18px;
+    }
+  }
+  

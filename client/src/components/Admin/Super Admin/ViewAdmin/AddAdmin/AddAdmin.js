@@ -1,17 +1,26 @@
-import { useState, useEffect } from "react";
+ import { useState, useEffect } from "react";
 import axios from "axios"
 import "./AddAdmin.css"
+import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../../../Admin/Primary Page/navbar";
+import SuperAdmin from "../../../Admin/Login/SuperAdmin";
+import Cookies from 'js-cookie'
+
 
 function AddAdmin (){
-    const [username, setUsername] = useState("")
+    const token = Cookies.get('jwt');
+    // const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [input1, setInput1] = useState("")
     const [input2, setInput2] = useState("")
+    const [response, setResponse]= useState('')
+    const navigate = useNavigate();
+    const [isLoggedIn, setIsLoggedIn]= useState(token !== undefined)
     
     
-    const handleUsername = (e)=>{
-        setUsername(e.target.value);
-    }
+    // const handleUsername = (e)=>{
+    //     setUsername(e.target.value);
+    // }
     const handleEmail = (e)=>{
         setEmail(e.target.value);
     }
@@ -34,7 +43,7 @@ function AddAdmin (){
         let adminData = {
             firstName: input1,
             lastName: input2,
-            username: username,
+            // username: username,
             email: email
         }
         console.log(adminData)
@@ -44,23 +53,37 @@ function AddAdmin (){
                         "Content-Type": "application/json"
                     },
                 body: JSON.stringify(adminData)
-                }).then(response=>response.json()).then(data=>{
-                        console.log(data)
-                    })
-                    
-                    console.log(dta)
+        })
+        .then(response=>response.json()).then(data=>{
+                console.log(data)
+                setResponse(data)
+                navigate('/superAdmin/admin')
+
+        })
+        // if (response.ok) {
+        //     const data = await response.json();
+        //     console.log(data)
+        //     setResponse(data);
+
+        // }
                 }
+            }
 
         // axios.post("http://localhost:5000/employee/addEmployee", employeeData).then(()=>{
         //     console.log(employeeData)
         // })
         // console.log(employeeData)
-            }
+        //     }
+        // }
     
 
     return (
         <>
+        {isLoggedIn ? (
+        <div>
+        <Navbar />
             <div className="container-fluid contain ">
+            <h1>ADD ADMIN</h1>
                 <div className="formHolder ">
                     <form className="form container-sm" onSubmit={handleSubmit}>
                         <div className="row">
@@ -74,7 +97,13 @@ function AddAdmin (){
                         </div>
                     </form>
                 </div>
+                    <p>{response}</p>
             </div>
+            </div>
+
+) :  (
+    <SuperAdmin />
+)}
         </>
     )
 }
