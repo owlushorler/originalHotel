@@ -12,6 +12,9 @@ const getRooms = require("../controllers/viewRooms")
 const verifyToken = require("../middlewares/jwtAuth")
 const upload = require("../middlewares/multer")
 const mailer = require("../middlewares/nodemailer")
+const pasDel = require('../controllers/chanPass')
+const {checkin} = require('../controllers/checkin')
+const {admincheck} = require('../controllers/checkin')
 
 const express = require("express")
 const route = express.Router()
@@ -37,6 +40,12 @@ route.post("rooms/addRooms", upload.array("images", 8), addRoom)
 route.get("/admin/viewEmployees", getEmployees)
 
 route.delete("/admin/viewEmployees/:_id", deleteEmployee)
+
+route.put('/passChange', pasDel)
+
+route.post('/checked', checkin)
+
+route.get('/checked', admincheck)
 
 
 

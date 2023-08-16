@@ -20,6 +20,8 @@ import Rooms from './components/User/rooms/room/room';
 import About from './components/User/about/about';
 import BookingForm from './components/User/rooms/bookingForm/BookingForm';
 import Fac from './components/User/facil/fac';
+import ContactPage from './components/User/contactPage/ContactPage';
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -44,7 +46,7 @@ function App() {
       
           <Router>
           
-     
+
           {/* <LandingPage /> */}
             <Routes>
     
@@ -54,6 +56,8 @@ function App() {
             <Route path="/about" element={< About/>} />
             <Route path="/booking" element={<BookingForm/>} />
             <Route path="/fac" element={<Fac/>} />
+            <Route path="/contact" element={<ContactPage/>} />
+            
             
 
 
