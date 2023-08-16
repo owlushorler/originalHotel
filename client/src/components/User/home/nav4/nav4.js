@@ -1,6 +1,11 @@
 import "../nav4/nav4.css"
 
 function Nav4(){
+
+    function vivi(){
+        alert('pls wait while will confirm your request')
+    }
+
     return(
         <div className="bo" >
             <div style={{display:"flex",flexDirection:"column",width:"15vw" , fontSize:"1.1vw"}} >
@@ -13,10 +18,7 @@ function Nav4(){
                 <input style={{width:"15vw", fontSize:".9vw"}} type="number" />
             </div>
 
-            <div style={{display:"flex",flexDirection:"column",width:"15vw" , fontSize:"1.1vw"}} >
-                Rooms
-                <input style={{width:"15vw", fontSize:".9vw"}} type="number" />
-            </div>
+           
 
             <div style={{display:"flex",flexDirection:"column",width:"15vw" , fontSize:"1.1vw"}} >
                 Check out
@@ -28,7 +30,7 @@ function Nav4(){
                 <input style={{width:"15vw", fontSize:".9vw"}} type="number" />
             </div>
 
-            <button className="dii" > Check Availability  </button>
+            <button className="dii" onClick={()=>vivi()} > Check Availability  </button>
         </div>
     )
 }
