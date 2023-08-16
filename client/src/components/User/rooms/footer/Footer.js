@@ -4,12 +4,19 @@ import "./footer.css"; // Import your CSS file for styling
 
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-content">
-          <div className="footer-logo">
+    <footer className="abu-footer">
+      <div className="abu-container">
+        <div className="abu-footer-content">
+          <div className="abu-footer-logo">
             {" "}
-            <img style={{width:"5VW"}} src={HtControl} alt="Logo" className="logo-img" />
+            <img
+              style={{ width: "5VW",
+            marginLeft: "10px",
+            }}
+              src={HtControl}
+              alt="Logo"
+              className="abu-logo-img"
+            />
           </div>
           <div className="footer-links">
             {/* <a href="#">Home</a>
@@ -18,7 +25,7 @@ function Footer() {
             <a href="#">Contact</a> */}
           </div>
         </div>
-        <div className="footer-bottom">
+        <div className="abu-footer-bottom">
           <p>
             &copy; {new Date().getFullYear()} Your Company. All Rights Reserved.
           </p>

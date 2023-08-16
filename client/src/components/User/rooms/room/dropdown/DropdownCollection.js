@@ -62,14 +62,15 @@ function DropdownCollection() {
     return data;
   };
   return (
-    <div className="dropdown-collection">
-      <div className="drop-con">
+    <div className="abu-dropdown-collection">
+      <div className="abu-drop-con">
         <div>
           <label htmlFor="checkIn">Check In:</label>
           <DatePicker
             id="checkIn"
             selected={checkInDate}
             onChange={(date) => setCheckInDate(date)}
+            minDate={new Date()}
           />
         </div>
         <div>
@@ -78,6 +79,7 @@ function DropdownCollection() {
             id="checkOut"
             selected={checkOutDate}
             onChange={(date) => setCheckOutDate(date)}
+            minDate={checkInDate}
           />
         </div>
         <div>
@@ -89,6 +91,8 @@ function DropdownCollection() {
           >
             <option value="1">1</option>
             <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
           </select>
         </div>
         <div>
@@ -100,7 +104,12 @@ function DropdownCollection() {
           >
             <option value="1">1</option>
             <option value="2">2</option>
-          </select>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+          </select>{" "}
         </div>
         <div>
           <label htmlFor="roomType">Room:</label>
@@ -115,11 +124,27 @@ function DropdownCollection() {
             <option value="Single Room">Single Room</option>
           </select>
         </div>
-        <button className="btn" onClick={handleCheckAvailability}>
+        <button
+          className="abu-btn"
+          style={{
+            backgroundColor: "#d4af37",
+            // color: "black",
+            border: "none",
+            cursor: "pointer",
+
+            marginTop: "10px",
+            borderRadius: "3px",
+            fontSize: "14px",
+            fontFamily: "'Montserrat', sans-serif",
+            transition: "backgroundColor 0.3s",
+            fontWeight: "400",
+          }}
+          onClick={handleCheckAvailability}
+        >
           CHECK AVAILABILITY
         </button>
       </div>
-      <div className="availability">{availabilityMessage}</div>{" "}
+      <div className="abu-availability">{availabilityMessage}</div>{" "}
     </div>
   );
 }
