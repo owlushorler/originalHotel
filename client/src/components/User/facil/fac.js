@@ -30,7 +30,7 @@ const fac = () => {
   return (
       <>
 
-    <div>
+    <div className='sbg'>
       
            
             <div className='BANNER-HERO'>

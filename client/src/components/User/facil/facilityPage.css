@@ -58,6 +58,7 @@
 }
 .BANNER-HERO {
    position: relative;
+    
 }
 .place{
    position: absolute;
@@ -78,6 +79,9 @@
      padding: 10px;
      
   }
+   .sbg{
+    background-color: rgb(236, 236, 232);
+   }
   .wrap{
     background-color: rgb(236, 236, 232);
   }
@@ -241,8 +245,8 @@
   .footer{
     display: flex;
     justify-content: space-around;
-     width: 100%;
-    height: 95vh;
+     width: 100vw;
+    height: 100vh;
      background-color: #080830;
      margin-top: 30px;
      color:white;
