@@ -1,4 +1,4 @@
-.primaryCard {
+/* .primaryCard {
     background-color: #d4af37;
     padding: 2rem;
     margin: 1rem;
@@ -7,7 +7,7 @@
     width: 30rem;
     height: 18rem;
     transition: transform 1s;
-}
+} */
 
 .primaryCard:hover {
     transform: translateY(-20px);
@@ -27,6 +27,48 @@
 .container1 {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 10%;
-    border: 1px solid
+    padding-left: 8%;
+    /* border: 1px solid; */
+    margin-top: 4rem;
+    margin-left: 2rem;
+    gap: 2rem;
+    /* overflow-x: hidden; */
+    width: 99vw;
+}
+
+.container13 {
+    overflow-x: hidden;
+    background-image: linear-gradient(to right bottom, rgba(54, 48, 30, 0.699), #77777788), url("../../../imagesfolder/background3.jpg");
+    /* filter: blur(8px); */
+    /* -webkit-filter: blur(8px); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 1rem;
+    width: 99vw;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .container1 {
+        padding: 5% 5%;
+        /* Adjust padding for smaller screens */
+    }
+
+    .primaryCard {
+        width: 100%;
+        /* Make cards occupy full width on small screens */
+        height: auto;
+        /* Adjust height to fit content */
+        margin: 1rem 0;
+        /* Add margin at the top and bottom for spacing */
+    }
+
+    .primaryCard img {
+        width: 5rem;
+        /* Reduce image size for smaller screens */
+        height: 5rem;
+        margin: 1rem 0;
+        /* Adjust margin for spacing */
+    }
 }

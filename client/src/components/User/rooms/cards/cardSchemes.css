@@ -5,24 +5,47 @@
     gap: 15px;
     padding: 20px;
     margin: 50px auto;
-  
+
+}
+
+.card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.para {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+.font-container p {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
 }
 
 .card-scheme {
-    background-color:#efece3;
+    background-color: #efece3;
 }
 
-.link-button{
-    text-decoration: none;
+.cardBtn {
     background-color: #d4af37;
     border: none;
-    border-radius:5px;
-    
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
 }
-.link-button:hover {
-        box-shadow: #efece3;
-        
+
+.cardBtn-refer {
+    color: black;
+    text-decoration: none;
 }
+
+.cardBtn-refer:hover {
+    color: #eee;
+}
+
 @media screen and (max-width: 1250px) {
     .card-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -66,43 +89,52 @@
         margin: 0 auto;
     }
 
-    button {
+    .cardBtn {
         margin: 1rem auto;
     }
 }
-    .rating {
-        color: #d4af37;
-        font-size: 0.6rem;
-        padding-right: 220px;
-    }
-        .title-price {
-            display: flex;
-        }
- .card-title {
-    padding-left: 4px;
- font-size: 1.3rem;
-        }
-  .para {
-  font-size: 1.04rem;
-  padding-left: 36px;
-  font-weight: 400;
-   color: gray;
-        }
-.font-container {
- display: flex;
-justify-content: space-between;  
-        }
- .font-container div {
- display: flex;
+
+.rating {
+    color: #d4af37;
+    font-size: 0.6rem;
+    padding-right: 220px;
 }
+
+.title-price {
+    display: flex;
+}
+
+.card-title {
+    padding-left: 4px;
+    font-size: 1.3rem;
+}
+
+.para {
+    font-size: 1.04rem;
+    padding-left: 36px;
+    font-weight: 400;
+    color: gray;
+}
+
+.font-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.font-container div {
+    display: flex;
+}
+
 .font {
-       color: #d4af37;
-        }
+    color: #d4af37;
+}
+
 .font-container p {
 
-padding-left: 10px;
-font-size: medium;
+    padding-left: 10px;
+    font-size: medium;
 }
+
 .meter-icon {
     width: 35px;
     height: 25px;

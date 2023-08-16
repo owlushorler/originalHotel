@@ -2,7 +2,7 @@
     /* background-color: white; */
     /* border-bottom: 2px solid #d4af37; */
     /* border-radius: 10px; */
-    width: 400px;
+    width: 30vw;
     fill: none;
     background: transparent;
     border: none;
@@ -16,7 +16,7 @@
     /* background-color: white; */
     /* border-bottom: 2px solid #d4af37; */
     /* border-radius: 10px; */
-    width: 400px;
+    width: 30vw;
     fill: none;
     background: transparent;
     border: none;
@@ -34,4 +34,33 @@
 .emailInput::placeholder {
     /* color: #fff; */
     color: #cfcbcb;
+}
+
+
+/* Default styles */
+.emailInput,
+.usernameInput {
+  width: 30vw;
+  fill: none;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #d4af37;
+  font-size: 18px;
+  margin-bottom: 26px;
+  color: #cfcbcb;
+}
+
+.emailInput::placeholder,
+.usernameInput::placeholder {
+  color: #cfcbcb;
+}
+
+/* Media query for screens with a maximum width of 768px */
+@media (max-width: 768px) {
+  .emailInput,
+  .usernameInput {
+    width: 80vw; /* Adjust the width for smaller screens */
+    font-size: 16px; /* Adjust font size for smaller screens */
+    margin-bottom: 20px; /* Adjust margin for smaller screens */
+  }
 }

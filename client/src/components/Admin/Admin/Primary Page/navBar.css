@@ -1,0 +1,33 @@
+.account .dropdown-toggle {
+    background-color: #d4af37;
+    /* justify-self: end;
+    justify-self: right; */
+    /* position: fixed; */
+    margin-bottom: 2rem;
+    /* border: 1px solid; */
+    float: right;
+    /* margin-right: 1rem; */
+}
+
+/* .boot .dropdown-menu {
+    background-color: aqua;
+}
+
+.boot-item .dropdown-item {
+    background-color: #000
+} */
+
+.inputIcons {
+    color: #fff;
+    margin-right: 1rem;
+}
+
+.moveInline {
+    /* float: right; */
+    /* border: 1px solid; */
+    width: 98vw;
+}
+
+/* .moveInline .account {
+    justify-self: end;
+} */

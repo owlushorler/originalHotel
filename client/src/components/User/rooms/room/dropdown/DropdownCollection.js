@@ -1,31 +1,17 @@
-import React, { useState, useEffect, useMemo } from "react";
-import Dropdown from "react-bootstrap/Dropdown";
+import React, { useState } from "react";
+
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 import "./dropdownCollection.css";
 
 function DropdownCollection() {
-  const today = useMemo(() => new Date(), []);
-
-  const tomorrow = useMemo(() => {
-    const nextDay = new Date(today);
-    nextDay.setDate(today.getDate() + 1);
-    return nextDay;
-  }, [today]);
-
-  const [checkInDate, setCheckInDate] = useState(today.toDateString());
-  const [checkOutDate, setCheckOutDate] = useState(tomorrow.toDateString());
+  const [checkInDate, setCheckInDate] = useState(new Date());
+  const [checkOutDate, setCheckOutDate] = useState(new Date());
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [roomType, setRoomType] = useState("Deluxe Room");
   const [availabilityMessage, setAvailabilityMessage] = useState("");
-
-  useEffect(() => {
-    setCheckInDate(today.toDateString());
-    setCheckOutDate(tomorrow.toDateString());
-  }, [today, tomorrow]);
-
-  const handleRoomTypeChange = (selectedRoomType) => {
-    setRoomType(selectedRoomType);
-  };
 
   const handleCheckAvailability = async () => {
     if (checkInDate && checkOutDate) {
@@ -76,101 +62,64 @@ function DropdownCollection() {
     return data;
   };
   return (
-    <div>
-      <div className="dropdown-container">
+    <div className="dropdown-collection">
+      <div className="drop-con">
         <div>
-          <Dropdown>
-            <Dropdown.Toggle variant="light" id="dropdown">
-              Check In: {checkInDate}
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <Dropdown.Item
-                onClick={() => setCheckInDate(today.toDateString())}
-              >
-                {today.toDateString()}
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={() => setCheckInDate(tomorrow.toDateString())}
-              >
-                {tomorrow.toDateString()}
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+          <label htmlFor="checkIn">Check In:</label>
+          <DatePicker
+            id="checkIn"
+            selected={checkInDate}
+            onChange={(date) => setCheckInDate(date)}
+          />
         </div>
-        <Dropdown>
-          <Dropdown.Toggle variant="light" id="dropdown">
-            Check Out: {checkOutDate}
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item
-              onClick={() => setCheckOutDate(tomorrow.toDateString())}
-            >
-              {tomorrow.toDateString()}
-            </Dropdown.Item>
-            <Dropdown.Item
-              onClick={() =>
-                setCheckOutDate(
-                  new Date(
-                    tomorrow.setDate(tomorrow.getDate() + 1)
-                  ).toDateString()
-                )
-              }
-            >
-              {new Date(
-                tomorrow.setDate(tomorrow.getDate() + 1)
-              ).toDateString()}
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown>
-          <Dropdown.Toggle variant="light" id="dropdown">
-            Adult
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item onClick={() => setAdults(1)}>1</Dropdown.Item>
-            <Dropdown.Item onClick={() => setAdults(2)}>2</Dropdown.Item>
-            <Dropdown.Item onClick={() => setAdults(3)}>3</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown>
-          <Dropdown.Toggle variant="light" id="dropdown">
-            Children
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item onClick={() => setChildren(0)}>0</Dropdown.Item>
-            <Dropdown.Item onClick={() => setChildren(1)}>1</Dropdown.Item>
-            <Dropdown.Item onClick={() => setChildren(2)}>2</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown>
-          <Dropdown.Toggle variant="light" id="dropdown">
-            Room
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item onClick={() => handleRoomTypeChange("Deluxe Room")}>
-              Deluxe Room
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => handleRoomTypeChange("Family Room")}>
-              Family Room
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => handleRoomTypeChange("Couple Room")}>
-              Couple Room
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => handleRoomTypeChange("Single Room")}>
-              Single Room
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <button className="button" onClick={handleCheckAvailability}>
+        <div>
+          <label htmlFor="checkOut">Check Out:</label>
+          <DatePicker
+            id="checkOut"
+            selected={checkOutDate}
+            onChange={(date) => setCheckOutDate(date)}
+          />
+        </div>
+        <div>
+          <label htmlFor="adults">Adults:</label>
+          <select
+            id="adults"
+            value={adults}
+            onChange={(e) => setAdults(e.target.value)}
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="children">Children:</label>
+          <select
+            id="children"
+            value={children}
+            onChange={(e) => setChildren(e.target.value)}
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="roomType">Room:</label>
+          <select
+            id="roomType"
+            value={roomType}
+            onChange={(e) => setRoomType(e.target.value)}
+          >
+            <option value="Deluxe Room">Deluxe Room</option>
+            <option value="Family Room">Family Room</option>
+            <option value="Couple Room">Couple Room</option>
+            <option value="Single Room">Single Room</option>
+          </select>
+        </div>
+        <button className="btn" onClick={handleCheckAvailability}>
           CHECK AVAILABILITY
-        </button>{" "}
+        </button>
       </div>
-      <div style={{ color: "#d4af37" }}>{availabilityMessage}</div>
+      <div className="availability">{availabilityMessage}</div>{" "}
     </div>
   );
 }

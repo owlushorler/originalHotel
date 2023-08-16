@@ -20,7 +20,19 @@ const http = require("http-status-codes");
          }else{
            if(user.authentication === "Super Admin"){
               if(user.password == value.password){
-                return res.status(http.StatusCodes.OK).json(user.authentication)
+                const token = jwt.sign({username: value.username}, secretKey)
+                // res.cookie("jwt", token, {
+                //   expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 10 ),
+                //   secure: false,
+                //   httpOnly: false,
+                //   sameSite: "None"
+                // })
+                const result = {
+                  token: token,
+                  user: user.authentication
+                }
+                console.log(result)
+                return res.status(http.StatusCodes.OK).json(result)
               }else{return res.status(http.StatusCodes.UNAUTHORIZED).json({error: "Invalid Credentials"})}
            }else{
              const isPasswordValid = await bcrypt.compare(value.password, user.password);
@@ -32,13 +44,18 @@ const http = require("http-status-codes");
                     if (!token){
                        console.log("invalid token")
                     }else{
-                      res.cookie("jwt", token, {
-                        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 10 ),
-                        secure: false,
-                        httpOnly: true
-                      })
+                      // res.cookie("jwt", token, {
+                      //   // expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 10 ),
+                      //   secure: false,
+                      //   httpOnly: true,
+                      //   sameSite: "None"
+                      // })
+                      const result = {
+                        token: token,
+                        reply: "Admin login successful"
+                      }
                       req.user = token
-                      return res.status(200).json('Admin login successful' );
+                      return res.status(200).json(result);
                     }
               }
            }

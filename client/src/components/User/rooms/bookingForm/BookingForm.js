@@ -7,7 +7,7 @@ function BookingForm() {
   const navigate = useNavigate();
 
   const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState("");
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
   const rentPerDay = 220;
@@ -59,10 +59,9 @@ function BookingForm() {
   };
 
   return (
-    <div>
-      <Nav2/>
-    <div className="main-container">
-      <div className="mini-container">
+    <>
+      <Nav2 />
+      <div className="booking-form ">
         <h2>Booking Form</h2>
         <form onSubmit={handleSubmit}>
           <label>
@@ -117,8 +116,7 @@ function BookingForm() {
           </button>
         </form>
       </div>
-    </div>
-    </div>
+    </>
   );
 }
 

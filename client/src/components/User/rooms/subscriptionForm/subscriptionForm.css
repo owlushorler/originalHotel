@@ -1,24 +1,37 @@
-.sub-container {
-  border-radius: 5px;
-    margin: 0 auto;
-    margin-top: 20vh;
+.su {
+    border-radius: 5px;
+    margin: 30px auto;
+    justify-content: center;
+    text-align: center;
     width: 80%;
     height: 40vh;
     background-color: #efece3;
-position: relative;
+    position: relative;
     z-index: 2;
 }
-.sub-container p {
+
+.su p {
     padding-top: 30px;
 }
-.sub-container h3 {
+
+.su h3 {
     font-weight: 400;
 }
-.subscription-form{
+
+.sub {
     padding: 20px;
 }
-.subscription-form input {
-height: 6vh;
-width: 25vw;
-border: 1px solid #ccc;
+
+.su input {
+    height: 6vh;
+    width: 25vw;
+    border: 1px solid #ccc;
+}
+
+.subscription-button {
+    background-color: #d4af37;
+    border-radius: 5px;
+    border: none;
+    height: 6vh;
+    cursor: pointer;
 }

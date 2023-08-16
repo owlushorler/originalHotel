@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 // import  '../../Admin/Employee/Employee.css';
 import { Link } from 'react-router-dom';
+import Navbar from '../../Admin/Primary Page/navbar';
 
   const ViewAdmin = () => {
   const [data, setData] = useState([])
@@ -38,12 +39,14 @@ import { Link } from 'react-router-dom';
 
   return (
     <>
+    <div>
+      <Navbar />
        <div className='major'>
           <h1 className='h2 text' >Company Admins</h1>
           <div className='container'>
               {data.map((employee)=>{
                 return (
-                <div className='card ' key={employee._id}>
+                <div className='card2 ' key={employee._id}>
                   <div className="employee-details">
                     <h2>{`${employee.firstName} ${employee.lastName}`}</h2>
                     <p>{employee.email}</p>
@@ -55,6 +58,7 @@ import { Link } from 'react-router-dom';
               })};
           </div>
               <button className='addEmployeeBtn'><Link to="/superAdmin/addAdmin">Add Admin</Link></button>
+    </div>
     </div>
    </>
   );
