@@ -39,7 +39,7 @@ function App() {
     <div className="App">
 
 
-          <Router>
+          
             {/* <Navbar /> */}
       
           <Router>
@@ -74,7 +74,7 @@ function App() {
               {/* <PrimaryPage /> */}
               {/* <PrimaryPageSuper />   */}
         
-
+ 
               {/* <AddEmployee /> */}
               {/* <ViewRooms /> */}
               {/* <AddAdmin /> */}
