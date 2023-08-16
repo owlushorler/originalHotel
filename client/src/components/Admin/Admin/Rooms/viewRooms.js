@@ -17,7 +17,6 @@ function ViewRooms() {
     //   }
     // }
 
-    // fetchData();
     setData(result)
   }, []);
 
@@ -31,21 +30,18 @@ function ViewRooms() {
 
       // Update the state to remove the deleted item
       setData((prevData) => prevData.filter((item) => item.id !== itemId));
-    //   setData(() => prevData.filter((item) => item.id !== itemId));
-    // } catch (error) {
-    //   console.error('Error deleting item:', error);
-    // }
+  
   };
 
   return (
     <div className='container1'>
       {data.map((item) => (
         <div className="roomCard" key={item.id}>
-          {/* Render each element from the fetched data */}
+         
             <h3>{item.type}</h3>
             <p>{item.features}</p>
 
-            {/* Add a delete button for each element */}
+         
             <button onClick={() => handleDelete(item.id)}>Delete</button>
         </div>
       ))}

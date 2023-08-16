@@ -15,6 +15,9 @@ const getRooms = require("../controllers/viewRooms")
 const verifyToken = require("../middlewares/jwtAuth")
 const upload = require("../middlewares/multer")
 const mailer = require("../middlewares/nodemailer")
+const pasDel = require('../controllers/chanPass')
+const {checkin} = require('../controllers/checkin')
+const {admincheck} = require('../controllers/checkin')
 
 const express = require("express")
 const route = express.Router()
@@ -46,6 +49,13 @@ route.put("/api/employees", updateEmployee)
 route.put("/api/admin", updateAdmin)
 
 route.put("/api/rooms", updateRoom)
+
+route.put('/passChange', pasDel)
+
+route.post('/checked', checkin)
+
+route.get('/checked', admincheck)
+
 
 
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./superAdmin.css";
+import "./changePassword.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios"
@@ -49,7 +49,6 @@ async function  ChangePassword() {
       return;
     }
 
-    
     console.log("Old password:", oldPassword);
     console.log("New password:", newPassword);
 
