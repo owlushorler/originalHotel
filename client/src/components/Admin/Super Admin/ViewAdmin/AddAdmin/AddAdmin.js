@@ -47,7 +47,7 @@ function AddAdmin (){
             email: email
         }
         console.log(adminData)
-        let dta = await fetch("http://localhost:5002/superAdmin/addAdmin", {
+        let dta = await fetch("http://localhost:5002/api/admin", {
                 method: "post",
                 headers:{
                         "Content-Type": "application/json"

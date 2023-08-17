@@ -20,7 +20,7 @@ import Navbar from '../Primary Page/navbar';
     async function fetchData() {
 
       try {
-        const response = await fetch('http://localhost:5002/admin/viewEmployees'); // Replace with your API endpoint
+        const response = await fetch('http://localhost:5002/api/employees'); // Replace with your API endpoint
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
@@ -40,7 +40,7 @@ import Navbar from '../Primary Page/navbar';
     try {
       // if(password === req.password){
         // Perform the delete operation on the API endpoint
-        await fetch(`http://localhost:5002/admin/viewEmployees/${itemId}`, {
+        await fetch(`http://localhost:5002/api/employees/${itemId}`, {
           method: 'DELETE',
         });
       // let con = prompt("Confirm your password");
@@ -109,7 +109,7 @@ import Navbar from '../Primary Page/navbar';
               })};
               <p>{error}</p>
           </div>
-              <button className='addEmployeeBtn'><Link to="/addEmployee">Add Employee</Link></button>
+              <button className='addEmployeeBtn'><Link style={{textDecoration: "none", color: "#fff"}} to="/addEmployee">Add Employee</Link></button>
 
           
 {/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">

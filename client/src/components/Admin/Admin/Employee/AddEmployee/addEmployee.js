@@ -67,7 +67,7 @@ function AddEmployee (){
         //             console.log(dta)
         //         }
 
-        axios.post("http://localhost:5002/employee/addEmployee", formData)
+        axios.post("http://localhost:5002/api/employee", formData)
          .then((res)=> {
             console.log(res)
             navigate('/employees')

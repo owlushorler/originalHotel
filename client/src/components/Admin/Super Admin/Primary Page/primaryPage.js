@@ -12,13 +12,6 @@ import SuperAdmin from '../../Admin/Login/SuperAdmin';
 import Navbar from '../../Admin/Primary Page/navbar';
 
 
-const myStyle = {
-    marginLeft: "3rem",
-    display: "inline",
-    justifySelf: "end",
-    border: "7rem solid",
-}
-
 
 function PrimaryPageSuper(){
     const token = Cookies.get('jwt');
@@ -31,35 +24,35 @@ function PrimaryPageSuper(){
                 <Navbar  />
         <div className="container1">
             
-               <Link to='/superAdmin/admin'>
+               <Link style={{textDecoration: "none", color: "#fff"}} to='/superAdmin/admin'>
                <div className="primaryCard">
                     <img src={image4} />
                     <h3> Manage Admins</h3>
                 </div>
             </Link>
 
-            <Link to="/employees">
+            <Link style={{textDecoration: "none", color: "#fff"}} to="/employees">
                 <div className="primaryCard">
                     <img src={image2} />
                     <h3> Manage Employees</h3>
                 </div>
             </Link>
 
-            <Link to="/customers">
+            <Link style={{textDecoration: "none", color: "#fff"}} to="/customers">
                 <div className="primaryCard">
                     <img src={image} />
                     <h3> Manage Customers</h3>
                 </div>
             </Link>
 
-            <Link to="/rooms">
+            <Link style={{textDecoration: "none", color: "#fff"}} to="/rooms">
                 <div className="primaryCard">
                     <img src={image3} />
                     <h3> Manage Rooms</h3>
                 </div>
             </Link>
 
-             <Link to="/rooms">
+             <Link style={{textDecoration: "none", color: "#fff"}} to="/rooms">
              <div className="primaryCard">
                     <img src={image5} />
                     <h3> Manage Booking</h3>
