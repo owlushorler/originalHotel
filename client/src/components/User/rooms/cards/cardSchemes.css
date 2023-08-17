@@ -1,4 +1,4 @@
-.card-grid {
+.abu-card-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 80%;
@@ -8,136 +8,192 @@
 
 }
 
-.card-title {
+
+.abu-card-scheme {
+
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.abu-card-scheme:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.abu-card-image {
+    padding: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.abu-card-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    padding-right: 5px;
 }
 
-.para {
+
+.abu-pop {
+    font-family: 'Lato', sans-serif;
+    display: flex;
+}
+
+.highlighted-text {
+    color: #d4af37;
+    font-style: bolder;
+    font-size: 20px;
+padding-top: 7px;
+}
+
+.per-night {
+    color: gray;
+    padding-top: 5px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    padding-top: 10px;
+}
+
+.abu-font-container p {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
+
+    color: #777;
+
 }
 
-.font-container p {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-}
 
-.card-scheme {
-    background-color: #efece3;
-}
-
-.cardBtn {
+.abu-cardBtn {
     background-color: #d4af37;
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
+    padding: 8px 16px;
 }
 
-.cardBtn-refer {
-    color: black;
+.abu-cardBtn-refer {
     text-decoration: none;
+    color: black;
 }
 
-.cardBtn-refer:hover {
+.abu-cardBtn-refer:hover {
     color: #eee;
 }
 
+
+.abu-rating {
+    color: #d4af37;
+    font-size: 0.6rem;
+    padding-right: 220px;
+    width: 18rem;
+}
+
+.abu-title-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    width: 17rem;
+    margin-left: -5px;
+
+}
+
+.abu-font-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+   
+}
+
 @media screen and (max-width: 1250px) {
-    .card-grid {
+    .abu-card-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .card-scheme {
+    .abu-card-scheme {
         width: 100%;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .card-grid {
+    .abu-card-grid {
         grid-template-columns: repeat(1, 1fr);
     }
 
-    .title-price {
+    .abu-title-price {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    .card-title {
+    .abu-card-title {
         font-size: 1.2rem;
     }
 
-    .para {
+    .abu-para {
         text-align: center;
     }
 
-    .font-container {
+    .abu-font-container {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    .font {
+    .abu-font {
         margin: 0 auto;
     }
 
-    .meter-icon {
-        margin: 0 auto;
-    }
-
-    .cardBtn {
+    .abu-cardBtn {
         margin: 1rem auto;
     }
 }
 
-.rating {
+.abu-rating {
     color: #d4af37;
     font-size: 0.6rem;
     padding-right: 220px;
+
 }
 
-.title-price {
+.abu-title-price {
     display: flex;
 }
 
-.card-title {
+.abu-card-title {
     padding-left: 4px;
     font-size: 1.3rem;
 }
 
-.para {
+.abu-para {
     font-size: 1.04rem;
     padding-left: 36px;
     font-weight: 400;
     color: gray;
 }
 
-.font-container {
+.abu-font-container {
     display: flex;
     justify-content: space-between;
 }
 
-.font-container div {
+.abu-font-container div {
     display: flex;
 }
 
-.font {
+.abu-font {
     color: #d4af37;
 }
 
-.font-container p {
+.abu-font-container p {
 
     padding-left: 10px;
     font-size: medium;
-}
-
-.meter-icon {
-    width: 35px;
-    height: 25px;
-    margin-right: 12px;
-    color: #d4af37;
 }

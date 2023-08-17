@@ -1,4 +1,4 @@
-.drop-con {
+.abu-drop-con {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -21,31 +21,26 @@ label {
     font-weight: 500;
     font-weight: bold;
     margin-bottom: 5px;
-}
-
-
-.btn {
-    background-color: #d4af37;
     color: black;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 3px;
-    font-size: 13px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
 }
 
-.availability {
+
+.abu-btn:hover {
+    color: white;
+
+}
+
+.abu-availability {
     color: #d4af37;
     margin-top: 50px;
     text-align: center;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
+
 }
 
 @media screen and (max-width: 1252px) {
-    .drop-con {
+    .abu-drop-con {
         flex-direction: column;
         align-items: center;
         width: 90%;
@@ -57,7 +52,7 @@ label {
 }
 
 @media screen and (max-width: 768px) {
-    .drop-con {
+    .abu-drop-con {
         flex-direction: column;
         align-items: center;
         width: 90%;
