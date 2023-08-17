@@ -35,3 +35,6 @@
     height: 6vh;
     cursor: pointer;
 }
+.subscription-button:hover {
+    color: #efece3;
+}

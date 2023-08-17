@@ -23,111 +23,114 @@ import card8Image from "../images/singling.jpg";
 import card9Image from "../images/fami.jpg";
 
 function CardSchemes() {
-  const cardData = [
+  const abuCardData = [
     {
-      title: "Deluxe Room",
-      imageSrc: card1Image,
-      persons: "4 Persons",
-      cash: "$440",
+      abuTitle: "Deluxe Room",
+      abuImageSrc: card1Image,
+      abuPersons: "4 Persons",
+      abuCash: "$440",
     },
     {
-      title: "Single Room",
-      imageSrc: card2Image,
-      persons: "2 Persons",
-      cash: "$220",
+      abuTitle: "Single Room",
+      abuImageSrc: card2Image,
+      abuPersons: "2 Persons",
+      abuCash: "$220",
     },
     {
-      title: "Family Room",
-      imageSrc: card3Image,
-      persons: "4 Persons",
-      cash: "$440",
+      abuTitle: "Family Room",
+      abuImageSrc: card3Image,
+      abuPersons: "4 Persons",
+      abuCash: "$440",
     },
     {
-      title: "Couple Room",
-      imageSrc: card4Image,
-      persons: "2 Persons",
-      cash: "$220",
+      abuTitle: "Couple Room",
+      abuImageSrc: card4Image,
+      abuPersons: "2 Persons",
+      abuCash: "$220",
     },
     {
-      title: "Deluxe Room",
-      imageSrc: card5Image,
-      persons: "4 Persons",
-      cash: "$440",
+      abuTitle: "Deluxe Room",
+      abuImageSrc: card5Image,
+      abuPersons: "4 Persons",
+      abuCash: "$440",
     },
     {
-      title: "Couple Room",
-      imageSrc: card6Image,
-      persons: "2 Persons",
-      cash: "$220",
+      abuTitle: "Couple Room",
+      abuImageSrc: card6Image,
+      abuPersons: "2 Persons",
+      abuCash: "$220",
     },
     {
-      title: "Deluxe Room",
-      imageSrc: card7Image,
-      persons: "4 Persons",
-      cash: "$440",
+      abuTitle: "Deluxe Room",
+      abuImageSrc: card7Image,
+      abuPersons: "4 Persons",
+      abuCash: "$440",
     },
     {
-      title: "Single Room",
-      imageSrc: card8Image,
-      persons: "2 Persons",
-      cash: "$220",
+      abuTitle: "Single Room",
+      abuImageSrc: card8Image,
+      abuPersons: "2 Persons",
+      abuCash: "$220",
     },
     {
-      title: "Family Room",
-      imageSrc: card9Image,
-      persons: "4 Persons",
-      cash: "$440",
+      abuTitle: "Family Room",
+      abuImageSrc: card9Image,
+      abuPersons: "4 Persons",
+      abuCash: "$440",
     },
   ];
 
   return (
-    <div className="card-grid">
-      {cardData.map((card, index) => (
-        <Card key={index} style={{ width: "20rem" }} className="card-scheme">
+    <div className="abu-card-grid">
+      {abuCardData.map((card, index) => (
+        <Card
+          abu
+          key={index}
+          style={{ width: "20rem", backgroundColor: "#efece3", height: "30rem" }}
+          className="abu-card-scheme"
+        >
           <Card.Img
+            abu
             variant="top"
-            src={card.imageSrc}
+            src={card.abuImageSrc}
             style={{ height: "13rem" }}
+            className="abu-card-image"
           />
-          <Card.Body>
-            <div className="rating">
-              <FontAwesomeIcon icon={faStar} />
-              <FontAwesomeIcon icon={faStar} />
-              <FontAwesomeIcon icon={faStar} />
-              <FontAwesomeIcon icon={faStar} />
-              <FontAwesomeIcon icon={faStar} />
+          <Card.Body abu>
+            <div className="abu-rating">
+              <FontAwesomeIcon abu icon={faStar} />
+              <FontAwesomeIcon abu icon={faStar} />
+              <FontAwesomeIcon abu icon={faStar} />
+              <FontAwesomeIcon abu icon={faStar} />
+              <FontAwesomeIcon abu icon={faStar} />
             </div>
-            <div className="title-price">
-              <Card.Title className="card-title">{card.title}</Card.Title>
-              <p className="para">
-                <span
-                  style={{
-                    color: "#d4af37",
-                    fontStyle: "bolder",
-                    fontSize: "20px",
-                  }}
-                >
-                  {card.cash}
-                </span>
-                /Per Night
+            <div className="abu-title-price">
+              <Card.Title className="abu-card-title">
+                {card.abuTitle}
+              </Card.Title>
+              <p className="abu-pop">
+                <span className="highlighted-text">{card.abuCash}</span>
+                <span className="per-night"> /Per Night</span>
               </p>
             </div>
-            <div className="font-container">
+            <div className="abu-font-container">
               <div>
                 <FontAwesomeIcon
-                  className="font"
+                  abu
+                  className="abu-font"
                   icon={faUserFriends}
                   size="lg"
                 />{" "}
-                <p>{card.persons}</p>
+                <p>{card.abuPersons}</p>
               </div>
-              <div>
+              <div style={{}}>
                 <FontAwesomeIcon
-                  className="font"
+                  abu
+                  className="abu-font"
                   icon={faBed}
                   size="lg"
                   style={{
-                    paddingLeft: "8px",
+                    paddingRight: "8px",
                   }}
                 />
                 <p
@@ -140,14 +143,20 @@ function CardSchemes() {
                 </p>
               </div>
             </div>
-            <div className="font-container">
+            <div className="abu-font-container">
               <div>
-                <FontAwesomeIcon className="font" icon={faWifi} size="lg" />
+                <FontAwesomeIcon
+                  abu
+                  className="abu-font"
+                  icon={faWifi}
+                  size="lg"
+                />
                 <p>Free Wifi Zone </p>
               </div>
               <div>
                 <FontAwesomeIcon
-                  className="font"
+                  abu
+                  className="abu-font"
                   icon={faSquare}
                   size="lg"
                   style={{
@@ -159,8 +168,8 @@ function CardSchemes() {
               </div>
             </div>
 
-            <button className="cardBtn">
-              <Link to="/booking" className="cardBtn-refer">
+            <button className="abu-cardBtn">
+              <Link to="/booking" className="abu-cardBtn-refer">
                 BOOK NOW
               </Link>
             </button>

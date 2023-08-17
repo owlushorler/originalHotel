@@ -5,6 +5,7 @@ import Nav2 from "../../home/nav2/nav2";
 
 function BookingForm() {
   const navigate = useNavigate();
+  const today = new Date().toISOString().split("T")[0];
 
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -88,6 +89,7 @@ function BookingForm() {
               <input
                 type="date"
                 value={checkInDate}
+                min={today}
                 onChange={(e) => setCheckInDate(e.target.value)}
               />
             </label>
@@ -97,6 +99,7 @@ function BookingForm() {
               <input
                 type="date"
                 value={checkOutDate}
+                min={checkInDate || today}
                 onChange={(e) => setCheckOutDate(e.target.value)}
               />
             </label>
