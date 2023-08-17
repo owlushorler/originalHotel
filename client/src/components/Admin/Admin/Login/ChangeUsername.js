@@ -4,14 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import Cookies from 'js-cookie'
 import jwt from "jwt-decode"
+import { useNavigate } from "react-router";
+import axios from "axios"
 
-export default function ChangeUsername() {
+export default function ChangePassword() {
+    const navigate = useNavigate()
     const token = Cookies.get('jwt');
     const decoded = jwt(token)
-
-
-
-
 
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -47,8 +46,22 @@ export default function ChangeUsername() {
     }
 
     
+
+    
     console.log("Old password:", oldPassword);
     console.log("New password:", newPassword);
+
+    const user ={
+        oldUsername: decoded.username,
+        oldPassword: oldPassword,
+        newPassword: newPassword
+      }
+      axios.put(`http://localhost:5002/api/admin`, user)
+      .then((res)=>{
+        console.log(res)
+        setError(res)
+        navigate('/login')
+      })
 
     setError("Password changed successfully!");
     setOldPassword("");

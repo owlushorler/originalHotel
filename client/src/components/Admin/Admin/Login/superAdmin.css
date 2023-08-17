@@ -2,7 +2,7 @@ body {
     background-repeat: no-repeat;
 }
 
-.login {
+.mainlogin {
     /* background-image: url("../../../imagesfolder/background.jpg"); */
     display: flex;
     flex-direction: column;
@@ -15,28 +15,29 @@ body {
     background-color: rgba(21, 17, 5, 0.4)
 }
 
-.loginTitle {
+.mainloginTitle {
     font-size: 50px;
     color: white;
 }
 
-.loginForm {
+.mainloginForm {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
 }
 
-.checkbox {
+.maincheckbox {
     margin-right: 10px;
-    margin-left: 10px
+    margin-left: 10px;
+    background-color: #d4af37;
 }
 
-.loginForm label {
+.mainloginForm label {
     /* margin: 10px 0px 10px 80px; */
     font-size: 0.8rem;
 }
 
-.loginInput {
+.mainloginInput {
     padding: 10px;
     background-color: white;
     background: transparent;
@@ -47,11 +48,11 @@ body {
     color: #fff
 }
 
-.loginInput::placeholder {
+.mainloginInput::placeholder {
     color: #fff
 }
 
-.loginButton {
+.mainloginButton {
     margin-top: 20px;
     margin-left: 45px;
     cursor: pointer;
@@ -64,30 +65,29 @@ body {
 
 }
 
-.loginButton:hover {
+.mainloginButton:hover {
     color: #d4af37;
     background-color: white;
     opacity: 0.7;
     transition: 1s;
 }
 
-.inputWithIcon {
+.maininputWithIcon {
     position: relative;
     padding: 10px;
+    /* border: 1px solid; */
 }
 
-.loginInput {
+.mainloginInput {
     padding-left: 30px;
 }
 
-.inputIcon {
+.maininputIcon {
     position: absolute;
     top: 34%;
     left: 23px;
-
     transform: translate(-50%);
     color: #888;
-
     pointer-events: none;
 
 }
@@ -121,33 +121,38 @@ body {
 
 /* Media query for screens with a maximum width of 768px */
 @media only screen and (max-width: 768px) {
-    .login {
-      width: 80%; /* Adjust the width for smaller screens */
-      padding: 2rem; /* Add padding for better spacing */
-      margin: 10px auto;
+    .mainlogin {
+        width: 80%;
+        /* Adjust the width for smaller screens */
+        padding: 2rem;
+        /* Add padding for better spacing */
+        margin: 10px auto;
     }
-  
-    .loginTitle {
-      font-size: 36px; /* Reduce font size for smaller screens */
+
+    .mainloginTitle {
+        font-size: 36px;
+        /* Reduce font size for smaller screens */
     }
-  
-    .loginButton {
-      width: 100%; /* Make the button fill the container width */
-      margin-left: 0;
-      margin-top: 10px;
+
+    .mainloginButton {
+        width: 100%;
+        /* Make the button fill the container width */
+        margin-left: 0;
+        margin-top: 10px;
     }
-  
-    .inputWithIcon {
-      padding: 8px; /* Adjust padding for smaller screens */
+
+    .maininputWithIcon {
+        padding: 8px;
+        /* Adjust padding for smaller screens */
     }
-  
-    .loginInput {
-      padding-left: 25px; /* Adjust padding for smaller screens */
+
+    .mainloginInput {
+        padding-left: 25px;
+        /* Adjust padding for smaller screens */
     }
-  
-    .inputIcon {
-      top: 30%;
-      left: 18px;
+
+    .maininputIcon {
+        top: 30%;
+        left: 18px;
     }
-  }
-  
+}
