@@ -1,0 +1,269 @@
+.container-fluid {
+  background-image: url(../imagefolder/images/top1.jpg);
+  background-repeat: no-repeat;
+  height: 30vw;
+  display: flex;
+  flex-direction: row;
+}
+#up {
+  width: 50rem;
+  text-align: justify;
+  margin-left: 14rem;
+  font-size: 1.5rem;
+  color: #d4af37;
+  padding-bottom: 4rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+#abt {
+  width: 50rem;
+  text-align: center;
+  margin-left: 14rem;
+  font-size: 3rem;
+  color: #d4af37;
+  padding-top: 6rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+.flex {
+  display: flex;
+  /* border: 1px solid; */
+  padding: 0;
+  margin-left: 5rem;
+}
+.ward {
+  font-size: 1.6em;
+  text-align: justify;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+
+}
+.car_up {
+  height: 22rem;
+  width: 20vw;
+  margin-left: 3rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  /* border: 1px solid; */
+}
+
+.car {
+  gap: 0.8rem;
+  height: rem;
+  margin-top: 1.1rem;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+}
+
+.car2 {
+  margin-top: 1rem;
+  gap: 0.8rem;
+  width: 16vw;
+  display: flex;
+  flex-direction: column;
+  
+}
+.car2 img {
+  width: 16vw;
+  height: 10.5rem;
+  
+}
+.car3 {
+  width: 16vw;
+  height: 12rem;
+}
+.side {
+  width: 33rem;
+  height: 20rem;
+  font-size: 0.6rem;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+}
+
+.images {
+  width: 3rem;
+  height: 3rem;
+  margin-left: 1rem;
+}
+.client {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.phone {
+  width: 2rem;
+  height: 2rem;
+  /* margin-top: 5.5rem; */
+}
+.word {
+  background-color: #d4af37;
+  border-style: none;
+  width: 7rem;
+  height: 2.5rem;
+  /* border:#d4af37; */
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-right: 7rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.3rem;
+}
+.word:hover {
+  background-color: #d4af;
+}
+
+.base {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* color: #d4af37; */
+}
+.we {
+  margin-left: 1.5rem;
+  font-size: 14px;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: -1rem;
+}
+.w {
+  font-size: 14px;
+  margin-left: 0.7rem;
+  margin-top: 0.9rem;
+  padding-top: -2.5rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+.four_cards {
+  /* display: flex; */
+  background-color: beige;
+  height: 75vh;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  /* padding: 5rem; */
+}
+.base2 {
+  height: 5rem;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 15rem;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+.war {
+  text-align: justify;
+  width: 35rem;
+  margin-left: 22rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+  
+ 
+}
+.wa{
+  padding: -2rem; 
+}
+.wad{
+  padding-top: -2rem;
+}
+.box {
+  /* background-color: white; */
+  font-size: 7px;
+  font-style: bold;
+  /* align-content: center; */
+  /* gap: 2rem; */
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  justify-content: center;
+  margin-top: -6rem;
+  margin-left: 15rem;
+  gap:3rem;
+}
+.bos {
+  margin-bottom: 25rem; 
+   position: relative;
+   background-color:aliceblue;
+  width:10rem;
+  height: 11rem;
+  padding-top: -3rem;
+}
+.down{
+  width: 5rem;
+  margin-left: 3rem;
+  margin-top: 1rem;
+  height: 4rem;
+  
+}
+
+.say{
+  font-size: 0.88rem;
+ font-family: Georgia, 'Times New Roman', Times, serif;
+ text-align: center;
+ margin-top: 0.9rem;
+ padding: auto;
+ 
+}
+
+/* /* AboutApp.css */
+
+/* Your existing styles */
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+  /* Styles for screens up to 768px wide */
+  .card_up {
+    width: 90vw; /* Adjust the width for smaller screens */
+    height: auto;
+  }
+
+  #card {
+    flex-direction: column;
+    gap: 0.8rem;
+    height: auto;
+    margin-top: 10rem;
+  }
+
+  .card2,
+  .card3 {
+    width: 90vw;
+    margin-left: 0;
+    margin-top: 1.1rem;
+    height: auto;
+    gap: 3rem;
+  }
+
+  .side {
+    width: 90vw;
+    height: auto;
+    margin-left: 0;
+    margin-bottom: -10rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* Styles for screens up to 576px wide */
+  .side {
+    font-size: 0.8rem;
+  }
+
+  .base {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .four_cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem;
+  }
+
+  .box {
+    width: 80vw;
+    height: auto;
+    padding: 2rem;
+  }
+
+  /* Adjust other styles as needed */
+}
