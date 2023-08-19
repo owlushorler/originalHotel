@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
-// import  '../../Admin/Employee/Employee.css';
+// import  '../../Admin/Employee/EmployeeCard.css';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Admin/Primary Page/navbar';
+import "./viewAdmin.css"
+import bin from "../../../imagesfolder/icons8-bin-50.png"
 
   const ViewAdmin = () => {
   const [data, setData] = useState([])
@@ -43,21 +45,22 @@ import Navbar from '../../Admin/Primary Page/navbar';
       <Navbar />
        <div className='major'>
           <h1 className='h2 text' >COMPANY ADMINS</h1>
-          <div className='container'>
+          <div className='mainContainer'>
               {data.map((employee)=>{
                 return (
                 <div className='card2 ' key={employee._id}>
                   <div className="employee-details">
-                    <h2>{`${employee.firstName} ${employee.lastName}`}</h2>
-                    <p>{employee.email}</p>
-                    <p>{employee.username}</p>
+                    <h2> <span className='wordHeading'>Full Name: </span> {`  ${employee.firstName} ${employee.lastName}`}</h2>
+                    <p><span className='wordHeading'>Email:</span> {employee.email}</p>
+                    <p><span className='wordHeading'>Username:</span>  {employee.username}</p>
                     </div>
-                  <button className='btn btn-primary cardButton' onClick={() => handleDelete(employee._id)}>Delete</button>
+                    <img src={bin} className='yunBin' onClick={() => handleDelete(employee._id)} />
+                  {/* <button className='btn btn-primary cardButton' onClick={() => handleDelete(employee._id)}>Delete</button> */}
                 </div>  
             );
               })};
           </div>
-              <button className='addEmployeeBtn'><Link style={{textDecoration: "none", color: "#fff"}} to="/superAdmin/addAdmin">Add Admin</Link></button>
+              <button className='addAdminBtn'><Link style={{textDecoration: "none", color: "#fff"}} to="/superAdmin/addAdmin">Add Admin</Link></button>
     </div>
     </div>
    </>

@@ -17,7 +17,7 @@ import ViewAdmin from './components/Admin/Super Admin/ViewAdmin/viewAdmin';
 
 import Nav3 from './components/User/home/nav3/nav3';
 import Rooms from './components/User/rooms/room/room';
-import About from './components/User/about/about';
+// import About from './components/User/about/about';
 import BookingForm from './components/User/rooms/bookingForm/BookingForm';
 import Fac from './components/User/facil/fac';
 import ContactPage from './components/User/contactPage/ContactPage';
@@ -28,6 +28,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Navbar from './components/Admin/Admin/Primary Page/navbar';
 import ChangeUsername from './components/Admin/Admin/Login/ChangePassword';
 import ChangePassword from './components/Admin/Admin/Login/ChangeUsername';
+import AddRooms from './components/Admin/Admin/Rooms/AddRoom';
 
 
 function App() {
@@ -41,9 +42,6 @@ function App() {
     <div>
 
     <div className="App">
-
-
-          
             {/* <Navbar /> */}
       
           <Router>
@@ -55,7 +53,7 @@ function App() {
             {/*USER ROUT */}
             <Route path="/" element={< Nav3/>} />
             <Route path="/room" element={< Rooms/>} />
-            <Route path="/about" element={< About/>} />
+            {/* <Route path="/about" element={< About/>} /> */}
             <Route path="/booking" element={<BookingForm/>} />
             <Route path="/fac" element={<Fac/>} />
             <Route path="/contact" element={<ContactPage/>} />
@@ -67,14 +65,15 @@ function App() {
               <Route path="/login" element={<SuperAdmin />} />
               <Route path="/superAdmin" element={<PrimaryPageSuper />} />
               <Route path="/admin/admin" element={<PrimaryPage />} />
+                <Route path="/addEmployee" element={<AddEmployee />} />
               <Route path="/employees" element={<ViewEmployeeCard />} />
                 {/* <Route path="/customers" element={<Customers />} /> */}
                 <Route path="/rooms" element={<ViewRooms />} />
-                <Route path="/addEmployee" element={<AddEmployee />} />
                 <Route path="/superAdmin/addAdmin" element={<AddAdmin />} />
                 <Route path="/superAdmin/admin" element={<ViewAdmin />} />
                 <Route path="/changeUsername" element={<ChangeUsername />} />
                 <Route path="/changePassword" element={<ChangePassword />} />
+                <Route path="/addRoom" element={<AddRooms/>}/>
 
 
             </Routes>

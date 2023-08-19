@@ -7,7 +7,7 @@ import jwt from "jwt-decode"
 import { useNavigate } from "react-router";
 import axios from "axios"
 
-export default function ChangePassword() {
+function ChangePassword() {
     const navigate = useNavigate()
     const token = Cookies.get('jwt');
     const decoded = jwt(token)
@@ -16,6 +16,7 @@ export default function ChangePassword() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [username, setUsername] = useState(decoded.username)
 
 //   useEffect(() => {
 //     async function fetchData() {
@@ -60,18 +61,20 @@ export default function ChangePassword() {
       .then((res)=>{
         console.log(res)
         setError(res)
+        alert("Password changed successfully!")
         navigate('/login')
       })
 
-    setError("Password changed successfully!");
     setOldPassword("");
     setNewPassword("");
     setConfirmPassword("");
   }
 
   return (
+    <>
+    <div className="major">
+      <h2 className="loginTitle">Forget Password</h2>
     <div className="login">
-      <span className="loginTitle">Forget Password</span>
       <form className="loginForm" onSubmit={handleChangePassword}>
         <label className="white">Old Password</label>
         <div className="inputWithIcon">
@@ -115,5 +118,9 @@ export default function ChangePassword() {
         </button>
       </form>
     </div>
+    </div>
+    </>
   );
 }
+
+export default ChangePassword
