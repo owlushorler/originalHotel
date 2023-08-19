@@ -75,6 +75,7 @@ padding-top: 7px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     padding: 8px 16px;
+    margin-top: 20px;
 }
 
 .abu-cardBtn-refer {
@@ -122,11 +123,14 @@ padding-top: 7px;
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 770px) {
     .abu-card-grid {
         grid-template-columns: repeat(1, 1fr);
     }
 
+.abu-font-container{
+    margin-top: -5px;
+}
     .abu-title-price {
         flex-direction: column;
         align-items: center;
@@ -152,7 +156,9 @@ padding-top: 7px;
     }
 
     .abu-cardBtn {
-        margin: 1rem auto;
+        margin-top: -90px;
+        padding: 2px;
+         margin-left: 85px;
     }
 }
 
