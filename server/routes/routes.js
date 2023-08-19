@@ -18,6 +18,8 @@ const mailer = require("../middlewares/nodemailer")
 const pasDel = require('../controllers/chanPass')
 const {checkin} = require('../controllers/checkin')
 const {admincheck} = require('../controllers/checkin')
+const formSubmit = require('../controllers/formController')
+
 
 const express = require("express")
 const route = express.Router()
@@ -55,6 +57,7 @@ route.put('/passChange', pasDel)
 route.post('/checked', checkin)
 
 route.get('/checked', admincheck)
+route.post('/submit', formSubmit)
 
 
 
