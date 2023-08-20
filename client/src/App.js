@@ -31,6 +31,7 @@ import ChangePassword from './components/Admin/Admin/Login/ChangeUsername';
 import AddRooms from './components/Admin/Admin/Rooms/AddRoom';
 
 import BOOKING from './components/Admin/Admin/Bookings/booking';
+import About from './components/User/about/about';
 
 
 
@@ -63,6 +64,7 @@ function App() {
             <Route path="/fac" element={<Fac/>} />
             <Route path="/contact" element={<ContactPage/>} />
             <Route path="/getbooking" element={ < BOOKING/>} />
+             <Route path="/about" element={<About/>} />
             
             
 
