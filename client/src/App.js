@@ -26,6 +26,8 @@ import ContactPage from './components/User/contactPage/ContactPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Navbar from './components/Admin/Admin/Primary Page/navbar';
+
+import BOOKING from './components/Admin/Admin/Bookings/booking';
 import ChangeUsername from './components/Admin/Admin/Login/ChangePassword';
 import ChangePassword from './components/Admin/Admin/Login/ChangeUsername';
 
@@ -45,6 +47,8 @@ function App() {
 
           
             {/* <Navbar /> */}
+             
+             < BOOKING/>
       
           <Router>
           
