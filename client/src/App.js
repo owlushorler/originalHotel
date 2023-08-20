@@ -47,7 +47,7 @@ function App() {
     <div className="App">
             {/* <Navbar /> */}
              
-             < BOOKING/>
+            
       
           <Router>
           
@@ -62,6 +62,7 @@ function App() {
             <Route path="/booking" element={<BookingForm/>} />
             <Route path="/fac" element={<Fac/>} />
             <Route path="/contact" element={<ContactPage/>} />
+            <Route path="/getbooking" element={ < BOOKING/>} />
             
             
 
