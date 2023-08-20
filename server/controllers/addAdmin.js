@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt")
 const addAdmin = async (req, res, next) =>{
     console.log(req.body)
     const {error, value} = adminJoi.validate(req.body)
-    if(error) return res.status(http.StatusCodes.BAD_REQUEST).send(error.message)
+    if(error) return res.status(http.StatusCodes.BAD_REQUEST).json(error.message)
     try {
         const password = `sr${Math.floor(Math.random()*2000)}bfx${Math.floor(Math.random()*2000)}`
         const username = `Admin`
@@ -22,7 +22,7 @@ const addAdmin = async (req, res, next) =>{
             username: username,
             password: hashedPassword
         })
-        if(!Admin) return res.status(http.StatusCodes.BAD_REQUEST).send("couldn't create admin")
+        if(!Admin) return res.status(http.StatusCodes.BAD_REQUEST).json("couldn't create admin")
         console.log(Admin)
         req.password = password
         req.name = value.firstName
@@ -33,7 +33,7 @@ const addAdmin = async (req, res, next) =>{
         next()
     } catch (error) {
         console.log(error)
-        return res.status(http.StatusCodes.BAD_REQUEST).send(error.message)
+        return res.status(http.StatusCodes.BAD_REQUEST).json(error.message)
     }
 }
 

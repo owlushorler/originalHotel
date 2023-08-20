@@ -64,7 +64,7 @@ export default function SuperAdmin() {
             console.log("fuck you")
             navigate('/changeUsername')
           } else {
-            console.log("fuck you")
+            console.log("fuck elvis")
             setNotification(data.reply);
             navigate("/admin/admin");
           }

@@ -7,7 +7,10 @@ import jwt from 'jwt-decode'
 import Cookies from 'js-cookie'
 import { useNavigate } from "react-router";
 
-async function  ChangeUsername() {
+
+function  ChangeUsername() {
+
+
   const navigate = useNavigate()
   const token = Cookies.get('jwt')
   const decoded = jwt(token)
@@ -48,36 +51,44 @@ async function  ChangeUsername() {
       axios.put(`http://localhost:5002/api/admin`, user)
       .then((res)=>{
         console.log(res)
-        setError(res)
+
+        setError(res.data.error)
         navigate('/login')
       })
       ;
+
+
+      setError("Password changed successfully!");
+      setOldPassword("");
+      setNewPassword("");
+      setConfirmPassword("");
+   
   
     } catch (error) {
       console.error('Error deleting item:', error);
     }
 
 
-
-    setError("Password changed successfully!");
-    setOldPassword("");
-    setNewPassword("");
-    setConfirmPassword("");
   }
 
   return (
+    <>
+    <div className="major">
+      <h2 className="loginTitle">Change Username</h2>
     <div className="login">
-      <span className="loginTitle">Forget Password</span>
+
       <form className="loginForm" onSubmit={handleChangePassword}>
 
       <label className="white">Old Username</label>
         <div className="inputWithIcon">
           <input
-            type="password"
+
+            type="text"
             className="loginInput"
-            placeholder="Enter your old password..."
             value={oldUsername}
             onChange={(e) => setOldUsername(e.target.value)}
+            readOnly
+
           />
           <FontAwesomeIcon icon={faLock} className="inputIcon" />
         </div>
@@ -85,9 +96,12 @@ async function  ChangeUsername() {
         <label className="white">New Username</label>
         <div className="inputWithIcon">
           <input
-            type="password"
+
+            type="text"
             className="loginInput"
-            placeholder="Enter your old password..."
+            placeholder="Enter your new username..."
+=======
+           
             value={newUsername}
             onChange={(e) => setNewUsername(e.target.value)}
           />
@@ -136,6 +150,8 @@ async function  ChangeUsername() {
         </button>
       </form>
     </div>
+    </div>
+    </>
   );
 }
 

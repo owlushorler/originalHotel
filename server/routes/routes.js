@@ -18,15 +18,22 @@ const mailer = require("../middlewares/nodemailer")
 const pasDel = require('../controllers/chanPass')
 const {checkin} = require('../controllers/checkin')
 const {admincheck} = require('../controllers/checkin')
+
+const roomImage = require("../middlewares/roomMulter")
+
 const formSubmit = require('../controllers/formController')
 
 
+
 const express = require("express")
+// const room = require("../models/roomSchema")
 const route = express.Router()
 
 route.post("/api/admin", addAdmin, mailer)
 
 route.post("/api/employees", upload.single("file") , addEmployee)
+
+route.post("/api/rooms", roomImage.single("file"), addRoom)
 
 route.get("/api/rooms", getRooms)
 
@@ -40,7 +47,7 @@ route.post("/api/login", loginAdmin)
 
 route.post("/api/customers", addCustomers)
 
-route.post("/api/rooms", upload.array("images", 8), addRoom)
+// route.post("/api/rooms", upload.array("selectedImages", 8), addRoom)
 
 route.get("/api/employees", getEmployees)
 

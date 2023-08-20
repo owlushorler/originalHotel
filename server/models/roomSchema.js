@@ -1,15 +1,15 @@
 const mongoose = require("mongoose")
 
 const roomSchema = mongoose.Schema({
-    type: {
+    name: {
         type: String,
         require: true,
     },
     features: {
-        type: Array,
+        type: String,
         require: true,
     },
-    images: [String],
+    images: String,
     capacity: {
         type: Number,
         require: true,
