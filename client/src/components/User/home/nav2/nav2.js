@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 function Nav2(){
     return(
         <div className="ac" >
-            <nav style={{marginRight:"16vw"}} ><a className="aa" href=""><img style={{width:"3vw",marginLeft:"-3vw", marginRight:"1vw"}} src={nnn} alt="oo"/>H COUNTROL</a></nav>
+            <nav style={{marginRight:"16vw"}} ><a className="aa" href=""><img style={{width:"3vw",magitrginLeft:"-3vw", marginRight:"1vw"}} src={nnn} alt="oo"/>H CONTROL</a></nav>
             <nav><Link className="aa"  to='/' >HOME</Link></nav>
             <nav><Link className="aa"  to='/fac' >FACILITY</Link></nav>
             <nav><Link className="aa"  to='/room' >ROOMS</Link></nav>

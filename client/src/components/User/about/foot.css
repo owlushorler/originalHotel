@@ -1,0 +1,26 @@
+.footar{
+    display: flex;
+    flex-direction: row;
+    /* height: 15rem; */
+    width:68rem;
+    margin-left: 6rem;
+    margin-top: 17rem;
+    margin-right: 47rem;
+
+   
+
+}
+.footar img{
+    margin-top: -18rem;
+    padding-top: 4rem;
+    width: 60rem;
+    height: 25rem;
+
+}
+.words{
+    font-size:1.08em ;
+    margin-top: -14rem;
+    margin-left: 3rem;
+    text-align: justify;
+    font-family: 'Times New Roman', Times, serif;
+}

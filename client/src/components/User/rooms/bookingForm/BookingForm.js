@@ -15,15 +15,15 @@ function BookingForm() {
   // const [adults, setAdults] = useState(1);
   // const [children, setChildren] = useState(0);
 
-  const totalDays = (() => {
+  const totalDays = checkInDate && checkOutDate ? (() => {
     const checkIn = new Date(checkInDate);
     const checkOut = new Date(checkOutDate);
     const timeDifference = checkOut.getTime() - checkIn.getTime();
     const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
     return daysDifference;
-  })();
+  })() : 0;
 
-  const totalAmount = rentPerDay * totalDays;
+  const totalAmount = totalDays ? rentPerDay * totalDays : 0;
 
   const handleSubmit = async (event) => {
     event.preventDefault();

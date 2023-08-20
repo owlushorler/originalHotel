@@ -7,7 +7,10 @@ import jwt from 'jwt-decode'
 import Cookies from 'js-cookie'
 import { useNavigate } from "react-router";
 
+
 function  ChangeUsername() {
+
+
   const navigate = useNavigate()
   const token = Cookies.get('jwt')
   const decoded = jwt(token)
@@ -48,6 +51,7 @@ function  ChangeUsername() {
       axios.put(`http://localhost:5002/api/admin`, user)
       .then((res)=>{
         console.log(res)
+
         setError(res.data.error)
         navigate('/login')
       })
@@ -58,10 +62,12 @@ function  ChangeUsername() {
       setOldPassword("");
       setNewPassword("");
       setConfirmPassword("");
+   
   
     } catch (error) {
       console.error('Error deleting item:', error);
     }
+
 
   }
 
@@ -76,11 +82,13 @@ function  ChangeUsername() {
       <label className="white">Old Username</label>
         <div className="inputWithIcon">
           <input
+
             type="text"
             className="loginInput"
             value={oldUsername}
             onChange={(e) => setOldUsername(e.target.value)}
             readOnly
+
           />
           <FontAwesomeIcon icon={faLock} className="inputIcon" />
         </div>
@@ -88,9 +96,12 @@ function  ChangeUsername() {
         <label className="white">New Username</label>
         <div className="inputWithIcon">
           <input
+
             type="text"
             className="loginInput"
             placeholder="Enter your new username..."
+=======
+           
             value={newUsername}
             onChange={(e) => setNewUsername(e.target.value)}
           />
