@@ -31,8 +31,7 @@ import ChangePassword from './components/Admin/Admin/Login/ChangeUsername';
 import AddRooms from './components/Admin/Admin/Rooms/AddRoom';
 
 import BOOKING from './components/Admin/Admin/Bookings/booking';
-import ChangeUsername from './components/Admin/Admin/Login/ChangePassword';
-import ChangePassword from './components/Admin/Admin/Login/ChangeUsername';
+
 
 
 function App() {
