@@ -100,7 +100,7 @@ function  ChangeUsername() {
             type="text"
             className="loginInput"
             placeholder="Enter your new username..."
-=======
+
            
             value={newUsername}
             onChange={(e) => setNewUsername(e.target.value)}
