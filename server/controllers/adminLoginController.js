@@ -1,6 +1,6 @@
 const http = require("http-status-codes");
  const bcrypt = require('bcrypt');
- const User = require('../models/adminSchema');
+ const admin = require('../models/adminSchema');
  const Schema = require('../validators/joi_validator');
  const jwt = require('jsonwebtoken')
 
@@ -13,7 +13,7 @@ const http = require("http-status-codes");
   if(error) return res.status(500).send(error.message)
     try {
       console.log(value.username)
-        const user = await User.findOne({ username: value.username })
+        const user = await admin.findOne({ username: value.username })
         console.log(user)
          if (!user) {
             return res.status(401).json({ error: 'Credentials invalid'});

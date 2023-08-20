@@ -60,9 +60,9 @@ export default function SuperAdmin() {
           if (data.user === "Super Admin") {
             setNotification("Login successful as Super Admin");
             navigate('/superAdmin');
-          } else if(decoded.username == "Admin"){
+          } else if(decoded.username === "Admin"){
             console.log("fuck you")
-            navigate('/changePassword')
+            navigate('/changeUsername')
           } else {
             console.log("fuck you")
             setNotification(data.reply);
@@ -93,40 +93,40 @@ export default function SuperAdmin() {
   }
   return (
     <div className="contain">
-    <div className="login">
-      <span className="loginTitle">Login</span>
-      <form className="loginForm">
-        <div className="inputWithIcon">
+    <div className="mainlogin">
+      <span className="mainloginTitle">Login</span>
+      <form className="mainloginForm">
+        <div className="maininputWithIcon">
           <input
             type="text"
-            className="loginInput"
+            className="mainloginInput"
             placeholder="Enter your username..."
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <FontAwesomeIcon icon={faUser} className="inputIcon" />
+          <FontAwesomeIcon icon={faUser} className="maininputIcon" />
         </div>
 
-        <div className="inputWithIcon">
+        <div className="maininputWithIcon">
           <input
             type="password"
-            className="loginInput"
+            className="mainloginInput"
             placeholder="Enter your password..."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <FontAwesomeIcon icon={faLock} className="inputIcon" />
+          <FontAwesomeIcon icon={faLock} className="maininputIcon" />
         </div>
         <div>
           <input
             type="checkbox"
             checked={rememberMe}
             onChange={handleRememberMe}
-            className="checkbox"
+            className="maincheckbox"
           />
           <label className="white">Remember Me</label>
         </div>
-        <button className="loginButton" onClick={handleClick}>
+        <button className="mainloginButton" onClick={handleClick}>
           Login
         </button>
         <div>
