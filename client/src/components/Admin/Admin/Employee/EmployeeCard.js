@@ -7,6 +7,7 @@ import Navbar from '../Primary Page/navbar';
 import jwt from "jwt-decode"
 
 
+
   const ViewEmployeeCard = () => {
   const token = Cookies.get('jwt');
   const decode = jwt(token)
@@ -53,7 +54,7 @@ import jwt from "jwt-decode"
           setError('Error deleting employee');
         }
       } else {
-        setPasswordError('Wrong Password');
+        alert('Wrong Username');
       }
     } catch (error) {
       console.error('Error deleting item:', error);
@@ -89,9 +90,9 @@ import jwt from "jwt-decode"
           >
             Delete
           </button>
-          <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
+          <div className="modal fade " id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog ">
+          <div className="modal-content  modalBodyYun">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
                 Confirm Username
@@ -99,14 +100,14 @@ import jwt from "jwt-decode"
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              <p style={{ color: '#000' }}>Confirm your username</p>
-              <input type="text" onChange={handleUsername} />
+              <p style={{ color: '#d4af37' }}>Re-Enter your username</p>
+              <input type="text" onChange={handleUsername} className='modalInput' />
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
                 Cancel
               </button>
-              <button type="button" className="btn btn-primary" onClick={handleDelete}>
+              <button type="button" className="btn modalBtn"  data-bs-dismiss="modal" onClick={handleDelete}>
                 Confirm
               </button>
             </div>

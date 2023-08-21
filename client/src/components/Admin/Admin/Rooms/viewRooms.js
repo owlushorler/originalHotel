@@ -4,10 +4,21 @@ import "./viewRooms.css"
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 import bin from "../../../imagesfolder/icons8-bin-50.png"
+import Navbar from '../Primary Page/navbar';
+import jwt from "jwt-decode"
+import Cookies from 'js-cookie'
+
 
 
 function ViewRooms() {
+  const token = Cookies.get('jwt');
+  const decode = jwt(token)
+
   const [data, setData] = useState([]);
+  const [username, setUsername] = useState('')
+  const [itemId, setItemId] = useState(null)
+  const [error, setError]= useState('')
+  const [passwordError, setPasswordError] = useState('')
 
   async function fetchData() {
     try {
@@ -29,24 +40,40 @@ function ViewRooms() {
     // setData(result)
   }, []);
 
+  const handleUsername =(e)=>{
+    setUsername(e.target.value)
+  }
 
-  const handleDelete = async (itemId) => {
+
+  const handleDelete = async () => {
     try {
+      if (username === decode.username) {
       // Perform the delete operation on the API endpoint
-      await fetch(`http://localhost:5002/api/rooms/${itemId}`, {
+     const response =  await fetch(`http://localhost:5002/api/rooms/${itemId}`, {
         method: 'DELETE',
       });
+      if (response.status === 200) {
+        // If the DELETE request was successful, update the data state by removing the deleted employee
+        setData(prevData => prevData.filter(item => item._id !== itemId));
+      } else {
+        setError('Error deleting room');
+      }
 
-      // Update the state to remove the deleted item
-      setData(prevData => prevData.filter(item => item._id !== itemId));
-  
-  } catch(error){
-    console.error(error)
+    } else {
+      setPasswordError('Wrong Password');
+    }
+  } catch (error) {
+    console.error('Error deleting item:', error);
   }
+
+  
 }
 
   return (
-    <div className='yunContainer'>
+    <>
+      <div className='yunContainer'>
+      <Navbar className="myNav"/>
+    {data ? (
       <div className='yunContain'>
       {data.map((item) => (
         <div className="roomCard" key={item._id}>
@@ -54,16 +81,56 @@ function ViewRooms() {
           <div className='roomText'>
           <h4>Name: {item.name}</h4>
           <p>Features: {item.features}</p>
-            <img src={bin} className='yunBin' onClick={() => handleDelete(item._id)} />
+          <div className='flexable'>
+          <p>Price: {item.price}</p>
+            {/* <img src={bin} className='yunBin' onClick={() => handleDelete(item._id)} /> */}
             <p>Capacity: {item.capacity}</p>
+            </div>
+            <div className='flexable1'>
             <p>Availability: {item.availability.toString()}</p>
+
+          <button
+            type="button"
+            className="btn cardButton btn-primary "
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            onClick={() => setItemId(item._id)} // Set the selected item ID
+          >
+            Delete
+          </button>
           </div>
+          </div>
+          <div className="modal fade " id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog ">
+          <div className="modal-content  modalBodyYun">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">
+                Confirm Username
+              </h1>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              <p style={{ color: '#d4af37' }}>Re-Enter your username</p>
+              <input type="text" onChange={handleUsername} className='modalInput' />
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
+                Cancel
+              </button>
+              <button type="button" className="btn modalBtn"  data-bs-dismiss="modal" onClick={handleDelete}>
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
         </div>
       ))}
-    </div>
+      </div>) : (<div className="empty">There is no data to display</div>)}
       <button className='addEmployeeBtn'><Link style={{textDecoration: "none", color: "#fff"}} to="/addRoom">Add Rooms</Link></button>
     </div>
+    </>
   );
 }
 

@@ -60,7 +60,7 @@ function ChangePassword() {
       axios.put(`http://localhost:5002/api/admin`, user)
       .then((res)=>{
         console.log(res)
-        setError(res)
+        setError(res.data.error)
         alert("Password changed successfully!")
         navigate('/login')
       })

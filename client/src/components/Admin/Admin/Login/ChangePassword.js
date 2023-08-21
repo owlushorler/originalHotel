@@ -48,19 +48,19 @@ function  ChangeUsername() {
       axios.put(`http://localhost:5002/api/admin`, user)
       .then((res)=>{
         console.log(res)
-        setError(res.data.error)
         navigate('/login')
       })
       ;
 
 
-      setError("Password changed successfully!");
+      
       setOldPassword("");
       setNewPassword("");
       setConfirmPassword("");
   
     } catch (error) {
       console.error('Error deleting item:', error);
+      setError(error.message)
     }
 
   }

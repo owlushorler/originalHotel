@@ -14,6 +14,10 @@ const roomSchema = mongoose.Schema({
         type: Number,
         require: true,
     },
+    price:  {
+        type: Number,
+        require: true,
+    },
     availability: Boolean
 })
 
