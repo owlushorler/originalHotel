@@ -7,6 +7,7 @@ import jwt from "jwt-decode"
 import { useNavigate } from "react-router";
 import axios from "axios"
 
+
 function ChangePassword() {
     const navigate = useNavigate()
     const token = Cookies.get('jwt');
@@ -64,6 +65,7 @@ function ChangePassword() {
         alert("Password changed successfully!")
         navigate('/login')
       })
+
 
     setOldPassword("");
     setNewPassword("");

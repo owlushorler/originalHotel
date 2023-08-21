@@ -86,7 +86,11 @@ function CardSchemes() {
         <Card
           abu
           key={index}
-          style={{ width: "20rem", backgroundColor: "#efece3", height: "30rem" }}
+          style={{
+            width: "20rem",
+            backgroundColor: "#efece3",
+            height: "33rem",
+          }}
           className="abu-card-scheme"
         >
           <Card.Img

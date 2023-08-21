@@ -1,6 +1,7 @@
 
 const bcrypt = require("bcrypt")
 const admin = require("../models/adminSchema")
+const bcrypt = require("bcrypt")
 
 const updateAdmin = async (req, res) => {
     // const {error, value} = req.body
@@ -18,6 +19,7 @@ const updateAdmin = async (req, res) => {
             const hashedPassword = await bcrypt.hash(check.newPassword, salt)
             console.log(hashedPassword)
             const upAdmin = await admin.updateOne({username : check.oldUsername}, {$set: {username: check.newUsername, password: hashedPassword}})
+
             console.log(upAdmin)
             return res.status(200).json("Credentials successfully updated")
 
