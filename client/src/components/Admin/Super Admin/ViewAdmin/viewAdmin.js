@@ -61,7 +61,7 @@ import Cookies from 'js-cookie'
     <div>
       <Navbar />
        <div className='major'>
-          <h1 className='h2 text' >COMPANY ADMINS</h1>
+          <h1 className='h2text' >COMPANY ADMINS</h1>
           <div className='mainContainer'>
               {data.map((employee)=>{
                 return (

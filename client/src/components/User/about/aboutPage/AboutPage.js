@@ -139,14 +139,14 @@ const AboutSection = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg, sm">
-        <div className="container-fluid">
+        <div className="container-fluid mentorcontainer-fluid">
           <h2 id="abt" >About </h2>
           <p id="up">Welcome to  H- Control, where luxury meets comfort and every detail is meticulously crafted to create an unforgettable experience 
           for our guests. Nestled in the heart of a vibrant city, our hotel offers a perfect blend of modern elegance and warm hospitality.</p>
         </div>
       </nav>
 
-      <div className="flex">
+      <div className="flex1">
         <div >
           <img className="car_up" src={image1} alt=""></img>
         </div>

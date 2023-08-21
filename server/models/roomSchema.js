@@ -5,6 +5,10 @@ const roomSchema = mongoose.Schema({
         type: String,
         require: true,
     },
+    roomID: {
+        type: String,
+        require: true,
+    },
     features: {
         type: String,
         require: true,

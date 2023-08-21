@@ -80,6 +80,7 @@ function ViewRooms() {
           <img src={item.images} className='roomImage' alt='room image'/>
           <div className='roomText'>
           <h4>Name: {item.name}</h4>
+          <p>ID: {item.roomID}</p>
           <p>Features: {item.features}</p>
           <div className='flexable'>
           <p>Price: {item.price}</p>

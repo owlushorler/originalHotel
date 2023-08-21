@@ -67,7 +67,7 @@ import jwt from "jwt-decode"
           <Navbar />
 
        <div className='major'>
-          <h1 className='h2 text' >COMPANY EMPLOYEES</h1>
+          <h1 className='h2text' >COMPANY EMPLOYEES</h1>
           <div className='container'>
               {data.map((employee)=>{
                 return (
