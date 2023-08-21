@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState} from 'react';
+import Axios from 'axios';
  
  import './contactPage.css';
  import banner from'./banner2.jpg';
@@ -21,31 +22,29 @@ import logo from './logo.png';
 import Nav2 from '../home/nav2/nav2';
 
 const ContactPage = () => {
-  <div>
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+     subject: "",
+     message: "",
+  });
 
-    
-<div className='banner-brand'>
-                   <div className='banner'>
-                   <img src={logo} alt="Hotel" />
+   const handleChange = (e) => {
+    const {name,value} = e.target;
+    setFormData((prevData) => ({...prevData, [name]: value}));
+   };
+  
+    const handleSubmit = async(e) => {
+      e.preventDefault();
 
-                         <p className='pop'>
-                    <h3>H-Control</h3>
-                 
-                        </p>
-                 </div>
+       try{
+        const response = await Axios.post('http://localhost:8000/api/submit', formData);
+        console.log(response.data);
+       } catch (error) {
+        console.error('Error submitting form:', error);
 
-                 
-          <nav className='navbar'>
-          <a href='#'><span style={{color:'gold'}}>HOME</span></a>
-          <a href='#'>ABOUT</a>
-          <a href='#'>ROOMS</a>
-          <a href='#'>PAGES</a>
-          <a href='#'>BLOG</a>
-          <a href='#'>CONTACT</a>
-           <button className='btn-1'>BOOK NOW </button>
-        </nav>
-        </div> 
-  </div>
+       }
+    };
 
   return (
     
@@ -109,12 +108,12 @@ const ContactPage = () => {
 
               <article className='article-1'>
                   <h6>Send us a Message </h6>
-                  <form className='form-1'>
-                   <input type="text" className='text' placeholder='Your Name'/>
-                   <input type="text" className='text'placeholder='Your Email'/> <br/>
-                   <input type="text" className='subject text'  name='subject'  placeholder='Subject'/> <br />
-                    <textarea className="text area" id="" cols="30" rows="10" placeholder='Your Message'></textarea> <br />
-                    <input type="submit" className='text submit' name='submit' value='SUBMIT NOW' />    
+                  <form onSubmit={handleSubmit} className='form-1'>
+                   <input type="text" name='name' value={formData.name} onChange={handleChange} className='text' placeholder='Your Name'/>
+                   <input type="email" name='email' value={formData.email} onChange={handleChange} className='text'placeholder='Your Email'/> <br/>
+                   <input type="text" name= 'subject' value={formData.subject} onChange={handleChange} className='subject text' placeholder='Subject'/> <br />
+                    <textarea name='message' value={formData.message} onChange={handleChange} className="text area" id="" cols="30" rows="10" placeholder='Your Message'></textarea> <br />
+                    <button type="submit" className='text submit'>Submit Now</button>    
                   </form>
                 </article> 
              

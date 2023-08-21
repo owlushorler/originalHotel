@@ -2,24 +2,49 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Arial, sans-serif;
 }
-.sh{
-    font-size: 40px;
+  .Sh{
+    text-align: center;
+    margin: 10px;
+    font-size: 25px;
+    margin: 15px;
+  }
+   .Stable{
+     width: 100%;
+     border-collapse: collapse;
+     margin-bottom: 10px;
+   }
+     th,td{
+        padding: 12px 6px ;
+        text-align: center;
+        border: 1px solid;
+     }
+     .Shead,th{
+        background-color: rgb(2, 2, 50);
+        color:#fff;
+     }
+     .Shead,th:hover{
+        cursor: pointer;
+        background-color:navy;
+        transition: 2s ease-out;
+     }
+/* .sh{ */
+    /* font-size: 40px;
     text-align: center;
     
     background-color: rgb(10, 10, 61);
     color: white;
-}
-.sbook{
+} */
+/* .sbook{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
      /* background-image: url('banner3.jpg'); */
-    background-color: rgb(231, 201, 127);
-    
+    /* background-color: rgb(231, 201, 127);
+     */
 
-}
-.Sinner{
+/* } */
+/* .Sinner{
    background-color: white;
    width: 24vw;
    height: 35vh;
@@ -32,10 +57,10 @@
    box-shadow: 0 0 10px 5px rgba(8, 11, 11, 0.5);
    
 
-}
-.Sinner:hover{
+} */
+/* .Sinner:hover{
   background-color:gold;
   transition: .5s ease-in-out;
-}
+} */
 
 

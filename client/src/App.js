@@ -44,7 +44,7 @@ function App() {
   // componentDidMount()
   return (
     <div>
-
+        <BOOKING/>
     <div className="App">
             {/* <Navbar /> */}
              
