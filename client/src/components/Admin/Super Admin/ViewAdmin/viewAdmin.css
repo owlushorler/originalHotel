@@ -15,11 +15,11 @@
     width: 100vw;
 }
 
-.major h1 {
+/* .major h1 {
     color: #d4af37;
     padding-bottom: 2rem;
     margin-left: 13%
-}
+} */
 
 .mainContainer {
     display: grid;

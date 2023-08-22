@@ -13,6 +13,7 @@ const addRoom = async (req, res) =>{
         const files = req.files
         const Room = await room.create({
             name: value.name,
+            roomID: value.roomID,
             features: value.features,
             images: req.file.path,
             capacity: value.capacity,

@@ -38,6 +38,7 @@ import Displa from './components/User/card/cartdip';
 
 
 
+
 function App() {
   // function componentDidMount() {
   //   // Initialize Bootstrap dropdowns
@@ -67,6 +68,7 @@ function App() {
             <Route path="/fac" element={<Fac/>} />
             <Route path="/contact" element={<ContactPage/>} />
             <Route path="/getbooking" element={ < BOOKING/>} />
+
             <Route path="/about" element={<About/>} />
             
             

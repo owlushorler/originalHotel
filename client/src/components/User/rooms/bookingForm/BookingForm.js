@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./bookingForm.css";
 import Nav2 from "../../home/nav2/nav2";
+import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
+import image from "../../../imagesfolder/H-Control.png"
 
 function BookingForm() {
   const navigate = useNavigate();
@@ -59,6 +61,35 @@ function BookingForm() {
     }
   };
 
+  const config = {
+    public_key: 'FLWPUBK_TEST-bfb72dfee9838067b6534dde08c337f2-X',
+    tx_ref: Date.now(),
+    amount: totalAmount,
+    currency: 'NGN',
+    payment_options: 'card,mobilemoney,ussd',
+    customer: {
+      email: email,
+      name: fullName
+    },
+    customizations: {
+      title: 'H-Control',
+      description: 'Payment for booking',
+      logo: image,
+    },
+  };
+
+  const fwConfig = {
+    ...config,
+    text: 'Pay with Flutterwave!',
+    callback: (response) => {
+       console.log(response);
+      closePaymentModal() // this will close the modal programmatically
+    },
+    onClose: () => {},
+  };
+
+  
+
   return (
     <>
       <Nav2 />
@@ -115,7 +146,7 @@ function BookingForm() {
           <p>Rent Per Day: ${rentPerDay}</p>
           <p>Total Amount: ${totalAmount}</p>
           <button type="submit" className="pay-now-button">
-            Pay Now
+          <FlutterWaveButton {...fwConfig} />
           </button>
         </form>
       </div>

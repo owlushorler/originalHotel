@@ -1,10 +1,11 @@
-.container-fluid {
+.mentorcontainer-fluid {
   background-image: url(../imagefolder/images/top1.jpg);
   background-repeat: no-repeat;
   height: 30vw;
   display: flex;
   flex-direction: row;
 }
+
 #up {
   width: 50rem;
   text-align: justify;
@@ -15,6 +16,7 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
+
 #abt {
   width: 50rem;
   text-align: center;
@@ -24,12 +26,14 @@
   padding-top: 6rem;
   font-family: 'Times New Roman', Times, serif;
 }
-.flex {
+
+.flex1 {
   display: flex;
   /* border: 1px solid; */
   padding: 0;
   margin-left: 5rem;
 }
+
 .ward {
   font-size: 1.6em;
   text-align: justify;
@@ -37,6 +41,7 @@
   font-weight: bold;
 
 }
+
 .car_up {
   height: 22rem;
   width: 20vw;
@@ -61,17 +66,20 @@
   width: 16vw;
   display: flex;
   flex-direction: column;
-  
+
 }
+
 .car2 img {
   width: 16vw;
   height: 10.5rem;
-  
+
 }
+
 .car3 {
   width: 16vw;
   height: 12rem;
 }
+
 .side {
   width: 33rem;
   height: 20rem;
@@ -85,17 +93,20 @@
   height: 3rem;
   margin-left: 1rem;
 }
+
 .client {
   display: flex;
   justify-content: space-between;
   margin-left: 2rem;
   margin-right: 2rem;
 }
+
 .phone {
   width: 2rem;
   height: 2rem;
   /* margin-top: 5.5rem; */
 }
+
 .word {
   background-color: #d4af37;
   border-style: none;
@@ -108,6 +119,7 @@
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.3rem;
 }
+
 .word:hover {
   background-color: #d4af;
 }
@@ -118,12 +130,14 @@
   justify-content: space-evenly;
   /* color: #d4af37; */
 }
+
 .we {
   margin-left: 1.5rem;
   font-size: 14px;
   font-family: 'Times New Roman', Times, serif;
   margin-bottom: -1rem;
 }
+
 .w {
   font-size: 14px;
   margin-left: 0.7rem;
@@ -131,6 +145,7 @@
   padding-top: -2.5rem;
   font-family: 'Times New Roman', Times, serif;
 }
+
 .four_cards {
   /* display: flex; */
   background-color: beige;
@@ -140,6 +155,7 @@
   margin-bottom: 2rem;
   /* padding: 5rem; */
 }
+
 .base2 {
   height: 5rem;
   font-size: 0.8rem;
@@ -148,6 +164,7 @@
   margin-top: 2rem;
   padding: 2rem;
 }
+
 .war {
   text-align: justify;
   width: 35rem;
@@ -155,15 +172,18 @@
   margin-top: 1rem;
   font-size: 1rem;
   font-family: 'Times New Roman', Times, serif;
-  
- 
+
+
 }
-.wa{
-  padding: -2rem; 
+
+.wa {
+  padding: -2rem;
 }
-.wad{
+
+.wad {
   padding-top: -2rem;
 }
+
 .box {
   /* background-color: white; */
   font-size: 7px;
@@ -176,31 +196,33 @@
   justify-content: center;
   margin-top: -6rem;
   margin-left: 15rem;
-  gap:3rem;
+  gap: 3rem;
 }
+
 .bos {
-  margin-bottom: 25rem; 
-   position: relative;
-   background-color:aliceblue;
-  width:10rem;
+  margin-bottom: 25rem;
+  position: relative;
+  background-color: aliceblue;
+  width: 10rem;
   height: 11rem;
   padding-top: -3rem;
 }
-.down{
+
+.down {
   width: 5rem;
   margin-left: 3rem;
   margin-top: 1rem;
   height: 4rem;
-  
+
 }
 
-.say{
+.say {
   font-size: 0.88rem;
- font-family: Georgia, 'Times New Roman', Times, serif;
- text-align: center;
- margin-top: 0.9rem;
- padding: auto;
- 
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  margin-top: 0.9rem;
+  padding: auto;
+
 }
 
 /* /* AboutApp.css */
@@ -209,9 +231,11 @@
 
 /* Media queries */
 @media screen and (max-width: 768px) {
+
   /* Styles for screens up to 768px wide */
   .card_up {
-    width: 90vw; /* Adjust the width for smaller screens */
+    width: 90vw;
+    /* Adjust the width for smaller screens */
     height: auto;
   }
 
@@ -241,6 +265,7 @@
 }
 
 @media screen and (max-width: 576px) {
+
   /* Styles for screens up to 576px wide */
   .side {
     font-size: 0.8rem;

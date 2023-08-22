@@ -9,13 +9,15 @@ import Cookies from 'js-cookie'
 
 
 import "./addRoom.css";
+import Navbar from "../Primary Page/navbar";
 
 function AddRooms() {
   const [roomName, setRoomName] = useState("");
-  const [roomType, setRoomType] = useState("");
+  const [roomID, setRoomID] = useState("");
   const [capacity, setCapacity] = useState("");
   const [features, setFeatures] = useState([]);
   const [price, setPrice] = useState("");
+  const [reply, setReply] = useState("")
   const [selectedImages, setSelectedImages] = useState('');
   const navigate = useNavigate();
     
@@ -40,6 +42,7 @@ function AddRooms() {
 
   const handleAddRoom = async (event) => {
     if (
+      roomID === "" ||
       roomName === "" ||
       capacity <= 0 
       // selectedImages.length === 0
@@ -61,9 +64,11 @@ function AddRooms() {
     const formData = new FormData()
         formData.append("name", roomName)
         formData.append("capacity", capacity)
+        formData.append("roomID", roomID)
         formData.append("features", features)
         formData.append("price", price)
         formData.append("file", selectedImages)
+
 // console.log(formData.get("name"))
 // console.log(formData.get("file"))
     // try {
@@ -90,21 +95,23 @@ function AddRooms() {
 
 axios.post("http://localhost:5002/api/rooms", formData)
 .then((res)=> {
-  if(res.ok){
+  if(res.status === 201){
     // console.log(res)
-    // setReply(res.data)
-    // alert(reply)
+    setReply(res.data)
+    console.log(reply)
+    alert(reply)
     navigate('/rooms')
   } else {
-    // setReply(res.data)
-    navigate('/rooms')
+    setReply(res.data)
+    alert(reply)
+
   }
 })
 .catch(err=> console.log(err))
 
 
 setRoomName("");
-setRoomType("");
+setRoomID("");
 setCapacity("");
 setFeatures([]);
 setPrice("");
@@ -113,9 +120,20 @@ setSelectedImages("");
 }
   return (
     <>
-      <h2>Add New Room</h2>
+    <Navbar />
+    <div className='major'>
+      <h1 className='addroomh2'>Add New Room</h1>
       <div className="add-room-container">
         <form className="add-room-form" encType="multipart/form-data">
+            <div className="form-group">
+              <label>Room ID:</label>
+              <input
+                type="text"
+                value={roomID}
+                onChange={(e) => setRoomID(e.target.value)}
+              />
+            </div>
+            <div className="depart1">
           <div className="form-group">
             <label>Room Name:</label>
             <input
@@ -124,21 +142,17 @@ setSelectedImages("");
               onChange={(e) => setRoomName(e.target.value)}
             />
           </div>
-          {/* <div className="form-group">
-            <label>Room Type:</label>
-            <input
-              type="text"
-              value={roomType}
-              onChange={(e) => setRoomType(e.target.value)}
-            />
-          </div> */}
           <div className="form-group">
             <label>Capacity:</label>
             <input
               type="number"
               value={capacity}
+              min="2"
+              max="4"
+              placeholder="2"
               onChange={(e) => setCapacity(e.target.value)}
             />
+          </div>
           </div>
           <div className="form-group">
             <label>Room Features:</label>
@@ -146,10 +160,10 @@ setSelectedImages("");
               {[
                 "WiFi",
                 "TV",
-                "Air Conditioning",
                 "Mini Fridge",
-                "Room Service",
                 "Desk",
+                "Air Conditioning",
+                "Room Service",
                 "Special Requests",
               ].map((feature) => (
                 <label key={feature}>
@@ -192,12 +206,15 @@ setSelectedImages("");
             <input
               type="file"
               onChange={handleImageUpload}
+              className="imageInput"
             />
           </div>
           <button className="newRoom-btn" type="button" onClick={handleAddRoom}>
             Add Room
           </button>
         </form>
+        {reply && (<p>{reply}</p>)}
+      </div>
       </div>
     </>
   );
