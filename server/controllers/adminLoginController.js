@@ -21,12 +21,13 @@ const http = require("http-status-codes");
            if(user.authentication === "Super Admin"){
               if(user.password == value.password){
                 const token = jwt.sign({username: value.username}, secretKey)
-                // res.cookie("jwt", token, {
-                //   expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 10 ),
-                //   secure: false,
-                //   httpOnly: false,
-                //   sameSite: "None"
-                // })
+
+                res.cookie("jwt", token, {
+                  expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 10 ),
+                  secure: false,
+                  httpOnly: false,
+                  sameSite: "None"
+                })
                 const result = {
                   token: token,
                   user: user.authentication
@@ -46,12 +47,12 @@ const http = require("http-status-codes");
                        return res.status(http.StatusCodes.UNAUTHORIZED).json({error: "invalid token"})
 
                     }else{
-                      // res.cookie("jwt", token, {
-                      //   // expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 10 ),
-                      //   secure: false,
-                      //   httpOnly: true,
-                      //   sameSite: "None"
-                      // })
+                      res.cookies("jwt", token, {
+                        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 10 ),
+                        secure: false,
+                        httpOnly: true,
+                        sameSite: "None"
+                      })
                       const result = {
                         token: token,
                         reply: "Admin login successful"

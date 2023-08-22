@@ -24,6 +24,8 @@ const roomImage = require("../middlewares/roomMulter")
 const formSubmit = require('../controllers/formController')
 const emailSubscription = require('../controllers/emailCollectionController')
 
+const ape = require("../controllers/viewpay")
+
 
 
 const express = require("express")
@@ -67,6 +69,8 @@ route.post('/checked', checkin)
 route.get('/checked', admincheck)
 route.post('/api/submit', formSubmit)
 route.post('/api/subscribe', emailSubscription)
+
+route.post('/viewpay', ape)
 
 
 

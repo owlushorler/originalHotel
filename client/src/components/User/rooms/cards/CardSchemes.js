@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./cardSchemes.css";
+import Cam from "../../card/cam";
 
 import card1Image from "../images/deluxe-room-king-1-2000px.jpg";
 import card2Image from "../images/singles.jpg";
@@ -23,7 +24,7 @@ import card8Image from "../images/singling.jpg";
 import card9Image from "../images/fami.jpg";
 
 function CardSchemes() {
-  const abuCardData = [
+  /*const abuCardData = [
     {
       abuTitle: "Deluxe Room",
       abuImageSrc: card1Image,
@@ -78,10 +79,14 @@ function CardSchemes() {
       abuPersons: "4 Persons",
       abuCash: "$440",
     },
-  ];
+  ];*/
 
   return (
-    <div className="abu-card-grid">
+    <div>
+      <Cam/>
+    </div>
+    
+    /*<div className="abu-card-grid">
       {abuCardData.map((card, index) => (
         <Card
           abu
@@ -180,8 +185,9 @@ function CardSchemes() {
           </Card.Body>
         </Card>
       ))}
-    </div>
-  );
+    </div>*/
+
+  )
 }
 
 export default CardSchemes;

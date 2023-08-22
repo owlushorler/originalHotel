@@ -6,8 +6,8 @@
 
 
 .roomCard {
-    width: 18rem;
-    max-height: 20rem;
+    width: 16rem;
+    max-height: 28rem;
     margin: 1rem;
     /* padding: 1rem; */
     color: #d4af37;
@@ -40,32 +40,47 @@
 .roomText h4 {
     /* border: 1px solid; */
     margin-top: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .roomText p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .yunContainer {
     background-image: linear-gradient(to right bottom, rgba(54, 48, 30, 0.699), #77777788), url("../../../imagesfolder/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh;
+    /* height: auto; */
+    /* min-height: 180vh; */
     position: relative;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
 }
 
 .yunContain {
     display: flex;
     flex-wrap: wrap;
+    margin: 2.5rem auto 1rem auto;
+    /* border: 1px solid; */
+    width: 92vw;
+    /* min-height: 100vh; */
 }
 
-.yunBin {
-    width: 1.5rem;
-    /* position: absolute; */
-    /* margin-top: -15.5rem; */
-    float: right;
-    margin-right: 1rem;
-    cursor: pointer;
+.myNav {
+    top: 0;
+}
+
+.flexable {
+    display: flex;
+    justify-content: space-between;
     /* border: 1px solid; */
+    width: 70%
+}
+
+.flexable1 {
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid; */
+    width: 90%
 }

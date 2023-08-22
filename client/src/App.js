@@ -4,6 +4,7 @@ import AddEmployee from './components/Admin/Admin/Employee/AddEmployee/addEmploy
 import PrimaryPageSuper from './components/Admin/Super Admin/Primary Page/primaryPage';
 import PrimaryPage from './components/Admin/Admin/Primary Page/primaryPage2';
 import ViewRooms from './components/Admin/Admin/Rooms/viewRooms';
+import ViewCustomers from "./components/Admin/Admin/customers/ViewCustomers";
 import SuperAdmin from './components/Admin/Admin/Login/SuperAdmin';
 import ViewEmployeeCard from './components/Admin/Admin/Employee/EmployeeCard';
 // import NavBar from './components/User/Landing Page/Navbar';
@@ -31,7 +32,11 @@ import ChangePassword from './components/Admin/Admin/Login/ChangeUsername';
 import AddRooms from './components/Admin/Admin/Rooms/AddRoom';
 
 import BOOKING from './components/Admin/Admin/Bookings/booking';
-import About from './components/User/about/about';
+import About from './components/User/about/about'
+import Cam from './components/User/card/cam';
+
+import Displa from './components/User/card/cartdip';
+
 
 
 
@@ -44,6 +49,7 @@ function App() {
   // componentDidMount()
   return (
     <div>
+
         <BOOKING />
         
     <div className="App">
@@ -106,7 +112,7 @@ function App() {
           
         </div>
 
-        </div>
+
   );
 }
 

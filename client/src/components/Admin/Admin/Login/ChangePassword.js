@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./changePassword.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { faLock, faUser } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios"
 import jwt from 'jwt-decode'
 import Cookies from 'js-cookie'
@@ -51,14 +51,12 @@ function  ChangeUsername() {
       axios.put(`http://localhost:5002/api/admin`, user)
       .then((res)=>{
         console.log(res)
-
-        setError(res.data.error)
         navigate('/login')
       })
       ;
 
 
-      setError("Password changed successfully!");
+      
       setOldPassword("");
       setNewPassword("");
       setConfirmPassword("");
@@ -66,6 +64,7 @@ function  ChangeUsername() {
   
     } catch (error) {
       console.error('Error deleting item:', error);
+      setError(error.message)
     }
 
 
@@ -74,8 +73,8 @@ function  ChangeUsername() {
   return (
     <>
     <div className="major">
-      <h2 className="loginTitle">Change Username</h2>
-    <div className="login">
+      <h2 className="uloginTitle">Change Username</h2>
+    <div className="ulogin">
 
       <form className="loginForm" onSubmit={handleChangePassword}>
 
@@ -90,7 +89,7 @@ function  ChangeUsername() {
             readOnly
 
           />
-          <FontAwesomeIcon icon={faLock} className="inputIcon" />
+          <FontAwesomeIcon icon={faUser} className="inputIcon" />
         </div>
 
         <label className="white">New Username</label>
@@ -105,7 +104,7 @@ function  ChangeUsername() {
             value={newUsername}
             onChange={(e) => setNewUsername(e.target.value)}
           />
-          <FontAwesomeIcon icon={faLock} className="inputIcon" />
+          <FontAwesomeIcon icon={faUser} className="inputIcon" />
         </div>
 
         <label className="white">Old Password</label>
