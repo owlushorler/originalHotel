@@ -4,6 +4,7 @@ import AddEmployee from './components/Admin/Admin/Employee/AddEmployee/addEmploy
 import PrimaryPageSuper from './components/Admin/Super Admin/Primary Page/primaryPage';
 import PrimaryPage from './components/Admin/Admin/Primary Page/primaryPage2';
 import ViewRooms from './components/Admin/Admin/Rooms/viewRooms';
+//import ViewCustomers from "./components/Admin/Admin/customers/ViewCustomers";
 import SuperAdmin from './components/Admin/Admin/Login/SuperAdmin';
 import ViewEmployeeCard from './components/Admin/Admin/Employee/EmployeeCard';
 // import NavBar from './components/User/Landing Page/Navbar';
@@ -31,7 +32,11 @@ import ChangePassword from './components/Admin/Admin/Login/ChangeUsername';
 import AddRooms from './components/Admin/Admin/Rooms/AddRoom';
 
 import BOOKING from './components/Admin/Admin/Bookings/booking';
-import About from './components/User/about/about';
+import About from './components/User/about/about'
+import Cam from './components/User/card/cam';
+
+import Displa from './components/User/card/cartdip';
+
 
 
 
@@ -45,6 +50,8 @@ function App() {
   return (
     <div>
 
+       {/* <BOOKING />*/}
+        
     <div className="App">
             {/* <Navbar /> */}
              
@@ -59,12 +66,13 @@ function App() {
             {/*USER ROUT */}
             <Route path="/" element={< Nav3/>} />
             <Route path="/room" element={< Rooms/>} />
-            {/* <Route path="/about" element={< About/>} /> */}
+            <Route path="/about" element={< About/>} /> 
             <Route path="/booking" element={<BookingForm/>} />
             <Route path="/fac" element={<Fac/>} />
             <Route path="/contact" element={<ContactPage/>} />
             <Route path="/getbooking" element={ < BOOKING/>} />
              <Route path="/about" element={<About/>} />
+             <Route path="/VIEBOOKING" element={< BOOKING/>} />
             
             
 
@@ -83,7 +91,7 @@ function App() {
                 <Route path="/changePassword" element={<ChangePassword />} />
 
                 <Route path="/addRoom" element={<AddRooms/>}/>
-
+ 
 
 
             </Routes>
@@ -104,8 +112,9 @@ function App() {
       </Router>
           
         </div>
-
         </div>
+
+
   );
 }
 
