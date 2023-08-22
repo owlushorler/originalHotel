@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Axios from 'axios';
+import axios from 'axios';
  
  import './contactPage.css';
  import banner from'./banner2.jpg';
@@ -29,28 +29,48 @@ const ContactPage = () => {
      message: "",
   });
 
+  const [emailData, setEmailData] = useState('');
+    
+
    const handleChange = (e) => {
     const {name,value} = e.target;
     setFormData((prevData) => ({...prevData, [name]: value}));
+     
+     
    };
   
     const handleSubmit = async(e) => {
       e.preventDefault();
 
        try{
-        const response = await Axios.post('http://localhost:8000/api/submit', formData);
+        const response = await axios.post('http://localhost:8000/api/submit', formData);
         console.log(response.data);
        } catch (error) {
         console.error('Error submitting form:', error);
 
        }
-    };
+      };  
+
+        const handleEmailSubmit = async(e) => {
+          e.preventDefault();
+
+          try {
+             await axios.post('http://localhost:8000/api/subscribe', {email: emailData});
+
+              console.log('Subscription email sent successfully:', emailData);
+               setEmailData('');
+          } catch (error) {
+            console.log('Error sending subscription email:',error);
+          }
+        };
+      
+    
 
   return (
     
     <div>
-      <Nav2/>
-      <header className='header-nav'>
+           <Nav2/>
+           <header className='header-nav'>
          
 
         </header>
@@ -120,13 +140,15 @@ const ContactPage = () => {
           </div>
          </div>
 
+
+         {/* <emailSubscription/> */}
         <div className="form2">
             <h6 className='p2'> GET UPDATE</h6>
               <h6 className='p2'>Get Latest Updates And Deals</h6>
 
-             <form className='task'>
-               <input type="text" className='text1' placeholder='Enter your Email'/>
-                <button className='button2'>SUBSCRIBE</button>
+             <form onSubmit={handleEmailSubmit} className='task'>
+               <input type="email" value={emailData} onChange={(e) => setEmailData(e.target.value)} className='text1' placeholder='Enter your Email' />
+                <button type='submit' className='button2'>SUBSCRIBE</button>
              </form>
         </div>
 
