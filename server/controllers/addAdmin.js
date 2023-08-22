@@ -1,7 +1,7 @@
 const http = require("http-status-codes")
 const adminJoi = require("../validators/adminJoi")
 const admin = require("../models/adminSchema")
-const bcrypt = require("bcrypt")
+//const bcrypt = require("bcrypt")
 
 
 const addAdmin = async (req, res, next) =>{
