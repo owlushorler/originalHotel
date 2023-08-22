@@ -15,8 +15,10 @@ function AddEmployee (){
     const [input1, setInput1] = useState("")
     const [input2, setInput2] = useState("")
     const [image, setImage] = useState("")
+    const [reply, setReply] = useState("")
     const [isLoggedIn, setIsLoggedIn]= useState(token !== undefined)
     const navigate = useNavigate();
+    const [error, setError] = useState("")
     
     
     const handleChangeDepart = (e)=>{
@@ -36,6 +38,7 @@ function AddEmployee (){
     }
 
 
+    // console.log('am also working');
     
     const handleSubmit = async (event) =>{
         event.preventDefault()
@@ -54,33 +57,29 @@ function AddEmployee (){
         formData.append("department", department)
         formData.append("age", age)
         formData.append("file", image)
-        // let dta = await fetch("http://localhost:5002/employee/addEmployee", {
-        //         method: "post",
-        //         headers:{
-        //                 "Content-Type": "application/json"
-        //             },
-        //         body: JSON.stringify(employeeData)
-        //         }).then(response=>response.json()).then(data=>{
-        //                 console.log(data)
-        //             })
-        //             // this.setState({ image: event.target.files[0] });
-        //             console.log(dta)
-        //         }
 
-        axios.post("http://localhost:5002/employee/addEmployee", formData)
+        
+        axios.post("http://localhost:5002/api/employees", formData)
          .then((res)=> {
-            console.log(res)
-            navigate('/employees')
+            if(res.ok){
+                console.log(res)
+                setReply(res.data)
+            } else {
+                alert("Employee successfully added")
+                navigate('/employees')
+                setReply(res.data)
+                // navigate('/employees')
+            }
          })
          .catch(err=> console.log(err))
     }
-        // console.log(employeeData) 
+    //     // console.log(employeeData) 
 
     return (
         <>
+                <Navbar />
         {isLoggedIn ? (
             <div>
-                <Navbar />
             <div className="container-fluid contain ">
                     <h1>ADD EMPLOYEE</h1>
                 <div className="formHolder ">
@@ -97,7 +96,7 @@ function AddEmployee (){
                                         <option value="Kitchen">Kitchen</option>
                                         <option value="Bar">Bar</option>
                                     </select>
-                                    <label>Age</label>
+                                    <label className="lab">Age</label>
                                     <input className="ageInput" type="number" min="18" max= "65" placeholder="18"  onChange={handleChangeAge}/>
                                 </div>
                                 <input className="fileInput" type="file" onChange={handleImage} />
@@ -106,6 +105,8 @@ function AddEmployee (){
                         </div>
                     </form>
                 </div>
+               {reply && <p className="reply">{reply}</p>}
+                {error && <div className="error-message">{error}</div>}
             </div>
             </div>
         ) :  (
@@ -117,5 +118,6 @@ function AddEmployee (){
         </>
     )
 }
+
 
 export default AddEmployee

@@ -5,15 +5,16 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import "./dropdownCollection.css";
 
-function DropdownCollection() {
+function DropdownCollection(prop) {
+  const {ca}=prop
   const [checkInDate, setCheckInDate] = useState(new Date());
   const [checkOutDate, setCheckOutDate] = useState(new Date());
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [roomType, setRoomType] = useState("Deluxe Room");
   const [availabilityMessage, setAvailabilityMessage] = useState("");
-
-  const handleCheckAvailability = async () => {
+const [see, setsee]=useState()
+  {/*const handleCheckAvailability = async () => {
     if (checkInDate && checkOutDate) {
       try {
         const response = await fetchAvailabilityData(
@@ -60,7 +61,7 @@ function DropdownCollection() {
     const data = await response.json();
 
     return data;
-  };
+  };*/}
   return (
     <div className="abu-dropdown-collection">
       <div className="abu-drop-con">
@@ -82,7 +83,7 @@ function DropdownCollection() {
             minDate={checkInDate}
           />
         </div>
-        <div>
+      {/*}  <div>
           <label htmlFor="adults">Adults:</label>
           <select
             id="adults"
@@ -94,7 +95,7 @@ function DropdownCollection() {
             <option value="3">3</option>
             <option value="4">4</option>
           </select>
-        </div>
+  </div>
         <div>
           <label htmlFor="children">Children:</label>
           <select
@@ -110,14 +111,16 @@ function DropdownCollection() {
             <option value="6">6</option>
             <option value="7">7</option>
           </select>{" "}
-        </div>
+        </div>*/}
         <div>
           <label htmlFor="roomType">Room:</label>
           <select
             id="roomType"
-            value={roomType}
-            onChange={(e) => setRoomType(e.target.value)}
-          >
+            //value={roomType}
+            onChange={(e) => setsee(e.target.value)}
+            >
+          
+            <option value="lawal">lawal</option>
             <option value="Deluxe Room">Deluxe Room</option>
             <option value="Family Room">Family Room</option>
             <option value="Couple Room">Couple Room</option>
@@ -131,20 +134,23 @@ function DropdownCollection() {
             // color: "black",
             border: "none",
             cursor: "pointer",
-
-            marginTop: "10px",
+            height:"3vw",
+            marginTop:"-.3vw",
+            marginLeft:"4vw",
+            //marginTop: "10px",
             borderRadius: "3px",
             fontSize: "14px",
             fontFamily: "'Montserrat', sans-serif",
             transition: "backgroundColor 0.3s",
             fontWeight: "400",
           }}
-          onClick={handleCheckAvailability}
+          onClick={()=>{ca(see)}}
+         // onClick={handleCheckAvailability}
         >
           CHECK AVAILABILITY
         </button>
       </div>
-      <div className="abu-availability">{availabilityMessage}</div>{" "}
+      <div className="abu-availability"></div>{" "}
     </div>
   );
 }

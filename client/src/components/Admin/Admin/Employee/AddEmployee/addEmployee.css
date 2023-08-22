@@ -43,7 +43,7 @@ body {
 
 .depart {
     display: flex;
-    /* border: 1px solid; */
+    border: 1px solid;
     width: 30vw;
     margin-bottom: 0.6rem;
 }
@@ -95,7 +95,7 @@ body {
     padding-left: 0.5rem;
 }
 
-label {
+.lab {
     color: #fff
 }
 
@@ -153,6 +153,10 @@ option {
     margin-bottom: 1.5rem;
     /* padding-left: 1rem; */
     width: 30vw;
+}
+
+.reply{
+    color:#d4af37
 }
 
 

@@ -6,6 +6,9 @@ const loginAdmin = require("../controllers/adminLoginController")
 const deleteAdmin = require("../controllers/deleteAdmin")
 const deleteEmployee = require("../controllers/deleteEmployeeByIdController")
 const deleteRoom = require("../controllers/deleteRooms")
+const updateAdmin = require("../controllers/updateAdmin")
+const updateEmployee = require("../controllers/updateEmployee")
+const updateRoom = require("../controllers/updateRoom")
 const getAdmin = require("../controllers/viewAdmins")
 const getEmployees = require("../controllers/viewEmployees")
 const getRooms = require("../controllers/viewRooms")
@@ -16,36 +19,56 @@ const pasDel = require('../controllers/chanPass')
 const {checkin} = require('../controllers/checkin')
 const {admincheck} = require('../controllers/checkin')
 
+const roomImage = require("../middlewares/roomMulter")
+
+const formSubmit = require('../controllers/formController')
+
+const ape = require("../controllers/viewpay")
+
+
+
 const express = require("express")
+// const room = require("../models/roomSchema")
 const route = express.Router()
 
-route.post("/superAdmin/addAdmin", addAdmin, mailer)
+route.post("/api/admin", addAdmin, mailer)
 
-route.post("/employee/addEmployee", upload.single("file") , addEmployee)
+route.post("/api/employees", upload.single("file") , addEmployee)
 
-route.get("/rooms", getRooms)
+route.post("/api/rooms", roomImage.single("file"), addRoom)
 
-route.delete("/rooms/:id", deleteRoom)
+route.get("/api/rooms", getRooms)
 
-route.get("/superAdmin/viewAdmins", getAdmin)
+route.delete("/api/rooms/:_id", deleteRoom)
 
-route.delete("/superAdmin/viewAdmins/:_id", deleteAdmin)
+route.get("/api/admins", getAdmin)
 
-route.post("/login", loginAdmin)
+route.delete("/api/admins/:_id", deleteAdmin)
 
-route.post("/admin/customers/addCustomer", addCustomers)
+route.post("/api/login", loginAdmin)
 
-route.post("rooms/addRooms", upload.array("images", 8), addRoom)
+route.post("/api/customers", addCustomers)
 
-route.get("/admin/viewEmployees", getEmployees)
+// route.post("/api/rooms", upload.array("selectedImages", 8), addRoom)
 
-route.delete("/admin/viewEmployees/:_id", deleteEmployee)
+route.get("/api/employees", getEmployees)
+
+route.delete("/api/employees/:_id", deleteEmployee)
+
+route.put("/api/employees", updateEmployee)
+
+route.put("/api/admin", updateAdmin)
+
+route.put("/api/rooms", updateRoom)
 
 route.put('/passChange', pasDel)
 
 route.post('/checked', checkin)
 
 route.get('/checked', admincheck)
+route.post('/submit', formSubmit)
+
+route.post('/viewpay', ape)
 
 
 

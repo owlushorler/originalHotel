@@ -1,20 +1,34 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios"
+// import "./addEmployee.css"
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie'
+// import SuperAdmin from "../../Login/SuperAdmin";
+// import Navbar from "../../Primary Page/navbar";
+
+
 import "./addRoom.css";
+import Navbar from "../Primary Page/navbar";
 
 function AddRooms() {
   const [roomName, setRoomName] = useState("");
-  const [roomType, setRoomType] = useState("");
+  const [roomID, setRoomID] = useState("");
   const [capacity, setCapacity] = useState("");
   const [features, setFeatures] = useState([]);
   const [price, setPrice] = useState("");
-  const [selectedImages, setSelectedImages] = useState([]);
+  const [reply, setReply] = useState("")
+  const [selectedImages, setSelectedImages] = useState('');
+  const navigate = useNavigate();
+    
 
   const handleImageUpload = (e) => {
-    const files = e.target.files;
-    if (files) {
-      const imagesArray = Array.from(files).slice(0, 6);
-      setSelectedImages(imagesArray);
-    }
+    setSelectedImages(e.target.files[0]);
+    // if (files) {
+    //   const imagesArray = Array.from(files).slice(0, 6);
+    //   setSelectedImages(imagesArray);
+    // }
+
   };
 
   const handleFeatureChange = (feature) => {
@@ -26,57 +40,100 @@ function AddRooms() {
   };
   console.log(features);
 
-  const handleAddRoom = async () => {
+  const handleAddRoom = async (event) => {
     if (
+      roomID === "" ||
       roomName === "" ||
-      roomType === "" ||
-      capacity <= 0 ||
-      selectedImages.length === 0
-    ) {
-      console.error("Please fill in all fields and provide at least one image");
-      return;
-    }
-
-    const newRoom = {
-      roomName,
-      roomType,
-      capacity,
-      features,
-      price,
-      selectedImages: selectedImages.map((image) => image.name),
-    };
-
-    try {
-      const response = await fetch("/api/addRoom", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newRoom),
-      });
-
-      if (response.ok) {
-        console.log("Room added successfully");
-
-        setRoomName("");
-        setRoomType("");
-        setCapacity("");
-        setFeatures([]);
-        setPrice("");
-        setSelectedImages([]);
-      } else {
-        console.error("Failed to add room");
+      capacity <= 0 
+      // selectedImages.length === 0
+      ) {
+        console.error("Please fill in all fields and provide at least one image");
+        return;
       }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
+      
+      event.preventDefault()
+    // const newRoom = {
+    //   roomName,
+    //   roomType,
+    //   capacity,
+    //   features,
+    //   price,
+    //   selectedImages,
+    // };
 
+    const formData = new FormData()
+        formData.append("name", roomName)
+        formData.append("capacity", capacity)
+        formData.append("roomID", roomID)
+        formData.append("features", features)
+        formData.append("price", price)
+        formData.append("file", selectedImages)
+
+// console.log(formData.get("name"))
+// console.log(formData.get("file"))
+    // try {
+    //   const response = await fetch("http://localhost:5002/api/rooms", {
+    //     method: "POST",
+    //     withCredentials: 'include',
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(formData),
+    //     // body: formData
+    //   });
+
+    //   if (response.ok) {
+    //     console.log("Room added successfully");
+
+//   } else {
+//     console.error("Failed to add room");
+//   }
+// } catch (error) {
+//   console.error("Error:", error);
+// }
+// };
+
+axios.post("http://localhost:5002/api/rooms", formData)
+.then((res)=> {
+  if(res.status === 201){
+    // console.log(res)
+    setReply(res.data)
+    console.log(reply)
+    alert(reply)
+    navigate('/rooms')
+  } else {
+    setReply(res.data)
+    alert(reply)
+
+  }
+})
+.catch(err=> console.log(err))
+
+
+setRoomName("");
+setRoomID("");
+setCapacity("");
+setFeatures([]);
+setPrice("");
+setSelectedImages("");
+
+}
   return (
     <>
-      <h2>Add New Room</h2>
+    <Navbar />
+    <div className='major'>
+      <h1 className='addroomh2'>Add New Room</h1>
       <div className="add-room-container">
-        <form className="add-room-form">
+        <form className="add-room-form" encType="multipart/form-data">
+            <div className="form-group">
+              <label>Room ID:</label>
+              <input
+                type="text"
+                value={roomID}
+                onChange={(e) => setRoomID(e.target.value)}
+              />
+            </div>
+            <div className="depart1">
           <div className="form-group">
             <label>Room Name:</label>
             <input
@@ -86,20 +143,16 @@ function AddRooms() {
             />
           </div>
           <div className="form-group">
-            <label>Room Type:</label>
-            <input
-              type="text"
-              value={roomType}
-              onChange={(e) => setRoomType(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
             <label>Capacity:</label>
             <input
               type="number"
               value={capacity}
+              min="2"
+              max="4"
+              placeholder="2"
               onChange={(e) => setCapacity(e.target.value)}
             />
+          </div>
           </div>
           <div className="form-group">
             <label>Room Features:</label>
@@ -107,10 +160,10 @@ function AddRooms() {
               {[
                 "WiFi",
                 "TV",
-                "Air Conditioning",
                 "Mini Fridge",
-                "Room Service",
                 "Desk",
+                "Air Conditioning",
+                "Room Service",
                 "Special Requests",
               ].map((feature) => (
                 <label key={feature}>
@@ -133,7 +186,7 @@ function AddRooms() {
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Room Images:</label>
             <input
               type="file"
@@ -146,11 +199,22 @@ function AddRooms() {
                 <li key={index}>{image.name}</li>
               ))}
             </ul>
+          </div> */}
+
+          <div className="form-group">
+            <label>Room Images:</label>
+            <input
+              type="file"
+              onChange={handleImageUpload}
+              className="imageInput"
+            />
           </div>
           <button className="newRoom-btn" type="button" onClick={handleAddRoom}>
             Add Room
           </button>
         </form>
+        {reply && (<p>{reply}</p>)}
+      </div>
       </div>
     </>
   );

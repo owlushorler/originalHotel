@@ -6,21 +6,30 @@
     /* overflow-x   : hidden; */
 }
 
+.yungest {
+    width: 100vw;
+}
+
 .major {
     background-image: linear-gradient(to right bottom, rgba(54, 48, 30, 0.699), #77777788), url("../../../imagesfolder/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    padding-top: 0.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     min-height: 100vh;
-    width: 100vw;
+    max-width: 100vw;
+
 }
 
-.major h1 {
+.h2text {
+    /* border: 10px solid; */
     color: #d4af37;
     padding-bottom: 2rem;
+    margin-left: 30%;
+    width: 40vw;
 }
 
-.container {
+.empcontainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 3rem;
@@ -28,16 +37,8 @@
     font-size: 0.5rem;
     width: 100vw;
     /* background-color: rgba(21, 17, 5, 0.4); */
+    margin-bottom: 2rem;
     /* border: 1px solid; */
-    margin-bottom: 6rem;
-    /* display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    overflow: hidden;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    width: 95vw; */
 }
 
 .employeeimage {
@@ -72,16 +73,19 @@
 }
 
 .cardButton {
-    width: 5rem;
-    margin: auto;
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
     background-color: #d4af37;
     border: none;
     border-radius: 10px;
+    font-size: 0.7rem;
+    padding: 0;
 }
 
 .cardButton:hover {
     background-color: white;
-    color: #d4af37;
+    color: #3f330a;
     outline: none;
     transition: 1s;
 }
@@ -94,20 +98,50 @@
 .addEmployeeBtn {
     width: 8rem;
     height: 2rem;
-    margin-left: 45%;
     background-color: #d4af37;
     border: none;
     border-radius: 10px;
     color: #fff;
-    bottom: auto;
+    /* bottom: auto; */
+    /* position: absolute; */
+    /* top: 95%; */
+    margin-left: 45%;
+    /* margin-top: 2rem; */
+    margin-bottom: 2rem;
+
+    /* transform: translate(-50%, -50%); */
 }
 
 .addEmployeeBtn:hover {
     background-color: white;
-    color: #d4af37;
+    color: #3f330a;
     outline: none;
     transition: 1s;
 }
+
+.modalInput {
+    width: 30vw;
+    height: 2rem;
+    font-size: 1rem;
+    padding-left: 0.5rem;
+    border-radius: 10px;
+    background: transparent;
+    color: #d4af37;
+    border: 2px solid #d4af37;
+}
+
+.modalBodyYun {
+    background-color: rgba(21, 17, 5, 0.9);
+}
+
+.modalBtn {
+    background-color: #d4af37;
+    color: #fff;
+}
+
+
+
+
 
 
 /* Default styles */

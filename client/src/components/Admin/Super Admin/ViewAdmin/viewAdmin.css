@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    /* overflow-x   : hidden; */
+}
+
+.major {
+    background-image: linear-gradient(to right bottom, rgba(54, 48, 30, 0.699), #77777788), url("../../../imagesfolder/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 0.5rem;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+/* .major h1 {
+    color: #d4af37;
+    padding-bottom: 2rem;
+    margin-left: 13%
+} */
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 3rem;
+    gap: 2rem;
+    font-size: 0.5rem;
+    width: 100vw;
+    /* background-color: rgba(21, 17, 5, 0.4); */
+    /* border: 1px solid; */
+    margin-bottom: 6rem;
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    width: 95vw; */
+}
+
+.employeeimage {
+    max-width: 18rem;
+    height: 6rem;
+    border-radius: 95px;
+    /* position: absolute; */
+    margin-top: -3rem;
+    margin-left: 4.2rem;
+    border: 3px solid #d4af37;
+    left: 3rem;
+}
+
+.text {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.card2 {
+    background-color: rgba(21, 17, 5, 0.4);
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 4rem;
+    padding: 1rem;
+    color: #fff;
+    /* text-align: center; */
+}
+
+.wordHeading {
+    color: #fff;
+}
+
+.card2 p {
+    font-size: 1rem;
+    color: #d4af37;
+}
+
+.card2 h2 {
+    font-size: 1.5rem
+}
+
+.cardButton {
+    width: 5rem;
+    /* margin: auto; */
+    background-color: #d4af37;
+    border: none;
+    border-radius: 10px;
+}
+
+.cardButton:hover {
+    background-color: white;
+    color: #d4af37;
+    outline: none;
+    transition: 1s;
+}
+
+/* .cardImage {
+    border-radius: 50px;
+    border: 3px solid;
+} */
+
+.addAdminBtn {
+    width: 8rem;
+    height: 2rem;
+    background-color: #d4af37;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    /* bottom: auto; */
+    position: absolute;
+    top: 95%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.addEmployeeBtn:hover {
+    background-color: white;
+    color: #000;
+    outline: none;
+    transition: 1s;
+}
+
+.yunBin {
+    float: right;
+    margin-top: 1.5rem;
+}
+
+/* Default styles */
+
+/* ... your existing styles ... */
+
+/* Media query for screens with a maximum width of 768px */
+@media only screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        /* Adjust grid columns for smaller screens */
+        gap: 1rem;
+        /* Adjust the gap between grid items */
+        font-size: 0.8rem;
+        /* Adjust font size for smaller screens */
+        margin-bottom: 3rem;
+        /* Adjust margin for smaller screens */
+    }
+
+    .employeeimage {
+        max-width: 10rem;
+        /* Adjust employee image size for smaller screens */
+        margin-top: -2rem;
+        /* Adjust margin for smaller screens */
+    }
+
+    .addEmployeeBtn {
+        width: 100%;
+        /* Make the button fill the container width */
+        margin: 0 auto;
+        /* Center the button on smaller screens */
+        margin-top: 1rem;
+        /* Add some top margin */
+    }
+}

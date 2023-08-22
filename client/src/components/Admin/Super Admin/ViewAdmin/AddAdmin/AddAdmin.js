@@ -32,6 +32,7 @@ function AddAdmin (){
     }
     
     const handleSubmit = async (event) =>{
+        event.preventDefault()
         if(input1.trim() == ""){
             alert("Fill in First Name")
         } else if(input2.trim() == ""){
@@ -39,7 +40,6 @@ function AddAdmin (){
         } else if (email.trim() == ""){
             alert("Fill in Email")
         } else{
-        event.preventDefault()
         let adminData = {
             firstName: input1,
             lastName: input2,
@@ -47,19 +47,24 @@ function AddAdmin (){
             email: email
         }
         console.log(adminData)
-        let dta = await fetch("http://localhost:5002/superAdmin/addAdmin", {
+        let response = await fetch("http://localhost:5002/api/admin", {
                 method: "post",
                 headers:{
                         "Content-Type": "application/json"
                     },
                 body: JSON.stringify(adminData)
         })
-        .then(response=>response.json()).then(data=>{
-                console.log(data)
-                setResponse(data)
-                navigate('/superAdmin/admin')
+        if (response.ok){
+            const data = await response.json()
+            console.log(data)
+            setResponse(data)
+            navigate('/superAdmin/admin')
+                }
+        // .then(response=>response.json()).then(data=>{
+        //         console.log(data.message)
+        //         setResponse(data.message)
 
-        })
+        // })
         // if (response.ok) {
         //     const data = await response.json();
         //     console.log(data)

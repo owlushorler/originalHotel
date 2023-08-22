@@ -3,10 +3,12 @@ import lol from "../../../imagesfolder/725624.png"
 import ll from "../../../imagesfolder/2838912.png"
 import l from "../../../imagesfolder/386220.png"
 import "../nav/nav.css"
+import Ffac from "../../footer2/footer2"
 
 function Topnav(){
     return(
         <div className="na" >
+           
             <nav className="ab">
             <img style={{width:"1vw"}} src={lol} alt="klk" />
             <p>+1234566777</p>
@@ -24,7 +26,7 @@ function Topnav(){
             <nav></nav>
         
        
-        
+            
        
         </div>
     )

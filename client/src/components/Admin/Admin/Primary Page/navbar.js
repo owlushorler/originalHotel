@@ -37,7 +37,7 @@ function Navbar(){
     <a className="dropdown-item boot-item" href="/changePassword">
       Change Password
     </a>
-    <a className="dropdown-item boot-item" href="#">
+    <a className="dropdown-item boot-item" onClick={logOut}>
       Log out
     </a>
   </div>

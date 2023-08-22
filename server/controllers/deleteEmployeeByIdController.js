@@ -7,6 +7,7 @@ const deleteEmployee = async (req, res)=>{
     // const {error, value} = updateAdminJoi.validate(req.body)
     // if(error) return res.status(http.StatusCodes.EXPECTATION_FAILED).send(error.message)
     try {
+        console.log(req.params._id)
         const data = await employee.findByIdAndDelete(req.params)
         if(!data) return res.status(http.StatusCodes.EXPECTATION_FAILED).send(error.message)
         res.status(http.StatusCodes.OK).json("Delete successfull!!")

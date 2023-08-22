@@ -18,7 +18,7 @@ import ViewAdmin from './components/Admin/Super Admin/ViewAdmin/viewAdmin';
 
 import Nav3 from './components/User/home/nav3/nav3';
 import Rooms from './components/User/rooms/room/room';
-import About from './components/User/about/about';
+// import About from './components/User/about/about';
 import BookingForm from './components/User/rooms/bookingForm/BookingForm';
 import Fac from './components/User/facil/fac';
 import ContactPage from './components/User/contactPage/ContactPage';
@@ -27,6 +27,17 @@ import ContactPage from './components/User/contactPage/ContactPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Navbar from './components/Admin/Admin/Primary Page/navbar';
+import ChangeUsername from './components/Admin/Admin/Login/ChangePassword';
+import ChangePassword from './components/Admin/Admin/Login/ChangeUsername';
+import AddRooms from './components/Admin/Admin/Rooms/AddRoom';
+
+import BOOKING from './components/Admin/Admin/Bookings/booking';
+import About from './components/User/about/about'
+import Cam from './components/User/card/cam';
+
+import Displa from './components/User/card/cartdip';
+
+
 
 
 function App() {
@@ -40,7 +51,6 @@ function App() {
     <div>
       <div className="App">
         {/* <Navbar /> */}
-
         <Router>
           {/* <LandingPage /> */}
           <Routes>
@@ -75,6 +85,7 @@ function App() {
         </Router>
       </div>
     </div>
+
   );
 }
 

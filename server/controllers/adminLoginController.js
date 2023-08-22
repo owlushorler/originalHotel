@@ -1,6 +1,6 @@
 const http = require("http-status-codes");
  const bcrypt = require('bcrypt');
- const User = require('../models/adminSchema');
+ const admin = require('../models/adminSchema');
  const Schema = require('../validators/joi_validator');
  const jwt = require('jsonwebtoken')
 
@@ -13,7 +13,7 @@ const http = require("http-status-codes");
   if(error) return res.status(500).send(error.message)
     try {
       console.log(value.username)
-        const user = await User.findOne({ username: value.username })
+        const user = await admin.findOne({ username: value.username })
         console.log(user)
          if (!user) {
             return res.status(401).json({ error: 'Credentials invalid'});
@@ -21,12 +21,13 @@ const http = require("http-status-codes");
            if(user.authentication === "Super Admin"){
               if(user.password == value.password){
                 const token = jwt.sign({username: value.username}, secretKey)
-                // res.cookie("jwt", token, {
-                //   expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 10 ),
-                //   secure: false,
-                //   httpOnly: false,
-                //   sameSite: "None"
-                // })
+
+                res.cookie("jwt", token, {
+                  expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 10 ),
+                  secure: false,
+                  httpOnly: false,
+                  sameSite: "None"
+                })
                 const result = {
                   token: token,
                   user: user.authentication
@@ -40,21 +41,23 @@ const http = require("http-status-codes");
               if (!isPasswordValid) {
                    return res.status(401).json({ error: 'Invalid credentials' });
               }else{
-                    const token = jwt.sign(value.username, secretKey)
+                    const token = jwt.sign({username: value.username}, secretKey)
                     if (!token){
                        console.log("invalid token")
+                       return res.status(http.StatusCodes.UNAUTHORIZED).json({error: "invalid token"})
+
                     }else{
-                      // res.cookie("jwt", token, {
-                      //   // expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 10 ),
-                      //   secure: false,
-                      //   httpOnly: true,
-                      //   sameSite: "None"
-                      // })
+                      res.cookies("jwt", token, {
+                        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 10 ),
+                        secure: false,
+                        httpOnly: true,
+                        sameSite: "None"
+                      })
                       const result = {
                         token: token,
                         reply: "Admin login successful"
                       }
-                      req.user = token
+                      // req.user = token
                       return res.status(200).json(result);
                     }
               }

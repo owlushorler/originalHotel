@@ -1,42 +1,112 @@
 import React, { useState } from "react";
 import "./changePassword.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { faLock, faUser } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios"
+import jwt from 'jwt-decode'
+import Cookies from 'js-cookie'
+import { useNavigate } from "react-router";
 
-export default function ChangePassword() {
+
+function  ChangeUsername() {
+
+
+  const navigate = useNavigate()
+  const token = Cookies.get('jwt')
+  const decoded = jwt(token)
+  const [oldUsername, setOldUsername] = useState(decoded.username)
+  const [newUsername, setNewUsername] = useState('')
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [response, setResponse] = useState('')
   const [error, setError] = useState("");
 
-  function handleChangePassword(e) {
+  async function handleChangePassword(e) {
     e.preventDefault();
+    // Perform the delete operation on the API endpoint
     if (
       oldPassword.trim() === "" ||
       newPassword.trim() === "" ||
       confirmPassword.trim() === ""
-    ) {
-      setError("Please fill in all fields.");
-      return;
-    }
-    if (newPassword !== confirmPassword) {
-      setError("Passwords do not match.");
-      return;
+      ) {
+        setError("Please fill in all fields.");
+        return;
+      }
+      if (newPassword !== confirmPassword) {
+        setError("Passwords do not match.");
+        return;
+      }
+      console.log("Old password:", oldPassword);
+      console.log("New password:", newPassword);
+
+      try {
+      
+      const user ={
+        oldUsername: decoded.username,
+        newUsername: newUsername,
+        newPassword: newPassword,
+        oldPassword: oldPassword
+      }
+      axios.put(`http://localhost:5002/api/admin`, user)
+      .then((res)=>{
+        console.log(res)
+        navigate('/login')
+      })
+      ;
+
+
+      
+      setOldPassword("");
+      setNewPassword("");
+      setConfirmPassword("");
+   
+  
+    } catch (error) {
+      console.error('Error deleting item:', error);
+      setError(error.message)
     }
 
-    console.log("Old password:", oldPassword);
-    console.log("New password:", newPassword);
 
-    setError("Password changed successfully!");
-    setOldPassword("");
-    setNewPassword("");
-    setConfirmPassword("");
   }
 
   return (
-    <div className="login">
-      <span className="loginTitle">Forget Password</span>
+    <>
+    <div className="major">
+      <h2 className="uloginTitle">Change Username</h2>
+    <div className="ulogin">
+
       <form className="loginForm" onSubmit={handleChangePassword}>
+
+      <label className="white">Old Username</label>
+        <div className="inputWithIcon">
+          <input
+
+            type="text"
+            className="loginInput"
+            value={oldUsername}
+            onChange={(e) => setOldUsername(e.target.value)}
+            readOnly
+
+          />
+          <FontAwesomeIcon icon={faUser} className="inputIcon" />
+        </div>
+
+        <label className="white">New Username</label>
+        <div className="inputWithIcon">
+          <input
+
+            type="text"
+            className="loginInput"
+            placeholder="Enter your new username..."
+
+           
+            value={newUsername}
+            onChange={(e) => setNewUsername(e.target.value)}
+          />
+          <FontAwesomeIcon icon={faUser} className="inputIcon" />
+        </div>
+
         <label className="white">Old Password</label>
         <div className="inputWithIcon">
           <input
@@ -79,5 +149,9 @@ export default function ChangePassword() {
         </button>
       </form>
     </div>
+    </div>
+    </>
   );
 }
+
+export default ChangeUsername
