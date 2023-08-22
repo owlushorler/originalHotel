@@ -4,6 +4,7 @@ import AddEmployee from './components/Admin/Admin/Employee/AddEmployee/addEmploy
 import PrimaryPageSuper from './components/Admin/Super Admin/Primary Page/primaryPage';
 import PrimaryPage from './components/Admin/Admin/Primary Page/primaryPage2';
 import ViewRooms from './components/Admin/Admin/Rooms/viewRooms';
+import ViewCustomers from "./components/Admin/Admin/customers/ViewCustomers";
 import SuperAdmin from './components/Admin/Admin/Login/SuperAdmin';
 import ViewEmployeeCard from './components/Admin/Admin/Employee/EmployeeCard';
 // import NavBar from './components/User/Landing Page/Navbar';
@@ -37,61 +38,43 @@ function App() {
   // componentDidMount()
   return (
     <div>
+      <div className="App">
+        {/* <Navbar /> */}
 
-    <div className="App">
-
-
-          
-            {/* <Navbar /> */}
-      
-          <Router>
-          
-
+        <Router>
           {/* <LandingPage /> */}
-            <Routes>
-    
+          <Routes>
             {/*USER ROUT */}
-            <Route path="/" element={< Nav3/>} />
-            <Route path="/room" element={< Rooms/>} />
-            <Route path="/about" element={< About/>} />
-            <Route path="/booking" element={<BookingForm/>} />
-            <Route path="/fac" element={<Fac/>} />
-            <Route path="/contact" element={<ContactPage/>} />
-            
-            
+            <Route path="/" element={<Nav3 />} />
+            <Route path="/room" element={<Rooms />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/booking" element={<BookingForm />} />
+            <Route path="/fac" element={<Fac />} />
+            <Route path="/contact" element={<ContactPage />} />
 
+            <Route path="/admin" element={<LandingPage />} />
+            <Route path="/login" element={<SuperAdmin />} />
+            <Route path="/superAdmin" element={<PrimaryPageSuper />} />
+            <Route path="/admin/admin" element={<PrimaryPage />} />
+            <Route path="/employees" element={<ViewEmployeeCard />} />
+            <Route path="/customers" element={<ViewCustomers />} />
+           
+            <Route path="/rooms" element={<ViewRooms />} />
+            <Route path="/addEmployee" element={<AddEmployee />} />
+            <Route path="/superAdmin/addAdmin" element={<AddAdmin />} />
+            <Route path="/superAdmin/admin" element={<ViewAdmin />} />
+          </Routes>
 
-              <Route path="/admin" element={< LandingPage/>} />
-              <Route path="/login" element={<SuperAdmin />} />
-              <Route path="/superAdmin" element={<PrimaryPageSuper />} />
-              <Route path="/admin/admin" element={<PrimaryPage />} />
-              <Route path="/employees" element={<ViewEmployeeCard />} />
-                {/* <Route path="/customers" element={<Customers />} /> */}
-                <Route path="/rooms" element={<ViewRooms />} />
-                <Route path="/addEmployee" element={<AddEmployee />} />
-                <Route path="/superAdmin/addAdmin" element={<AddAdmin />} />
-                <Route path="/superAdmin/admin" element={<ViewAdmin />} />
+          {/* <SuperAdmin /> */}
+          {/* <PrimaryPage /> */}
+          {/* <PrimaryPageSuper />   */}
 
-            </Routes>
-        
-              {/* <SuperAdmin /> */}
-              {/* <PrimaryPage /> */}
-              {/* <PrimaryPageSuper />   */}
-        
- 
-              {/* <AddEmployee /> */}
-              {/* <ViewRooms /> */}
-              {/* <AddAdmin /> */}
-
-          
-              
-
-  
-      </Router>
-          
-        </div>
-
-        </div>
+          {/* <AddEmployee /> */}
+          {/* <ViewRooms /> */}
+          {/* <AddAdmin /> */}
+        </Router>
+      </div>
+    </div>
   );
 }
 
