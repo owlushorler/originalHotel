@@ -44,7 +44,8 @@ function App() {
   // componentDidMount()
   return (
     <div>
-        <BOOKING/>
+        <BOOKING />
+        
     <div className="App">
             {/* <Navbar /> */}
              
@@ -57,7 +58,7 @@ function App() {
             <Routes>
     
             {/*USER ROUT */}
-            <Route path="/" element={< Nav3/>} />
+            {/* <Route path="/" element={< Nav3/>} />
             <Route path="/room" element={< Rooms/>} />
             {/* <Route path="/about" element={< About/>} /> */}
             <Route path="/booking" element={<BookingForm/>} />
@@ -83,7 +84,7 @@ function App() {
                 <Route path="/changePassword" element={<ChangePassword />} />
 
                 <Route path="/addRoom" element={<AddRooms/>}/>
-
+ 
 
 
             </Routes>
