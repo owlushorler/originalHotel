@@ -63,12 +63,12 @@ import jwt from "jwt-decode"
   return (
     <>
     {isLoggedIn ? (
-      <div>
+      <div className='yungest'>
           <Navbar />
 
        <div className='major'>
           <h1 className='h2text' >COMPANY EMPLOYEES</h1>
-          <div className='container'>
+          <div className='container empcontainer'>
               {data.map((employee)=>{
                 return (
                 <div className='card2 ' key={employee._id}>
@@ -120,14 +120,8 @@ import jwt from "jwt-decode"
               <p>{error}</p>
           </div>
               <button className='addEmployeeBtn'><Link style={{textDecoration: "none", color: "#fff"}} to="/addEmployee">Add Employee</Link></button>
-
-          
-{/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
- */}
-
-    </div>
+         
+   </div>
     </div>
      ) :  (
       <SuperAdmin />

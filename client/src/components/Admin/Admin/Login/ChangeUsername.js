@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./superAdmin.css";
+import "./changeUsername.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { faLock} from "@fortawesome/free-solid-svg-icons";
 import Cookies from 'js-cookie'
 import jwt from "jwt-decode"
 import { useNavigate } from "react-router";
@@ -75,8 +75,8 @@ function ChangePassword() {
   return (
     <>
     <div className="major">
-      <h2 className="loginTitle">Forget Password</h2>
-    <div className="login">
+      <h4 className="ploginTitle">Forget Password</h4>
+    <div className="plogin">
       <form className="loginForm" onSubmit={handleChangePassword}>
         <label className="white">Old Password</label>
         <div className="inputWithIcon">

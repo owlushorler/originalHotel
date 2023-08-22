@@ -1,4 +1,4 @@
-.ulogin {
+.plogin {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,20 +7,26 @@
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 10px;
-    height: 35rem;
+    height: 30rem;
     width: 25rem;
     margin: 30px auto;
     /* border: 1px solid; */
 }
 
-.uloginTitle {
+.ploginTitle {
     /* font-family: 'Open Sans', sans-serif; */
     font-size: 50px;
     margin-bottom: 1rem;
     color: #d4af37;
     margin: auto;
     /* border: 1px solid; */
-    width: 38vw;
+    width: 34vw;
+}
+
+.loginForm {
+    /* margin-top: 10px; */
+    display: flex;
+    flex-direction: column;
 }
 
 .loginForm>label {

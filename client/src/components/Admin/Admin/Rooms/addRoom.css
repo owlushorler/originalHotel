@@ -6,7 +6,7 @@
     margin: 4.07rem;
 } */
 
-.container {
+.roomcontainer {
     background-image: linear-gradient(to right bottom, rgba(54, 48, 30, 0.699), #77777788), url("../../../imagesfolder/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
