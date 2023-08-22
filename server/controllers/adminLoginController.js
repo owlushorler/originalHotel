@@ -47,7 +47,7 @@ const http = require("http-status-codes");
                        return res.status(http.StatusCodes.UNAUTHORIZED).json({error: "invalid token"})
 
                     }else{
-                      res.cookies("jwt", token, {
+                      res.cookie("jwt", token, {
                         expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 10 ),
                         secure: false,
                         httpOnly: true,

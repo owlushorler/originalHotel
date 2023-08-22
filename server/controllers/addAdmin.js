@@ -32,8 +32,15 @@ const addAdmin = async (req, res, next) =>{
 
         next()
     } catch (error) {
-        console.log(error)
-        return res.status(http.StatusCodes.BAD_REQUEST).json(error.message)
+        if (error.code === 11000 && error.keyPattern.email === 1) {
+            // Duplicate email error
+            const duplicateEmail = error.keyValue.email;
+            const errorMessage = `The email ${duplicateEmail} is already in use.`;
+            return res.status(http.StatusCodes.BAD_REQUEST).json(errorMessage)
+        }else{
+            return res.status(http.StatusCodes.BAD_REQUEST).json(error.message)
+            console.log(error.message)
+        }
     }
 }
 

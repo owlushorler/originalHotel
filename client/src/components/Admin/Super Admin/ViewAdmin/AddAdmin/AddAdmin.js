@@ -13,7 +13,8 @@ function AddAdmin (){
     const [email, setEmail] = useState("")
     const [input1, setInput1] = useState("")
     const [input2, setInput2] = useState("")
-    const [response, setResponse]= useState('')
+    const [reply, setReply]= useState('')
+    const [error, setError] = useState('')
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn]= useState(token !== undefined)
     
@@ -47,40 +48,31 @@ function AddAdmin (){
             email: email
         }
         console.log(adminData)
-        let response = await fetch("http://localhost:5002/api/admin", {
-                method: "post",
-                headers:{
-                        "Content-Type": "application/json"
-                    },
-                body: JSON.stringify(adminData)
-        })
-        if (response.ok){
-            const data = await response.json()
-            console.log(data)
-            setResponse(data)
+
+        try{
+        const response = await axios.post("http://localhost:5002/api/admin", adminData)
+        if (response.status === 201){
+            console.log(response.data)
+            setReply(response.data)
+            alert(reply)
             navigate('/superAdmin/admin')
-                }
-        // .then(response=>response.json()).then(data=>{
-        //         console.log(data.message)
-        //         setResponse(data.message)
-
-        // })
-        // if (response.ok) {
-        //     const data = await response.json();
-        //     console.log(data)
-        //     setResponse(data);
-
-        // }
-                }
+            }else{
+                console.log(response.data.message)
+                setError(response.data.error)
             }
+        } catch (error) {
+            if (error.response && error.response.status === 400) {
+              console.log(error.response.data)
+              setError(error.response.data); // Assuming the error message is in the response data
+              alert(error.response.data)
+            } else {
+              setError("An error occurred. Please try again later."); // Generic error message for other errors
+            }
+          }
+        }
+    }
 
-        // axios.post("http://localhost:5000/employee/addEmployee", employeeData).then(()=>{
-        //     console.log(employeeData)
-        // })
-        // console.log(employeeData)
-        //     }
-        // }
-    
+   
 
     return (
         <>
@@ -102,7 +94,7 @@ function AddAdmin (){
                         </div>
                     </form>
                 </div>
-                    <p>{response}</p>
+                {/* {error && <p className="error-paragraph">{error}</p>} */}
             </div>
             </div>
 
@@ -112,5 +104,6 @@ function AddAdmin (){
         </>
     )
 }
+
 
 export default AddAdmin

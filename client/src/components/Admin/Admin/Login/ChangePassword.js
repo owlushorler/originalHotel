@@ -6,20 +6,22 @@ import axios from "axios"
 import jwt from 'jwt-decode'
 import Cookies from 'js-cookie'
 import { useNavigate } from "react-router";
+import SuperAdmin from "./SuperAdmin";
 
 
 function  ChangeUsername() {
-
-
   const navigate = useNavigate()
   const token = Cookies.get('jwt')
-  const decoded = jwt(token)
-  const [oldUsername, setOldUsername] = useState(decoded.username)
+  if(token){
+    var decoded = jwt(token)
+  }
+  const [isLoggedIn, setIsLoggedIn]= useState(token !== undefined)
+  const [oldUsername, setOldUsername] = useState(token ? decoded.username : "")
   const [newUsername, setNewUsername] = useState('')
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [response, setResponse] = useState('')
+  const [reply, setReply] = useState('')
   const [error, setError] = useState("");
 
   async function handleChangePassword(e) {
@@ -48,30 +50,36 @@ function  ChangeUsername() {
         newPassword: newPassword,
         oldPassword: oldPassword
       }
-      axios.put(`http://localhost:5002/api/admin`, user)
-      .then((res)=>{
-        console.log(res)
-        navigate('/login')
-      })
-      ;
+      const response = await axios.put(`http://localhost:5002/api/admin`, user)
+      
+        if(response.status === 200){
+          setReply(response.data)
+          alert(reply)
+          navigate('/login')
+        } else {
+          console.log(response.data.message)
+            setError(response.data.error)
+          }
+        } catch (error) {
+          if (error.response && error.response.status === 400) {
+            console.log(error.response.data)
+            setError(error.response.data); // Assuming the error message is in the response data
+          } else {
+            setError("An error occurred. Please try again later."); // Generic error message for other errors
+          }
+        }
 
 
       
       setOldPassword("");
       setNewPassword("");
       setConfirmPassword("");
-   
   
-    } catch (error) {
-      console.error('Error deleting item:', error);
-      setError(error.message)
-    }
-
-
   }
 
   return (
     <>
+    {isLoggedIn ? (
     <div className="major">
       <h2 className="uloginTitle">Change Username</h2>
     <div className="ulogin">
@@ -143,13 +151,16 @@ function  ChangeUsername() {
           <FontAwesomeIcon icon={faLock} className="inputIcon" />
         </div>
 
-        {error && <div className="error-message">{error}</div>}
+        {error && <p className="error-paragraph">{error}</p>}
         <button className="loginButton" type="submit">
           Change Password
         </button>
       </form>
     </div>
     </div>
+    ) :  (
+      <SuperAdmin />
+  )}
     </>
   );
 }

@@ -10,7 +10,9 @@ import jwt from "jwt-decode"
 
   const ViewEmployeeCard = () => {
   const token = Cookies.get('jwt');
-  const decode = jwt(token)
+  if(token){
+    var decoded = jwt(token)
+  }
 
   console.log(token)
   const [data, setData] = useState([])
@@ -42,7 +44,7 @@ import jwt from "jwt-decode"
 
   const handleDelete = async () => {
     try {
-      if (username === decode.username) {
+      if (username === decoded.username) {
         const response = await fetch(`http://localhost:5002/api/employees/${itemId}`, {
           method: 'DELETE',
         });

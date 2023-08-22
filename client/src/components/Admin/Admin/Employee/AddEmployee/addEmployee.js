@@ -37,20 +37,19 @@ function AddEmployee (){
         setImage(e.target.files[0])
     }
 
-
-    // console.log('am also working');
-    
+     
     const handleSubmit = async (event) =>{
         event.preventDefault()
-        // let employeeData = {
-        //     firstName: input1,
-        //     lastName: input2,
-        //     department: department,
-        //     age: age,
-        //     image: image
-        // }
-        // console.log(image);
-        // console.log(employeeData)
+        if(input1.trim() == ""){
+            alert("Fill in First Name")
+        } else if(input2.trim() == ""){
+            alert("Fill in Last Name")
+        } else if (department.trim() == ""){
+            alert("Select Department")
+        }else if (age.trim() == ""){
+            alert("Fill in Age")
+        }
+
         const formData = new FormData()
         formData.append("firstName", input1)
         formData.append("lastName", input2)
@@ -58,27 +57,34 @@ function AddEmployee (){
         formData.append("age", age)
         formData.append("file", image)
 
-        
-        axios.post("http://localhost:5002/api/employees", formData)
-         .then((res)=> {
-            if(res.ok){
-                console.log(res)
-                setReply(res.data)
-            } else {
+        try{
+        const response = await axios.post("http://localhost:5002/api/employees", formData)
+ 
+            if(response.status === 201){
+                console.log(response)
+                setReply(response.data)
                 alert("Employee successfully added")
                 navigate('/employees')
-                setReply(res.data)
+            } else {
+                setError(response.data)
                 // navigate('/employees')
             }
-         })
-         .catch(err=> console.log(err))
+        } catch(error){
+            if (error.response && error.response.status === 400) {
+                console.log(error.response.data)
+                setError(error.response.data); // Assuming the error message is in the response data
+              } else {
+                setError("An error occurred. Please try again later."); // Generic error message for other errors
+              }
+        }
     }
     //     // console.log(employeeData) 
 
     return (
         <>
-                <Navbar />
         {isLoggedIn ? (
+            <div>
+                <Navbar />
             <div>
             <div className="container-fluid contain ">
                     <h1>ADD EMPLOYEE</h1>
@@ -109,11 +115,11 @@ function AddEmployee (){
                 {error && <div className="error-message">{error}</div>}
             </div>
             </div>
+
+            </div>
         ) :  (
             <SuperAdmin />
         )}
-
-
             
         </>
     )

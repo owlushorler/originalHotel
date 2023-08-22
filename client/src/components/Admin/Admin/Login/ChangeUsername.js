@@ -6,33 +6,25 @@ import Cookies from 'js-cookie'
 import jwt from "jwt-decode"
 import { useNavigate } from "react-router";
 import axios from "axios"
+import SuperAdmin from "./SuperAdmin";
 
 
 function ChangePassword() {
     const navigate = useNavigate()
     const token = Cookies.get('jwt');
-    const decoded = jwt(token)
-
+    if(token){
+      var decoded = jwt(token)
+    }
+  const [isLoggedIn, setIsLoggedIn]= useState(token !== undefined)
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [reply, setReply] = useState('')
   const [error, setError] = useState("");
-  const [username, setUsername] = useState(decoded.username)
+  const [username, setUsername] = useState(token ? decoded.username : "")
 
-//   useEffect(() => {
-//     async function fetchData() {
-//       try {
-//         const response = await fetch('http://localhost:5002/api/admins'); // Replace with your API endpoint
-//         const jsonData = await response.json();
-//         setData(jsonData.);
-//       } catch (error) {
-//         console.error('Error fetching data:', error);
-//       }
-//     }
 
-//     fetchData();
-
-  function handleChangePassword(e) {
+  async function handleChangePassword(e) {
     e.preventDefault();
     if (
       oldPassword.trim() === "" ||
@@ -58,13 +50,27 @@ function ChangePassword() {
         oldPassword: oldPassword,
         newPassword: newPassword
       }
-      axios.put(`http://localhost:5002/api/admin`, user)
-      .then((res)=>{
-        console.log(res)
-        setError(res.data.error)
-        alert("Password changed successfully!")
-        navigate('/login')
-      })
+      try {
+        const response = await axios.put(`http://localhost:5002/api/admin`, user)
+        // .then((res)=>{
+        //   console.log(res.data)
+          if(response.status === 200){
+            setReply(response.data)
+            alert(reply)
+            navigate('/login')
+          }else{
+            console.log(response.data.message)
+            setError(response.data.error)
+          }
+    
+      } catch (error) {
+        if (error.response && error.response.status === 400) {
+          console.log(error.response.data)
+          setError(error.response.data); // Assuming the error message is in the response data
+        } else {
+          setError("An error occurred. Please try again later."); // Generic error message for other errors
+        }
+      }
 
 
     setOldPassword("");
@@ -74,6 +80,7 @@ function ChangePassword() {
 
   return (
     <>
+    {isLoggedIn ? (
     <div className="major">
       <h4 className="ploginTitle">Forget Password</h4>
     <div className="plogin">
@@ -113,14 +120,17 @@ function ChangePassword() {
           />
           <FontAwesomeIcon icon={faLock} className="inputIcon" />
         </div>
+        {error && <p className="error-paragraph">{error}</p>}
 
-        {error && <div className="error-message">{error}</div>}
-        <button className="loginButton" type="submit">
+       <button className="loginButton" type="submit">
           Change Password
         </button>
       </form>
     </div>
     </div>
+       ) :  (
+        <SuperAdmin />
+    )}
     </>
   );
 }

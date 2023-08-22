@@ -10,7 +10,9 @@ import "./navBar.css"
 function Navbar(){
     const navigate = useNavigate();
     const token = Cookies.get('jwt')
-    const decoded = jwt(token)
+    if(token){
+      var decoded = jwt(token)
+    }
 
     const logOut = ()=>{
         Cookies.remove('jwt')
@@ -31,7 +33,7 @@ function Navbar(){
     aria-haspopup="true"
     aria-expanded="false"
   >
-    <FontAwesomeIcon icon={faUser} className="inputIcons" />{decoded.username}
+    <FontAwesomeIcon icon={faUser} className="inputIcons" />{token ? decoded.username : ""}
   </button>
   <div className="dropdown-menu boot" aria-labelledby="dropdownMenuButton">
     <a className="dropdown-item boot-item" href="/changePassword">
