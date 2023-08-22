@@ -4,7 +4,7 @@ const http = require("http-status-codes")
 const verifyToken = (req, res, next) => {
     const secret = process.env.SECRET_KEY
     try {
-      const token = req.cookie
+      const token = res.cookie
       console.log(token)
       if (!token){
         return res.status(http.StatusCodes.UNAUTHORIZED).send("Access denied.")
@@ -20,7 +20,7 @@ const verifyToken = (req, res, next) => {
       next()
       }
     } catch (error) {
-      res.status(400).send("Invalid token")
+      res.status(400).json("Invalid token")
     }
   }
 

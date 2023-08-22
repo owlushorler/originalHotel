@@ -18,6 +18,7 @@ function AddEmployee (){
     const [reply, setReply] = useState("")
     const [isLoggedIn, setIsLoggedIn]= useState(token !== undefined)
     const navigate = useNavigate();
+    const [error, setError] = useState("")
     
     
     const handleChangeDepart = (e)=>{
@@ -61,13 +62,13 @@ function AddEmployee (){
         axios.post("http://localhost:5002/api/employees", formData)
          .then((res)=> {
             if(res.ok){
-                // console.log(res)
-                // setReply(res.data)
-                // alert(reply)
-                navigate('/employees')
-            } else {
+                console.log(res)
                 setReply(res.data)
+            } else {
+                alert("Employee successfully added")
                 navigate('/employees')
+                setReply(res.data)
+                // navigate('/employees')
             }
          })
          .catch(err=> console.log(err))
@@ -76,7 +77,7 @@ function AddEmployee (){
 
     return (
         <>
-                {/* <Navbar /> */}
+                <Navbar />
         {isLoggedIn ? (
             <div>
             <div className="container-fluid contain ">
@@ -104,7 +105,8 @@ function AddEmployee (){
                         </div>
                     </form>
                 </div>
-                <p>{reply}</p>
+               {reply && <p className="reply">{reply}</p>}
+                {error && <div className="error-message">{error}</div>}
             </div>
             </div>
         ) :  (
