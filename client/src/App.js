@@ -31,7 +31,11 @@ import ChangePassword from './components/Admin/Admin/Login/ChangeUsername';
 import AddRooms from './components/Admin/Admin/Rooms/AddRoom';
 
 import BOOKING from './components/Admin/Admin/Bookings/booking';
-import About from './components/User/about/about';
+import About from './components/User/about/about'
+import Cam from './components/User/card/cam';
+
+import Displa from './components/User/card/cartdip';
+
 
 
 
@@ -51,8 +55,8 @@ function App() {
             
       
           <Router>
-          
-
+            
+    
           {/* <LandingPageddddd /> */}
             <Routes>
     
@@ -64,7 +68,8 @@ function App() {
             <Route path="/fac" element={<Fac/>} />
             <Route path="/contact" element={<ContactPage/>} />
             <Route path="/getbooking" element={ < BOOKING/>} />
-             <Route path="/about" element={<About/>} />
+
+            <Route path="/about" element={<About/>} />
             
             
 

@@ -23,6 +23,8 @@ const roomImage = require("../middlewares/roomMulter")
 
 const formSubmit = require('../controllers/formController')
 
+const ape = require("../controllers/viewpay")
+
 
 
 const express = require("express")
@@ -65,6 +67,8 @@ route.post('/checked', checkin)
 
 route.get('/checked', admincheck)
 route.post('/submit', formSubmit)
+
+route.post('/viewpay', ape)
 
 
 

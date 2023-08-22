@@ -11,6 +11,7 @@ import r7 from "../../../imagesfolder/download (7).jpg"
 import r8 from "../../../imagesfolder/download (8).jpg"
 import r9 from "../../../imagesfolder/download (9).jpg"
 import c from "../../../imagesfolder/c11.jpg"
+import { Link } from "react-router-dom"
   
 const data = [
    {im:r,
@@ -21,35 +22,35 @@ const data = [
     {im:r2,
            fam:"Couples Room",
            av:"available room",
-           s:"#22,000",
+           s:"22,000",
            n:"per night"}, {im:r3,
                fam:"friends Room",
                av:"available room",
-               s:"#22,000",
+               s:"22,000",
                n:"per night"}, {im:r4,
                    fam:"family Room",
                    av:"available room",
-                   s:"#22,000",
+                   s:"22,000",
                    n:"per night"}, {im:r5,
                        fam:"kids Room",
                        av:"available room",
-                       s:"#22,000",
+                       s:"22,000",
                        n:"per night"}, {im:r6,
                            fam:"Room for two",
                            av:"available room",
-                           s:"#22,000",
+                           s:"22,000",
                            n:"per night"}, {im:r7,
                                fam:"family Room",
                                av:"available room",
-                               s:"#22,000",
+                               s:"22,000",
                                n:"per night"}, {im:r8,
                                    fam:"couple Room",
                                    av:"available room",
-                                   s:"#22,000",
+                                   s:"22,000",
                                    n:"per night"}, {im:r9,
                                        fam:"family Room",
                                        av:"available room",
-                                       s:"#22,000",
+                                       s:"22,000",
                                        n:"per night"}
 ]
 
@@ -66,7 +67,7 @@ function Nav6(){
                data.map(ele=>{
                    return(
                        <div  >
-                            <div style={{backgroundColor:"black"}} > <img style={{width:"20vw", height:"22vw"}} src={ele.im}  /> </div>
+                            <div style={{backgroundColor:"black"}} > <img style={{width:"20vw", height:"20vw"}} src={ele.im}  /> </div>
 
                             <div className="kl" > <p>{ele.fam}</p> <p> {ele.s}  </p></div>
                            <div className="kll" > <p>{ele.av}</p> <p>{ele.n}</p></div>
@@ -76,7 +77,7 @@ function Nav6(){
                    )
                })
            }
-                <button style={{marginLeft:"23vw"}} className="dii" > More Room  </button>
+                <button style={{marginLeft:"23vw"}} className="dii" > <Link className="aa" to="/room" >MORE ROOMS</Link> </button>
            </div>
 
           <div>
@@ -88,7 +89,7 @@ function Nav6(){
                     organisation private reserve, family log, booking <br/>
                      from different part of the world, 
                    </p>
-                   <button  className="dii" > book  </button>
+                   <button  className="dii" ><Link className="aa" to="/room" >MORE ROOMS</Link>  </button>
                    </div>
                    <div>
                        <img style={{height:"25vw" ,borderRadius:"2vw"}} src={r9} alt="ll" />
@@ -110,7 +111,7 @@ function Nav6(){
                    <p style={{fontSize:"1.3vw"}} > * facial care: 30min per day </p>
                    <p style={{fontSize:"1.3vw"}}>* body massage: 30 minper day </p>
                    <p style={{fontSize:"1.3vw"}}>* aroma terap: 30 min per day</p>
-                   <button  className="dii" > read more  </button>
+                   <button  className="dii" > <Link className="aa" style={{textDecorationStyle:"none"}} to="/room" >CHECK OUT THE ROOMS FOR MORE</Link> </button>
                    
                </div>
            </div>
