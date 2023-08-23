@@ -5,7 +5,8 @@ import Nav2 from "../../home/nav2/nav2";
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 import image from "../../../imagesfolder/H-Control.png"
 
-function BookingForm() {
+function BookingForm(prop) {
+  const {price}= prop
   const navigate = useNavigate();
   const today = new Date().toISOString().split("T")[0];
 
@@ -138,12 +139,12 @@ function BookingForm() {
 
           <label>
             Rent Per Day:
-            <span>${rentPerDay}</span>
+            <span>${price}</span>
           </label>
           <br />
           <h2 className="amount-heading">AMOUNT</h2>
           <p>Total Days: {totalDays}</p>
-          <p>Rent Per Day: ${rentPerDay}</p>
+          <p>Rent Per Day: ${price}</p>
           <p>Total Amount: ${totalAmount}</p>
           <button type="submit" className="pay-now-button">
           <FlutterWaveButton {...fwConfig} />

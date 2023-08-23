@@ -16,7 +16,7 @@ function Rooms(){
             
            {/* <DropdownCollection/>*/}
             <CardSchemes />
-            <SubscriptionForm/>
+           {/* <SubscriptionForm/>*/}
             
         <Ffac/>
         </div>

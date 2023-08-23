@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 10vw 20vw  25vw  15vw 15vw 5vw ;
     font-size: 1.5vw;
-    background-color: blueviolet;
+    background-color:  whitesmoke;
     align-items: center;
 color: white;
 
@@ -18,5 +18,5 @@ color: white;
     display: grid;
     grid-template-columns: 15vw  18vw 20vw 15vw 15vw 15vw;
     align-items: center;
-    font-size: 2vw;
+    font-size: 1vw;
 }

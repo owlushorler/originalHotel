@@ -4,7 +4,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 import "./dropdownCollection.css";
-
+import axios from "axios";
+import BookingForm from "../../bookingForm/BookingForm";
 function DropdownCollection(prop) {
   const {ca}=prop
   const [checkInDate, setCheckInDate] = useState(new Date());
@@ -14,6 +15,17 @@ function DropdownCollection(prop) {
   const [roomType, setRoomType] = useState("Deluxe Room");
   const [availabilityMessage, setAvailabilityMessage] = useState("");
 const [see, setsee]=useState()
+
+
+    function poo(lpo){
+      
+      axios.post("http://localhost:3000/viewpay",{
+        checkin:checkInDate,
+        checkout:checkOutDate,
+        price:"100"
+      }).then(res=>console.log(res))
+    }
+
   {/*const handleCheckAvailability = async () => {
     if (checkInDate && checkOutDate) {
       try {
@@ -113,6 +125,7 @@ const [see, setsee]=useState()
           </select>{" "}
         </div>*/}
         <div>
+          
           <label htmlFor="roomType">Room:</label>
           <select
             id="roomType"
