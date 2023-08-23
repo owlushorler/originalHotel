@@ -14,7 +14,7 @@ import axios from 'axios';
  import email from'./email.png';
  import icon2 from'./icon2.png'; 
  import  linkedin from './linkedin.png';
- import instagram from './instagram.png';
+ import instagram from './instagram3.png';
  import arrow from './arrow.png';
 import twitter from './twitter.png';
 import bird from './bird.png';
