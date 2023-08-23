@@ -9,6 +9,9 @@
      margin: auto;
      
   }
+    .Sall{
+      background-color: rgb(239, 235, 224);
+    }
   .banner-brand{
       display: flex;
       justify-content: space-between;

@@ -45,31 +45,42 @@ const ContactPage = () => {
        try{
         const response = await axios.post('http://localhost:8000/api/submit', formData);
         console.log(response.data);
+        alert(response.data.message)
        } catch (error) {
         console.error('Error submitting form:', error);
 
        }
+
+       setFormData({
+        name: "",
+        email: "",
+         subject: "",
+         message: "",
+      })
       };  
 
         const handleEmailSubmit = async(e) => {
           e.preventDefault();
 
           try {
-             await axios.post('http://localhost:8000/api/subscribe', {email: emailData});
+             const response = await axios.post('http://localhost:8000/api/subscribe', {email: emailData});
 
               console.log('Subscription email sent successfully:', emailData);
+              alert(response.data.message)
+              console.log(response)
                setEmailData('');
           } catch (error) {
             console.log('Error sending subscription email:',error);
           }
         };
-      
-    
+     
+
 
   return (
     
     <div>
            <Nav2/>
+             <div className='Sall'>
            <header className='header-nav'>
          
 
@@ -150,6 +161,7 @@ const ContactPage = () => {
                <input type="email" value={emailData} onChange={(e) => setEmailData(e.target.value)} className='text1' placeholder='Enter your Email' />
                 <button type='submit' className='button2'>SUBSCRIBE</button>
              </form>
+        </div>
         </div>
 
         < footer className=' footer'>
