@@ -51,7 +51,7 @@ function PrimaryPage(){
                 </div>
             </Link>
 
-            <Link style={{textDecoration: "none", color: "#fff"}} to="/rooms">
+            <Link style={{textDecoration: "none", color: "#fff"}} to="/getbooking">
                 <div className="primaryCard">
                     <img src={image4} />
                     <h3> Manage Booking</h3>

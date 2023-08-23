@@ -73,6 +73,7 @@ const ViewCustomers = () => {
   const displayedReservations = sortedReservations.slice(startIndex, endIndex);
 
   return (
+    <div className="major">
     <div className="abu-customer-list">
       <h2 className="abu-reservation">Customer Reservations</h2>
       {loading ? (
@@ -139,12 +140,12 @@ const ViewCustomers = () => {
                   <td>{reservation.notes}</td>
                   <td>{reservation.paymentMethod}</td>
                   <td>
-                    <button
+                    {/* <button
                       className="abu-button"
                       onClick={() => handleDeleteConfirmation(reservation)}
                     >
                       Delete
-                    </button>
+                    </button> */}
                   </td>
                 </tr>
               ))
@@ -164,12 +165,12 @@ const ViewCustomers = () => {
                   <td>{reservation.notes}</td>
                   <td>{reservation.paymentMethod}</td>
                   <td>
-                    <button
+                    {/* <button
                       className="abu-button"
                       onClick={() => handleDeleteConfirmation(reservation)}
                     >
                       Delete
-                    </button>
+                    </button> */}
                   </td>
                 </tr>
               ))}
@@ -193,6 +194,7 @@ const ViewCustomers = () => {
         <span>{currentPage}</span>
         <button onClick={() => setCurrentPage(currentPage + 1)}>Next</button>
       </div>
+    </div>
     </div>
   );
 };

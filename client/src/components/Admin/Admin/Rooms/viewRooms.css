@@ -51,8 +51,8 @@
     background-image: linear-gradient(to right bottom, rgba(54, 48, 30, 0.699), #77777788), url("../../../imagesfolder/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    /* height: auto; */
-    /* min-height: 180vh; */
+    height: auto;
+    min-height: 100vh;
     position: relative;
     padding-top: 2rem;
     padding-bottom: 4rem;

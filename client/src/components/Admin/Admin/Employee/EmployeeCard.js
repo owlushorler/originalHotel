@@ -14,7 +14,7 @@ import jwt from "jwt-decode"
     var decoded = jwt(token)
   }
 
-  console.log(token)
+
   const [data, setData] = useState([])
   const [error, setError]= useState('')
   const [username, setUsername] = useState('')

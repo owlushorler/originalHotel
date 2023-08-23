@@ -3,8 +3,8 @@ import jwt from "jwt-decode"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./navBar.css"
 
 function Navbar(){
@@ -30,7 +30,7 @@ function Navbar(){
     className="btn btn-secondary dropdown-toggle"
     type="button"
     data-bs-toggle="dropdown"
-    aria-haspopup="true"
+    // aria-haspopup="true"
     aria-expanded="false"
   >
     <FontAwesomeIcon icon={faUser} className="inputIcons" />{token ? decoded.username : ""}

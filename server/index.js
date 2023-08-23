@@ -5,6 +5,7 @@ const route = require('./routes/routes')
 const cors = require('cors')
 const cookie = require('cookie-parser')
 const bodyParser = require('body-parser')
+const path = require('path');
 
 const app = express()
 app.use(bodyParser.urlencoded({ extended: false })); // For parsing application/x-www-form-urlencoded
@@ -18,7 +19,7 @@ app.use(cookie())
 //}));
 app.use(cors())
 app.use('/uploads', express.static('uploads'))
-app.use('/roomImages', express.static('roomImages'))
+app.use('/roomImages', express.static(path.join(__dirname, 'roomImages')))
 app.use(route)
 
 const uri = process.env.uri
