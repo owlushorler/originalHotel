@@ -20,17 +20,21 @@ import Nav2 from '../home/nav2/nav2';
 import BgColor from '../rooms/room/bgColor/bgColor';
 import "./cam.css"
 import lp from "../../imagesfolder/download (13).jpg"
+import BookingForm from '../rooms/bookingForm/BookingForm';
+
 
 function Cam(){
+  const [pa ,setpa]=useState(0)
     const [moo,setmoo]=useState([])
     const [ho ,setho]=useState([])
     const [cart, setcart]=useState([])
     const [cat, setcat]=useState([])
-    const [lag, setlag]= useState(10)
+    const [lag, setlag]= useState()
     const [game, setgame]= useState(0)
+    const [pass, usepass]=useState("")
+    const [tolu , settolu]= useState(true)
     
 
-    
 
 
     
@@ -77,13 +81,20 @@ function Cam(){
    // }))
    // setmoo(go)
    
-
+ const pok = game
    function tota(){
 
     const to= cat.map((ele)=> Number(ele[0].price))
-   //setgame((ele)=>[Number(ele) + to[to.length-1]])
-   //console.log(game)
-   console.log(typeof to)
+   const u = Number(to[to.length-1])
+
+   setgame(u)
+
+   const ss =  game?game + u: 0 + u
+   console.log(u)
+   console.log(ss)
+    setgame(ss)
+   console.log(pok)
+  
    }
         
     tota()
@@ -95,6 +106,12 @@ function del(del){
     setcat(hol)
 
     
+}
+
+function sett(oo){
+  setpa(oo)
+  settolu(false)
+  setma(false)
 }
 
 
@@ -111,7 +128,7 @@ let pppp = cat.map((ele)=>{
             <div>{ele[0].features}</div>
           <div>{ele[0].price}</div>
           <button style={{backgroundColor:"goldenrod",fontSize:"1vw", width:"5vw",height:"1.5vw", border:"none", borderRadius:"2vw"}} onClick={()=>{del(ele[0]._id)}}  >Remove</button>
-          <div>total</div>
+          <div></div>
           </div>
       </div>)
   })
@@ -231,6 +248,15 @@ function ca(roon){
 setcaa(false)
 
 }
+
+function poo(ele){
+      
+  axios.post("http://localhost:3000/viewpay",{
+    checkin:20-23-2023,
+    checkout:12-3-2023,
+    price:ele
+  }).then(res=>console.log(res))
+}
  // equating the dom
  
 const domm = (cart.map((card, index) => {
@@ -325,8 +351,8 @@ const domm = (cart.map((card, index) => {
           </div>
         </div>
 
-        <button  className="abu-cardBtn">
-          /*<Link to="/booking" className="abu-cardBtn-refer">
+        <button  onClick={()=>{sett(card.price)}} className="abu-cardBtn">
+<Link className="abu-cardBtn-refer">
             BOOK NOW
             </Link>
         </button>
@@ -427,10 +453,10 @@ const dom = (ho.map((card, index) => {
           </div>
         </div>
 
-        <button  className="abu-cardBtn">
-          /*<Link to="/booking" className="abu-cardBtn-refer">
+        <button  onClick={()=>{sett(card.price)}} className="abu-cardBtn">
+          <Link  className="abu-cardBtn-refer">
             BOOK NOW
-            </Link>
+            </Link>*
         </button>
 
         <img onClick={()=>pol(card._id)} style={{width:"2vw", marginLeft:"5vw"}} src={jj} alt='ee'/>
@@ -446,12 +472,16 @@ const dom = (ho.map((card, index) => {
 
     return(
         <div>
+          
+           { !tolu && <BookingForm
+            price={pa}/>}
+           {!tolu && <botton style={{backgroundColor:"goldenrod"}} onClick={()=>settolu(true)} >go back</botton>}
             
-            <Nav2
+           {tolu && <Nav2
            rat={rat}
-           ret={up}/>
+           ret={up}/>}
            {ma && <div style={{backgroundColor:"goldenrod"}}>
-            <div style={{textAlign:"center"}}  > <h1>YOUR CARTs</h1> </div>
+            <div style={{textAlign:"center"}}  > <h3>YOUR CART</h3> </div>
          <div className='ko'  >
          <div>PRODUCT</div>
          
@@ -459,14 +489,15 @@ const dom = (ho.map((card, index) => {
          <div>FEATURES</div>
        <div>PRICE</div>
        <div></div>
-       <div>TOTAL</div>
+       <div></div>
        
          </div>
          <div  >
             {pppp}
             </div>
             <div>{lag}</div>
-            
+            <hi style={{marginLeft:"80vw"}} >total:{game}</hi>
+            <button  onClick={()=>{sett(game)}} >BOOK NOW</button>
             </div>}
             <BgColor/>
             
