@@ -60,8 +60,8 @@ const booking = () => {
          <h1 className='Sh'>View Booking</h1>
         <table className='Stable'>
    
-       <thead className='Shead'>
-         <tr className='S-tr'>
+       <thead>
+         <tr>
             <th>Room Type</th>
             <th>Features</th>
             <th>Customer_Id</th>
