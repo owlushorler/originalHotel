@@ -55,12 +55,15 @@ function App() {
           {/* <LandingPage /> */}
           <Routes>
             {/*USER ROUT */}
-            <Route path="/" element={<Nav3 />} />
-            <Route path="/room" element={<Rooms />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/booking" element={<BookingForm />} />
-            <Route path="/fac" element={<Fac />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/" element={< Nav3/>} />
+            <Route path="/room" element={< Rooms/>} />
+            <Route path="/about" element={< About/>} />
+            <Route path="/booking" element={<BookingForm/>} />
+            <Route path="/fac" element={<Fac/>} />
+            <Route path="/contact" element={<ContactPage/>} />
+            <Route path="/getbooking" element={ < BOOKING/>} />
+             <Route path="/about" element={<About/>} />
+             <Route path="/VIEBOOKING" element={< BOOKING/>} />
 
             <Route path="/admin" element={<LandingPage />} />
             <Route path="/login" element={<SuperAdmin />} />
@@ -73,6 +76,13 @@ function App() {
             <Route path="/addEmployee" element={<AddEmployee />} />
             <Route path="/superAdmin/addAdmin" element={<AddAdmin />} />
             <Route path="/superAdmin/admin" element={<ViewAdmin />} />
+            <Route path="/changeUsername" element={<ChangeUsername />} />
+                <Route path="/changePassword" element={<ChangePassword />} />
+
+                <Route path="/addRoom" element={<AddRooms/>}/>
+ 
+
+
           </Routes>
 
           {/* <SuperAdmin /> */}

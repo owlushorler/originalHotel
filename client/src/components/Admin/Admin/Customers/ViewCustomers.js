@@ -109,7 +109,7 @@ const ViewCustomers = () => {
               <th>Reservation ID</th>
               <th>Customer Name</th>
               <th>Check-in Date</th>
-              <th>Check-ot Date</th>
+              <th>Check-out Date</th>
               <th>Number of Adults</th>
               <th>Number of Children</th>
               <th>Room Type</th>
