@@ -2,7 +2,7 @@
 const bcrypt = require("bcrypt")
 const admin = require("../models/adminSchema")
 
-//const bcrypt = require("bcrypt")
+// const bcrypt = require("bcrypt")
 
 
 const updateAdmin = async (req, res) => {

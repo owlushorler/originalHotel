@@ -9,6 +9,9 @@
      margin: auto;
      
   }
+    .Sall{
+      background-color: rgb(239, 235, 224);
+    }
   .banner-brand{
       display: flex;
       justify-content: space-between;
@@ -136,10 +139,10 @@
    text-align: center;
    width: 82%;
     height: 35vh;
-   padding: 15px;
+   padding: 5px;
    background-color:rgb(253, 246, 234);
     position: relative;
-    top:7rem;
+    top:5rem;
      border-radius: 5px;
    
   }
@@ -166,7 +169,7 @@
      color:white;
   }
    .DIV6{
-    margin-top: 1rem;
+    margin-top: 2rem;
      font-size: 12px;
    }
    .logo3{
@@ -188,18 +191,21 @@
   .link img{
     width: 1rem;
     background-color:gold ;
+    height: 2rem;
     
   }
    .link a{
     color:white;
     text-decoration: none;
     margin-left: 1px;
+     
     
     
   }
    .contact-info{
-    margin-top: 1rem;
+    margin-top: 3.5rem;
     font-size: 12px;
+    
    
    }
   .contact-info img{
@@ -209,11 +215,8 @@
      border-radius: 10px;
   }
    .footer-4{
-    margin-top: 1rem;
+    margin-top: 3rem;
    }
-  .footer-4{
-    
-  }
   .footer-4 img{
     width: 6rem;
     padding: 5px;

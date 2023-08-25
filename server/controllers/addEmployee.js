@@ -21,7 +21,7 @@ const addEmployee = async (req, res) =>{
         // console.log(value.image.path)
         // console.log(Employee)
         if(!Employee) return res.status(http.StatusCodes.BAD_REQUEST).json("couldn't create employee")
-        res.status(http.StatusCodes.OK).json("Employee profile created")
+        res.status(http.StatusCodes.CREATED).json("Employee profile created")
     } catch (error) {
         // console.log(error)
         return res.status(http.StatusCodes.BAD_REQUEST).json(error.message)

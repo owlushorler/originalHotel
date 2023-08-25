@@ -4,41 +4,52 @@ import React from 'react';
 
  const bookin = [
     {
-        Type:"couplen room",
-        Feature:"air coditional, full size bed",
-        Customer:"game", 
-        Customer:"ball"
+        roomType:"single",
+        Features:["air coditional", "Wi-Fi", "TV"] ,
+        Customer_Id:"C123", 
+        Customer_Name:"Yungest Bullseye", 
+         Amount:"N2000"
     },
+
     {
-        Type:"couplen room",
-        Feature:"air coditional, full size bed",
-        Customer:"game", 
-        Customer:"ball"
-    },
-    {
-        Type:"couplen room",
-        Feature:"air coditional, full size bed",
-        Customer:"game", 
-        Customer:"ball"
-    },
-    {
-        Type:"couplen room",
-        Feature:"air coditional, full size bed",
-        Customer:"game", 
-        Customer:"ball"
-    },
-    {
-        Type:"couplen room",
-        Feature:"air coditional, full size bed",
-        Customer:"game", 
-        Customer3:"ball"
-    },
-    {
-        Type:"couplen room",
-        Feature:"air coditional, full size bed",
-        Customer:"game", 
-        Customer3:"ball"
-    },
+        roomType: 'Double',
+        Customer_Id: 'C456',
+        Customer_Name:"Emmanuel Bullseye", 
+        Amount: 'N150,000',
+        Features: ['Wi-Fi', 'TV', 'Balcony'],
+      }
+        
+      
+    // {
+    //     Type:"couplen room",
+    //     Feature:"air coditional, full size bed",
+    //     Customer:"game", 
+    //     Customer:"ball"
+    // },
+    // {
+    //     Type:"couplen room",
+    //     Feature:"air coditional, full size bed",
+    //     Customer:"game", 
+    //     Customer:"ball"
+    // },
+    // {
+    //     Type:"couplen room",
+    //     Feature:"air coditional, full size bed",
+    //     Customer:"game", 
+    //     Customer:"ball"
+    // },
+    // {
+    //     Type:"couplen room",
+    //     Feature:"air coditional, full size bed",
+    //     Customer:"game", 
+    //     Customer3:"ball"
+    // },
+    // {
+    //     Type:"couplen room",
+    //     Feature:"air coditional, full size bed",
+    //     Customer:"game", 
+    //     Customer3:"ball"
+    // },
  ]
 
 
@@ -46,9 +57,36 @@ const booking = () => {
 
   return (
        <>
-    <h1 className='sh'>View Booking</h1>
+         <h1 className='Sh'>View Booking</h1>
+        <table className='Stable'>
+   
+       <thead>
+         <tr>
+            <th>Room Type</th>
+            <th>Features</th>
+            <th>Customer_Id</th>
+            <th>Customer_Name</th>
+            <th>Amount</th>
+         </tr>
+       </thead>
+        <tbody className='Sbody'>
+            {bookin.map((book) => {
+                return(
+                     <tr key={book.id}>
+                        <td>{book.roomType}</td>
+                        <td>{book.Features}</td>
+                        <td>{book.Customer_Id}</td>
+                        <td>{book.Customer_Name}</td>
+                        <td>{book.Amount}</td>
+                         </tr>
+                )
+            })}
+           
+        </tbody>
+        </table>
+  
 
-    <div className='sbook'>
+    {/* <div className='sbook'>
          
         {bookin.map((ele)=>{
             return(
@@ -62,10 +100,10 @@ const booking = () => {
             )
         })}
        
-       </div>
+       </div> */}
     </>
   )
   
-}
+};
 
 export default booking

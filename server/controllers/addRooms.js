@@ -18,7 +18,7 @@ const addRoom = async (req, res) =>{
             images: req.file.path,
             capacity: value.capacity,
             price: value.price,
-            availability: false
+            availability: true
         })
         console.log(Room)
         if(!Room) return res.status(http.StatusCodes.BAD_REQUEST).json("Error adding room")
