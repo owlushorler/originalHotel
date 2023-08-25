@@ -72,7 +72,7 @@ function ViewRooms() {
   return (
     <>
       <div className='yunContainer'>
-      <Navbar className="myNav"/>
+      <Navbar />
     {data ? (
       <div className='yunContain'>
       {data.map((item) => (

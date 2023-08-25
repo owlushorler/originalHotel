@@ -3,14 +3,16 @@ import jwt from "jwt-decode"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./navBar.css"
 
 function Navbar(){
     const navigate = useNavigate();
     const token = Cookies.get('jwt')
-    const decoded = jwt(token)
+    if(token){
+      var decoded = jwt(token)
+    }
 
     const logOut = ()=>{
         Cookies.remove('jwt')
@@ -28,10 +30,10 @@ function Navbar(){
     className="btn btn-secondary dropdown-toggle"
     type="button"
     data-bs-toggle="dropdown"
-    aria-haspopup="true"
+    // aria-haspopup="true"
     aria-expanded="false"
   >
-    <FontAwesomeIcon icon={faUser} className="inputIcons" />{decoded.username}
+    <FontAwesomeIcon icon={faUser} className="inputIcons" />{token ? decoded.username : ""}
   </button>
   <div className="dropdown-menu boot" aria-labelledby="dropdownMenuButton">
     <a className="dropdown-item boot-item" href="/changePassword">

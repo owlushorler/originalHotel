@@ -4,7 +4,7 @@ import AddEmployee from './components/Admin/Admin/Employee/AddEmployee/addEmploy
 import PrimaryPageSuper from './components/Admin/Super Admin/Primary Page/primaryPage';
 import PrimaryPage from './components/Admin/Admin/Primary Page/primaryPage2';
 import ViewRooms from './components/Admin/Admin/Rooms/viewRooms';
-//import ViewCustomers from "./components/Admin/Admin/customers/ViewCustomers";
+import ViewCustomers from "./components/Admin/Admin/Customers/ViewCustomers";
 import SuperAdmin from './components/Admin/Admin/Login/SuperAdmin';
 import ViewEmployeeCard from './components/Admin/Admin/Employee/EmployeeCard';
 // import NavBar from './components/User/Landing Page/Navbar';
@@ -72,7 +72,7 @@ function App() {
             <Route path="/contact" element={<ContactPage/>} />
             <Route path="/getbooking" element={ < BOOKING/>} />
              <Route path="/about" element={<About/>} />
-             <Route path="/VIEBOOKING" element={< BOOKING/>} />
+             {/* <Route path="/VIEBOOKING" element={< BOOKING/>} /> */}
             
             
 
@@ -83,7 +83,7 @@ function App() {
               <Route path="/admin/admin" element={<PrimaryPage />} />
                 <Route path="/addEmployee" element={<AddEmployee />} />
               <Route path="/employees" element={<ViewEmployeeCard />} />
-                {/* <Route path="/customers" element={<Customers />} /> */}
+                <Route path="/customers" element={<ViewCustomers />} />
                 <Route path="/rooms" element={<ViewRooms />} />
                 <Route path="/superAdmin/addAdmin" element={<AddAdmin />} />
                 <Route path="/superAdmin/admin" element={<ViewAdmin />} />
