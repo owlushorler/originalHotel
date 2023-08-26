@@ -117,7 +117,6 @@
 
 // export default AboutSection;
 
-
 import React from "react";
 import "./AboutApp.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -134,20 +133,20 @@ import image1 from "../imagefolder/images/pexels-curtis-adams-3773577.jpg";
 import image2 from "../imagefolder/images/pexels-taryn-elliott-4112601.jpg";
 import image3 from "../imagefolder/images/pexels-vecislavas-popa-1571452.jpg";
 
-
 const AboutSection = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg, sm">
         <div className="container-fluid mentorcontainer-fluid">
-          <h2 id="abt" >About </h2>
-          <p id="up">Welcome to  H- Control, where luxury meets comfort and every detail is meticulously crafted to create an unforgettable experience 
-          for our guests. Nestled in the heart of a vibrant city, our hotel offers a perfect blend of modern elegance and warm hospitality.</p>
+          <button id="abt" style={{ color: "rgb(27, 27, 65)"}}> About
+            <p style={{ fontSize:"1.3vw",  color:"aliceblue"}}>Home/About</p>
+          </button>
+          {/* <p> About</p> */}
         </div>
       </nav>
 
       <div className="flex1">
-        <div >
+        <div>
           <img className="car_up" src={image1} alt=""></img>
         </div>
         <div className="car2">
@@ -156,16 +155,17 @@ const AboutSection = () => {
         </div>
 
         <div className="side">
-          <h3 style={{ color: "#d4af37"}}> Welcome to our H-Control</h3>
+          <h3 style={{ color: "#d4af37" }}> Welcome to our H-Control</h3>
           <h5> H-Control Has Been Present For Over Two Decade</h5>
           <p className="ward">
-            Embark on a culinary journey at our exquisite restaurants, where our talented chefs create gastronomic
-           delights that tantalize the senses. From international cuisines to local specialties, our diverse dining 
-           options ensure there's something for every palate. Enjoy a romantic dinner at our rooftop restaurant, savor
-            a hearty breakfast at our cozy cafe, or unwind with handcrafted cocktails at our stylish lounge.
+            Embark on a culinary journey at our exquisite restaurants, where our
+            talented chefs create gastronomic delights that tantalize the
+            senses. From international cuisines to local specialties, our
+            diverse dining options ensure there's something for every palate.
+            Enjoy a romantic dinner at our rooftop restaurant, savor a hearty
+            breakfast at our cozy cafe, or unwind with handcrafted cocktails at
+            our stylish lounge.
           </p>
-
-          
 
           <div className="client">
             <div className="bed">
@@ -195,49 +195,51 @@ const AboutSection = () => {
       </div>
 
       <div className="containers-fluid">
-        
-          <div className="four_cards">
-
+        <div className="four_cards">
           <div className="base2">
-          <h4 className="wa" style={{ color: "#d4af37"}}> H-Control Your Excellent </h4>
-          <h5 className="wad" style={{ color: "#d4af37"}}> Choice for Vacation</h5>
-          <p className="war">
-          Pamper yourself at our state-of-the-art spa and wellness center, where a range of treatments and 
-          therapies await to rejuvenate your body and mind. Dive into the crystal-clear waters of our sparkling pool, 
-          surrounded by lush gardens, or stay active at our well-equipped fitness center.
-          </p>
+            <h4 className="wa" style={{ color: "#d4af37" }}>
+              {" "}
+              H-Control Your Excellent{" "}
+            </h4>
+            <h5 className="wad" style={{ color: "#d4af37" }}>
+              {" "}
+              Choice for Vacation
+            </h5>
+            <p className="war">
+              Pamper yourself at our state-of-the-art spa and wellness center,
+              where a range of treatments and therapies await to rejuvenate your
+              body and mind. Dive into the crystal-clear waters of our sparkling
+              pool, surrounded by lush gardens, or stay active at our
+              well-equipped fitness center.
+            </p>
           </div>
-        
-        <div className="box">
-          <div className="bos">
-            <img  className="down" src={hours} alt=""></img>
-            <p className="say"> Cusromer Support</p>
-            <p className="say"> 24 hours Service </p>
-          </div>
-          <div className="bos">
-            <img  className="down"src={family} alt=""></img>
-            <p className="say">Family Size Room </p>
-            <p className="say">Available Room </p>
-          </div>
-          <div className="bos">
-            <img className="down" src={wifi} alt=""></img>
-            <p className="say"> Free Wifi Zone</p>
-            <p className="say"> 24 hours Wife </p>
-          </div>
-          <div className="bos">
-            <img  className="down"src={Conference} alt=""></img>
-            <p className="say"> Conference Room</p>
-            <p className="say"> Conference  Room Available </p>
-          </div>
-        </div>
-        </div>
-        
 
+          <div className="box">
+            <div className="bos">
+              <img className="down" src={hours} alt=""></img>
+              <p className="say"> Cusromer Support</p>
+              <p className="say"> 24 hours Service </p>
+            </div>
+            <div className="bos">
+              <img className="down" src={family} alt=""></img>
+              <p className="say">Family Size Room </p>
+              <p className="say">Available Room </p>
+            </div>
+            <div className="bos">
+              <img className="down" src={wifi} alt=""></img>
+              <p className="say"> Free Wifi Zone</p>
+              <p className="say"> 24 hours Wife </p>
+            </div>
+            <div className="bos">
+              <img className="down" src={Conference} alt=""></img>
+              <p className="say"> Conference Room</p>
+              <p className="say"> Conference Room Available </p>
+            </div>
           </div>
-        {/* </div> */}
+        </div>
       </div>
-  
-    
+      {/* </div> */}
+    </div>
   );
 };
 

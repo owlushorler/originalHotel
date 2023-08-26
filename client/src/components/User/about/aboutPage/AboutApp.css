@@ -18,13 +18,21 @@
 }
 
 #abt {
-  width: 50rem;
-  text-align: center;
-  margin-left: 14rem;
-  font-size: 3rem;
-  color: #d4af37;
-  padding-top: 6rem;
+  width: 10rem;
+  height: 5rem;
+  /* text-align: center; */
+  align-content:center;
+  margin-left: 38rem;
+  font-size: 1.5rem;
+  border-radius:5px;
+ background-color: #d4af37;
+ color:aliceblue;
+ border-style:none;
+  /* padding-top: 2rem; */
   font-family: 'Times New Roman', Times, serif;
+}
+#abt.button{
+  color:rgb(27, 27, 65);
 }
 
 .flex1 {
