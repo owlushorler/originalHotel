@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
  import './booking.css';
  import './banner3.jpg';
 
@@ -53,10 +54,11 @@ import React from 'react';
  ]
 
 
-const booking = () => {
+const Booking = () => {
 
   return (
        <>
+       <div>
          <h1 className='Sh'>View Booking</h1>
         <table className='Stable'>
    
@@ -101,9 +103,11 @@ const booking = () => {
         })}
        
        </div> */}
+       {/* <button className='addEmployeeBtn'><Link style={{textDecoration: "none", color: "#fff"}} to="/reserveRoom">Reserve Room</Link></button> */}
+       </div>
     </>
   )
   
 };
 
-export default booking
+export default Booking

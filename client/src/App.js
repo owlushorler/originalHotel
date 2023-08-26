@@ -38,6 +38,7 @@ import About from './components/User/about/about'
 import Cam from './components/User/card/cam';
 
 import Displa from './components/User/card/cartdip';
+import Reservations from './components/Admin/Admin/Bookings/addReservation/addReservation';
 
 
 
@@ -52,7 +53,7 @@ function App() {
   return (
     <div>
 
-       <BOOKING />
+       {/* <BOOKING /> */}
         
     <div className="App">
             {/* <Navbar /> */}
@@ -90,6 +91,7 @@ function App() {
             <Route path="/superAdmin/admin" element={<ViewAdmin />} />
             <Route path="/changeUsername" element={<ChangeUsername />} />
             <Route path="/changePassword" element={<ChangePassword />} />
+            <Route path="/makeReservation" element={<Reservations />} />
 
              {/* <Route path="/VIEBOOKING" element={< BOOKING/>} /> */}
             
