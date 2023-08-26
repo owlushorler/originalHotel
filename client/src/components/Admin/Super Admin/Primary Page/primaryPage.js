@@ -7,6 +7,7 @@ import image2 from "../../../imagesfolder/emplloyee.png";
 import image3 from "../../../imagesfolder/bed-2.png";
 import image4 from "../../../imagesfolder/Admin-icon.png";
 import image5 from "../../../imagesfolder/icons8-booking-58.png";
+import image6 from "../../../imagesfolder/icons8-feedback-100.png";
 import Cookies from 'js-cookie'
 import SuperAdmin from '../../Admin/Login/SuperAdmin';
 import Navbar from '../../Admin/Primary Page/navbar';
@@ -38,12 +39,6 @@ function PrimaryPageSuper(){
                 </div>
             </Link>
 
-            <Link style={{textDecoration: "none", color: "#fff"}} to="/customers">
-                <div className="primaryCard">
-                    <img src={image} />
-                    <h3> Manage Customers</h3>
-                </div>
-            </Link>
 
             <Link style={{textDecoration: "none", color: "#fff"}} to="/rooms">
                 <div className="primaryCard">
@@ -59,6 +54,12 @@ function PrimaryPageSuper(){
                 </div>
             </Link>
 
+            <Link style={{textDecoration: "none", color: "#fff"}} to="/feedback">
+                <div className="primaryCard">
+                    <img src={image6} />
+                    <h3> Customer's Feedback</h3>
+                </div>
+            </Link>
         </div>
         </div>
               ) :  (

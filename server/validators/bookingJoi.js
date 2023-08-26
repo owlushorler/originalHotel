@@ -6,11 +6,10 @@ const bookingJoi = joi.object({
     checkInDate: joi.date().required(),
     checkOutDate: joi.date().required(),
     room: joi.string().required(),
-    totalDays: joi.string().required(),
-    price: joi.string().required(),
-    totalAmount: joi.string().required(),
-    roomId: joi.string().required(),
-    createdAt: joi.string().required()
+    totalDays: joi.number().required(),
+    price: joi.number().required(),
+    totalAmount: joi.number().required(),
+    roomId: joi.string().required(),    
 })
 
 module.exports = bookingJoi
