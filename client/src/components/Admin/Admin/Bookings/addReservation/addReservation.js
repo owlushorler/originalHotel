@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./addReservation.css";
 import axios from 'axios'
+import Navbar from "../../Primary Page/navbar";
 
 
 function Reservations() {
@@ -48,8 +49,9 @@ function Reservations() {
             if (error.response && error.response.status === 400) {
                 console.log(error.response.data)
                 setError(error.response.data); // Assuming the error message is in the response data
-            } else {
-                setError("An error occurred. Please try again later."); // Generic error message for other errors
+            }
+             else {
+                setError("No Available Room."); // Generic error message for other errors
             }
             
         }
@@ -81,29 +83,33 @@ function Reservations() {
     };
 
     try {
-      const response = await fetch("http://localhost:5002/api/checked", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(bookingData),
-      });
-
-      if (response.ok) {
+      const response = await axios.post("http://localhost:5002/api/bookings", bookingData)
+      if (response.status === 201) {
         console.log("Booking successfully submitted!");
+        alert(response.data.message)
 
-        navigate.push("/getBookings");
-      } else {
-        console.error("Booking submission failed");
-      }
+        navigate("/getBookings");
+      } 
+    //   else {
+    //     console.error("Booking submission failed");
+    //     setError("An error occurred. Please try again later.")
+
+    //   }
     } catch (error) {
-      console.error("Error submitting booking:", error);
+        if (error.response && error.response.status === 400) {
+            console.log(error.response.data)
+            setError(error.response.data); // Assuming the error message is in the response data
+        } else {
+            setError("An error occurred. Please try again later."); // Generic error message for other errors
+        }
     }
   };
 
   return (
     <>
       <div className="major2">
+        <Navbar />
+        <div>
         <h1>MAKE RESERVATION</h1>
         <form  className="reservation" onSubmit={handleSubmit}>
           <label>
@@ -171,19 +177,21 @@ function Reservations() {
 
 
           <label className="majorLabel">
+          <h3>Room ID: {roomId}</h3>
             Rent Per Day: {price}
             {/* <span>${price}</span> */}
           </label>
-          <br />
-          <h3>Room ID: {roomId}</h3>
-          <h2 className="amount-heading">AMOUNT</h2>
+          {/* <br /> */}
           <p>Total Days: {totalDays}</p>
           {/* <p>Rent Per Day: ${price}</p> */}
           <p>Total Amount: N{totalAmount}</p>
           <button type="submit" className="reserveBtn">
             Submit
           </button>
+          {error && <div className="error-message">{error}</div>}
+                
         </form>
+        </div>
       </div>
     </>
   );

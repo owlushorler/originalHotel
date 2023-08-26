@@ -30,6 +30,8 @@ const pay = require("../controllers/viewpay")
 
 const express = require("express")
 const getRoomss = require("../controllers/getRoomss")
+const addBooking = require("../controllers/addBooking")
+const getBookings = require("../controllers/getBookings")
 // const room = require("../models/roomSchema")
 const route = express.Router()
 
@@ -69,9 +71,13 @@ route.put('/passChange', pasDel)
 
 route.post('/checked', checkin)
 
-route.post('api/bookings', )
+route.post('/api/bookings', addBooking)
+
+route.get('api/bookings', getBookings)
 
 route.get('/checked', admincheck)
+
+
 route.post('/api/submit', formSubmit)
 route.post('/api/subscribe', emailSubscription)
 route.post('/api/viewpay', pay)

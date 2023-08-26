@@ -8,6 +8,7 @@ import image2 from "../../../imagesfolder/emplloyee.png";
 import image3 from "../../../imagesfolder/bed-2.png";
 import image4 from "../../../imagesfolder/icons8-booking-58.png";
 import image5 from "../../../imagesfolder/bed.png";
+import image6 from "../../../imagesfolder/icons8-feedback-100.png";
 import ViewEmployeeCard from '../Employee/EmployeeCard';
 import ViewRooms from '../Rooms/viewRooms';
 import Cookies from 'js-cookie'
@@ -37,12 +38,12 @@ function PrimaryPage(){
                 </div>
             </Link>
 
-            <Link style={{textDecoration: "none", color: "#fff"}} to="/customers">
+            {/* <Link style={{textDecoration: "none", color: "#fff"}} to="/customers">
                 <div className="primaryCard">
                     <img src={image} />
                     <h3> Manage Customers</h3>
                 </div>
-            </Link>
+            </Link> */}
 
             <Link style={{textDecoration: "none", color: "#fff"}} to="/rooms">
                 <div className="primaryCard">
@@ -55,6 +56,13 @@ function PrimaryPage(){
                 <div className="primaryCard">
                     <img src={image4} />
                     <h3> Manage Booking</h3>
+                </div>
+            </Link>
+
+            <Link style={{textDecoration: "none", color: "#fff"}} to="/feedback">
+                <div className="primaryCard">
+                    <img src={image6} />
+                    <h3> Customer's Feedback</h3>
                 </div>
             </Link>
 

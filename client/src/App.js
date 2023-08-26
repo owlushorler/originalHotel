@@ -39,6 +39,7 @@ import Cam from './components/User/card/cam';
 
 import Displa from './components/User/card/cartdip';
 import Reservations from './components/Admin/Admin/Bookings/addReservation/addReservation';
+import Feedback from './components/Admin/Admin/Customers-feedbacks/Feedback';
 
 
 
@@ -75,7 +76,7 @@ function App() {
             <Route path="/booking" element={<BookingForm/>} />
             <Route path="/fac" element={<Fac/>} />
             <Route path="/contact" element={<ContactPage/>} />
-            <Route path="/getbooking" element={ < BOOKING/>} />
+            <Route path="/getbookings" element={ < BOOKING/>} />
 
 
             <Route path="/admin" element={<LandingPage />} />
@@ -92,6 +93,7 @@ function App() {
             <Route path="/changeUsername" element={<ChangeUsername />} />
             <Route path="/changePassword" element={<ChangePassword />} />
             <Route path="/makeReservation" element={<Reservations />} />
+            <Route path="/feedback" element={<Feedback />} />
 
              {/* <Route path="/VIEBOOKING" element={< BOOKING/>} /> */}
             
