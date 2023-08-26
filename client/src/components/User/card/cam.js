@@ -21,6 +21,8 @@ import BgColor from '../rooms/room/bgColor/bgColor';
 import "./cam.css"
 import lp from "../../imagesfolder/download (13).jpg"
 import BookingForm from '../rooms/bookingForm/BookingForm';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+
 
 
 function Cam(){
@@ -33,7 +35,23 @@ function Cam(){
     const [game, setgame]= useState(0)
     const [pass, usepass]=useState("")
     const [tolu , settolu]= useState(true)
-    
+     const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  const [qq,setqq]= useState()
+
+
+  function sett(oo){
+      
+        setpa(oo)
+        //settolu(false)
+       // setma(false)
+        handleShow()
+        
+
+    }
+ 
 
 
 
@@ -108,11 +126,11 @@ function del(del){
     
 }
 
-function sett(oo){
+{/*function sett(oo){
   setpa(oo)
   settolu(false)
-  setma(false)
-}
+setma(false)*/}
+
 
 
 let pppp = cat.map((ele)=>{
@@ -351,7 +369,7 @@ const domm = (cart.map((card, index) => {
           </div>
         </div>
 
-        <button  onClick={()=>{sett(card.price)}} className="abu-cardBtn">
+        <button  onClick={()=>{sett(card)}} className="abu-cardBtn">
 <Link className="abu-cardBtn-refer">
             BOOK NOW
             </Link>
@@ -453,7 +471,7 @@ const dom = (ho.map((card, index) => {
           </div>
         </div>
 
-        <button  onClick={()=>{sett(card.price)}} className="abu-cardBtn">
+        <button  onClick={()=>{sett(card)}} className="abu-cardBtn">
           <Link  className="abu-cardBtn-refer">
             BOOK NOW
             </Link>*
@@ -472,6 +490,21 @@ const dom = (ho.map((card, index) => {
 
     return(
         <div>
+
+          <>
+
+
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>please fill up to make complete your booking</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+        <BookingForm
+            poor={pa}
+            qq={qq}/>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
           
            { !tolu && <BookingForm
             price={pa}/>}

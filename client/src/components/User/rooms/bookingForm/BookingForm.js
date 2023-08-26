@@ -4,9 +4,10 @@ import "./bookingForm.css";
 import Nav2 from "../../home/nav2/nav2";
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 import image from "../../../imagesfolder/H-Control.png"
+import axios from "axios"
 
 function BookingForm(prop) {
-  const {price}= prop
+  const {poor}= prop
   const navigate = useNavigate();
   const today = new Date().toISOString().split("T")[0];
 
@@ -26,9 +27,42 @@ function BookingForm(prop) {
     return daysDifference;
   })() : 0;
 
+  function poo(){
+    const bookingData = {
+      fullName,
+      email,
+      price:poor.price,
+      checkInDate:checkInDate,
+      checkOutDate:checkOutDate,
+      room:poor.name,
+      roomID:poor.roomID,
+      totalDays,
+      totalAmount,
+     createdAt: Date()
+
+
+
+     // fullName,
+     // email,
+      //checkInDate,
+      //checkOutDate,
+     // price:poor.price,
+     // type:poor.name,
+     // roomID:poor.roomID,
+     // features:poor.features,
+     // totalDays,
+      
+    };
+      
+    axios.post("http://localhost:3000/api/viewpay",
+      bookingData
+    ).then(res=>console.log(res)).catch((e)=>console.log(e))
+  }
+
   const totalAmount = totalDays ? rentPerDay * totalDays : 0;
 
-  const handleSubmit = async (event) => {
+
+  {/*const handleSubmit = async (event) => {
     event.preventDefault();
 
     const bookingData = {
@@ -60,7 +94,7 @@ function BookingForm(prop) {
     } catch (error) {
       console.error("Error submitting booking:", error);
     }
-  };
+  };*/}
 
   const config = {
     public_key: 'FLWPUBK_TEST-bfb72dfee9838067b6534dde08c337f2-X',
@@ -93,10 +127,11 @@ function BookingForm(prop) {
 
   return (
     <>
-      <Nav2 />
+    <button onClick={()=>{poo()}} >jjjjj</button>
+      {/*<Nav2 />*/}
       <div className="booking-form ">
         <h2>Booking Form</h2>
-        <form onSubmit={handleSubmit}>
+        <form onClick={poo()} >
           <label>
             Full Name:
             <input
@@ -139,12 +174,12 @@ function BookingForm(prop) {
 
           <label>
             Rent Per Day:
-            <span>${price}</span>
+            <span>${poor.price}</span>
           </label>
           <br />
           <h2 className="amount-heading">AMOUNT</h2>
           <p>Total Days: {totalDays}</p>
-          <p>Rent Per Day: ${price}</p>
+          <p>Rent Per Day: ${poor.price}</p>
           <p>Total Amount: ${totalAmount}</p>
           <button type="submit" className="pay-now-button">
           <FlutterWaveButton {...fwConfig} />

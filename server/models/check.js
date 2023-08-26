@@ -2,18 +2,44 @@
 const mongoose = require("mongoose")
 
 const checkin = mongoose.Schema({
-    checkin: {
-        type: "string",
+  
+fullName:{
+  type:String,
+
+},
+email:{
+  type:String,
+   
+},
+price:{
+  type:String,
+  
+},
+    checkInDate: {
+        type: String,
       
       },
-      checkout: {
-        type: "string",
+      checkOutDate: {
+        type: String,
         
       },
-      price: {
-        type: "string",
-        
+      room:{
+        type:String
       },
+      roomID:{
+        type:String
+      },
+      totalDays:{
+        type:String
+      },
+      totalAmount:{
+        type:String
+      },
+      createdAt: {
+        type: String
+      }
+      
+    
   
      
 })
