@@ -30,6 +30,7 @@ const {last} = require("../controllers/viewpay")
 
 
 const express = require("express")
+const getRoomss = require("../controllers/getRoomss")
 // const room = require("../models/roomSchema")
 const route = express.Router()
 
@@ -40,6 +41,8 @@ route.post("/api/employees", upload.single("file") , addEmployee)
 route.post("/api/rooms", roomImage.single("file"), addRoom)
 
 route.get("/api/rooms", getRooms)
+
+route.get("/api/roomss/:room", getRoomss)
 
 route.delete("/api/rooms/:_id", deleteRoom)
 
@@ -67,12 +70,16 @@ route.put('/passChange', pasDel)
 
 route.post('/checked', checkin)
 
+route.post('api/bookings', )
+
 route.get('/checked', admincheck)
 route.post('/api/submit', formSubmit)
 route.post('/api/subscribe', emailSubscription)
 
 route.post('/viewpay', Pay)
 route.get('/viewpay', last)
+
+
 
 
 
