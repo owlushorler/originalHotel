@@ -16,13 +16,13 @@ function Nav3(){
             <Nav2/>
         <div className="mm" >
             <div className="mmm" >
-            <img style={{width:'100vw',height:"25vw", opacity:".5"}} src={dd}/>
+            <img style={{width:'98.9vw',height:"25vw", opacity:".5"}} src={dd}/>
 
               <div className="nn" >
                 <h1 style={{magin:"none",fontSize:"4vw"}} >book your Stay and Enyoy</h1>
                 <h1 style={{magin:"none",fontSize:"4vw", marginTop:"-2vw",marginLeft:"6vw"}}  >Luxury Experience</h1>
                 <p style={{magin:"none",fontSize:"2vw", marginTop:"-3vw" ,marginLeft:"6vw",marginTop:".1vw"}}  >The best hotel for you and yur family</p>
-                <button className="low"  >< Link className="aa" to='/home' >EXPLORE MORE</Link></button>
+                <button className="low"  >< Link className="aa" to='/room' >EXPLORE MORE</Link></button>
                 <Nav4/>
                 
                 </div>  

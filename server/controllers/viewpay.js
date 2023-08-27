@@ -11,7 +11,7 @@ const data = require("../models/check")
         const {fullName,email,price,checkInDate,checkOutDate,room, roomID,totalDays,totalAmount, createdAt}=req.body
    const man = new data({
     fullName,
-    email:"dd",
+    email,
     price,
     checkInDate,
     checkOutDate,

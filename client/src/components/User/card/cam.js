@@ -11,7 +11,7 @@ import {
   faWifi,
   faSquare,
 } from "@fortawesome/free-solid-svg-icons";
-import jj from "../card/basket-cart-icon-27.png"
+import jj from "../card/kak.png"
 import DropdownCollection from '../rooms/room/dropdown/DropdownCollection';
 import Displa from './cartdip';
 import im from "../../imagesfolder/download (6).jpg"
@@ -22,7 +22,7 @@ import "./cam.css"
 import lp from "../../imagesfolder/download (13).jpg"
 import BookingForm from '../rooms/bookingForm/BookingForm';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-
+import Cart from '../../../cart/cart';
 
 
 function Cam(){
@@ -41,6 +41,9 @@ function Cam(){
     const handleShow = () => setShow(true);
   const [qq,setqq]= useState()
 
+  const [roomMult, sethol]=useState([])
+  const [rooId, setId]=useState([])
+
 
   function sett(oo){
       
@@ -48,9 +51,26 @@ function Cam(){
         //settolu(false)
        // setma(false)
         handleShow()
+
+        // for the cart 
+        const roomM = cat.map(ele=>ele[0].name)
+        //console.log(cat.map(ele=>ele[0].name))
+        sethol(roomM)
+        const romid = cat.map(ele=>ele[0].roomID)
+        setId(romid)
         
 
     }
+
+
+
+
+
+
+  
+
+
+
  
 
 
@@ -104,10 +124,11 @@ function Cam(){
 
     const to= cat.map((ele)=> Number(ele[0].price))
    const u = Number(to[to.length-1])
+   const a = Number(to[0])
 
    setgame(u)
 
-   const ss =  game?game + u: 0 + u
+   const ss =  game?game + a : 0 + a
    console.log(u)
    console.log(ss)
     setgame(ss)
@@ -118,11 +139,30 @@ function Cam(){
     tota()
     
 }
+
+// DEL
 let rat = cat.length
 function del(del){
     const hol = cat.filter((ele)=>ele[0]._id !== del)
     setcat(hol)
+    const pok = game
+    function tota(){
 
+      const to= cat.map((ele)=> Number(ele[0].price))
+     const u = Number(to[to.length-1])
+     
+  
+     setgame(u)
+     const a = Number(to[0])
+  
+     const ss =  game?game - u : 0 - u 
+     console.log(u)
+     console.log(ss)
+      setgame(ss)
+     console.log(pok)
+    
+     }
+     tota()
     
 }
 
@@ -143,7 +183,7 @@ let pppp = cat.map((ele)=>{
           <div>{ele[0].name}</div>
          
            
-            <div>{ele[0].features}</div>
+            <div style={{fontSize:".5vw"}} >{ele[0].features}</div>
           <div>{ele[0].price}</div>
           <button style={{backgroundColor:"goldenrod",fontSize:"1vw", width:"5vw",height:"1.5vw", border:"none", borderRadius:"2vw"}} onClick={()=>{del(ele[0]._id)}}  >Remove</button>
           <div></div>
@@ -490,7 +530,7 @@ const dom = (ho.map((card, index) => {
 
     return(
         <div>
-
+         
           <>
 
 
@@ -501,13 +541,16 @@ const dom = (ho.map((card, index) => {
         <Offcanvas.Body>
         <BookingForm
             poor={pa}
-            qq={qq}/>
+            qq={qq}
+            pan={roomMult}
+            rooId={rooId}/>
         </Offcanvas.Body>
       </Offcanvas>
     </>
           
            { !tolu && <BookingForm
-            price={pa}/>}
+            price={pa}
+            />}
            {!tolu && <botton style={{backgroundColor:"goldenrod"}} onClick={()=>settolu(true)} >go back</botton>}
             
            {tolu && <Nav2
@@ -522,14 +565,14 @@ const dom = (ho.map((card, index) => {
          <div>FEATURES</div>
        <div>PRICE</div>
        <div></div>
-       <div></div>
+       <div>TOTAL</div>
        
          </div>
          <div  >
             {pppp}
             </div>
             <div>{lag}</div>
-            <hi style={{marginLeft:"80vw"}} >total:{game}</hi>
+            <hi style={{marginLeft:"75vw"}} >Total:{game}</hi>
             <button  onClick={()=>{sett(game)}} >BOOK NOW</button>
             </div>}
             <BgColor/>
