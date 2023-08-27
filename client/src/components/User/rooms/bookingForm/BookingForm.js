@@ -7,7 +7,7 @@ import image from "../../../imagesfolder/H-Control.png"
 import axios from "axios"
 
 function BookingForm(prop) {
-  const {poor}= prop
+  const {poor,pan,rooId}= prop
   const navigate = useNavigate();
   const today = new Date().toISOString().split("T")[0];
 
@@ -31,11 +31,11 @@ function BookingForm(prop) {
     const bookingData = {
       fullName,
       email,
-      price:poor.price,
+      price:poor.price || poor,
       checkInDate:checkInDate,
       checkOutDate:checkOutDate,
-      room:poor.name,
-      roomID:poor.roomID,
+      room:poor.name || pan.toString(),
+      roomID:poor.roomID || rooId.toString(),
       totalDays,
       totalAmount,
      createdAt: Date()
@@ -53,7 +53,7 @@ function BookingForm(prop) {
      // totalDays,
       
     };
-      
+      console.log(pan[0])
     axios.post("http://localhost:3000/api/viewpay",
       bookingData
     ).then(res=>console.log(res)).catch((e)=>console.log(e))
@@ -127,8 +127,9 @@ function BookingForm(prop) {
 
   return (
     <>
-    <button onClick={()=>{poo()}} >jjjjj</button>
+    
       {/*<Nav2 />*/}
+      <button onClick={()=>{poo()}} >lap</button>
       <div className="booking-form ">
         <h2>Booking Form</h2>
         <form onClick={poo()} >
@@ -179,7 +180,7 @@ function BookingForm(prop) {
           <br />
           <h2 className="amount-heading">AMOUNT</h2>
           <p>Total Days: {totalDays}</p>
-          <p>Rent Per Day: ${poor.price}</p>
+          <p>Rent Per Day: ${poor.price || poor}</p>
           <p>Total Amount: ${totalAmount}</p>
           <button type="submit" className="pay-now-button">
           <FlutterWaveButton {...fwConfig} />

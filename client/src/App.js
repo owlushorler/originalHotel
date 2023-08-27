@@ -5,7 +5,7 @@ import PrimaryPageSuper from './components/Admin/Super Admin/Primary Page/primar
 import PrimaryPage from './components/Admin/Admin/Primary Page/primaryPage2';
 import ViewRooms from './components/Admin/Admin/Rooms/viewRooms';
 
-import ViewCustomers from "./components/Admin/Admin/candidates/ViewCustomers";
+//import ViewCustomers from "./components/Admin/Admin/candidates/ViewCustomers";
 
 import SuperAdmin from './components/Admin/Admin/Login/SuperAdmin';
 import ViewEmployeeCard from './components/Admin/Admin/Employee/EmployeeCard';
@@ -53,8 +53,9 @@ function App() {
   // componentDidMount()
   return (
     <div>
+    
+       {/*<BOOKING />*/}
 
-       {/* <BOOKING /> */}
         
     <div className="App">
             {/* <Navbar /> */}
@@ -84,7 +85,7 @@ function App() {
             <Route path="/superAdmin" element={<PrimaryPageSuper />} />
             <Route path="/admin/admin" element={<PrimaryPage />} />
             <Route path="/employees" element={<ViewEmployeeCard />} />
-            <Route path="/customers" element={<ViewCustomers />} />
+           {/* <Route path="/customers" element={<ViewCustomers />} />*/}
            
             <Route path="/rooms" element={<ViewRooms />} />
             <Route path="/addEmployee" element={<AddEmployee />} />
@@ -95,7 +96,7 @@ function App() {
             <Route path="/makeReservation" element={<Reservations />} />
             <Route path="/feedback" element={<Feedback />} />
 
-             {/* <Route path="/VIEBOOKING" element={< BOOKING/>} /> */}
+             /* <Route path="/viewbooking" element={< BOOKING/>} /> */
             
             
              <Route path="/addRoom" element={<AddRooms/>}/>

@@ -18,7 +18,7 @@ checkOutDate: {
   type: String,   
 },
       room:{
-        type:String
+        type:String || Array
       },
       roomID:{
         type:String
