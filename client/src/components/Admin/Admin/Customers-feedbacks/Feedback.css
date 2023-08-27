@@ -1,0 +1,25 @@
+.Mbody {
+    width: 50%;
+}
+
+.Mtable {
+    width: 90vw;
+    margin: auto
+}
+
+.Mhead {
+    background-color: rgba(21, 17, 5, 0.4);
+    color: #d4af37
+}
+
+.Mhead:hover {
+    background-color: #d4af37;
+    color: #fff
+}
+
+.dataAvailable {
+    color: #d4af37;
+    /* margin-left: 45%;
+    border: 1px solid;
+    display: block; */
+}

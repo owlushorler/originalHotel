@@ -1,28 +1,22 @@
 
 const mongoose = require("mongoose")
 
-const checkin = mongoose.Schema({
-  
+const checkinSchema = mongoose.Schema({
 fullName:{
   type:String,
-
 },
 email:{
   type:String,
-   
 },
 price:{
-  type:String,
-  
+  type:Number,
 },
-    checkInDate: {
-        type: String,
-      
-      },
-      checkOutDate: {
-        type: String,
-        
-      },
+checkInDate: {
+  type: String,
+},
+checkOutDate: {
+  type: String,   
+},
       room:{
         type:String || Array
       },
@@ -30,20 +24,17 @@ price:{
         type:String
       },
       totalDays:{
-        type:String
+        type:Number
       },
       totalAmount:{
-        type:String
+        type:Number
       },
       createdAt: {
         type: String
       }
-      
-    
-  
      
 })
 
-const check = mongoose.model("checkin", checkin)
+const check = mongoose.model("checkin", checkinSchema)
 
 module.exports = check

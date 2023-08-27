@@ -1,109 +1,81 @@
-import React from 'react';
- import './booking.css';
- import './banner3.jpg';
 
- const bookin = [
-    {
-        roomType:"single",
-        Features:["air coditional", "Wi-Fi", "TV"] ,
-        Customer_Id:"C123", 
-        Customer_Name:"Yungest Bullseye", 
-         Amount:"N2000"
-    },
+import React, { useState, useEffect } from "react";
+ import "./booking.css";
 
-    {
-        roomType: 'Double',
-        Customer_Id: 'C456',
-        Customer_Name:"Emmanuel Bullseye", 
-        Amount: 'N150,000',
-        Features: ['Wi-Fi', 'TV', 'Balcony'],
-      }
-        
+       
+const Booking = () => {
+  const [booking, setBooking] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(4);
       
-    // {
-    //     Type:"couplen room",
-    //     Feature:"air coditional, full size bed",
-    //     Customer:"game", 
-    //     Customer:"ball"
-    // },
-    // {
-    //     Type:"couplen room",
-    //     Feature:"air coditional, full size bed",
-    //     Customer:"game", 
-    //     Customer:"ball"
-    // },
-    // {
-    //     Type:"couplen room",
-    //     Feature:"air coditional, full size bed",
-    //     Customer:"game", 
-    //     Customer:"ball"
-    // },
-    // {
-    //     Type:"couplen room",
-    //     Feature:"air coditional, full size bed",
-    //     Customer:"game", 
-    //     Customer3:"ball"
-    // },
-    // {
-    //     Type:"couplen room",
-    //     Feature:"air coditional, full size bed",
-    //     Customer:"game", 
-    //     Customer3:"ball"
-    // },
- ]
-
-
-const booking = () => {
+    useEffect(() => {
+    fetch("http://localhost:5002/api/bookings")
+      .then((response) => response.json())
+      .then((booking) => {
+        console.log(booking[0].totalAmount);
+        setBooking(booking);
+        setItemsPerPage(booking.length);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   return (
        <>
-         <h1 className='Sh'>View Booking</h1>
-        <table className='Stable'>
-   
+         <div className="abu-reserve-parent">
+        <h1 className="abu-reservation">View Booking</h1>
+        <table className="abu-tabularForm">
+
        <thead>
-         <tr>
-            <th>Room Type</th>
-            <th>Features</th>
-            <th>Customer_Id</th>
-            <th>Customer_Name</th>
-            <th>Amount</th>
+         <tr className="abu-tabular-head">
+            <th>Room ID</th>
+            <th>FullName</th>
+              <th>Email</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+              <th>Room Name</th>
+            <th>Total Days</th>
+              <th>Price</th>
+              <th>Total Amount</th>
          </tr>
        </thead>
-        <tbody className='Sbody'>
-            {bookin.map((book) => {
-                return(
-                     <tr key={book.id}>
-                        <td>{book.roomType}</td>
-                        <td>{book.Features}</td>
-                        <td>{book.Customer_Id}</td>
-                        <td>{book.Customer_Name}</td>
-                        <td>{book.Amount}</td>
-                         </tr>
+        <tbody>
+            {booking
+              .slice(
+                (currentPage - 1) * itemsPerPage,
+                currentPage * itemsPerPage
                 )
-            })}
-           
-        </tbody>
+            .map((book) => (
+                <tr key={book._id}>
+                  <td>{book.fullName}</td>
+                  <td>{book.fullName}</td>
+                  <td>{book.email}</td>
+                  <td>{book.checkInDate}</td>
+                  <td>{book.checkOutDate}</td>
+                  <td>{book.room}</td>
+                  <td>{book.totalDays}</td>
+                  <td>{book.price}</td>
+                  <td>{book.totalAmount}</td>
+                </tr>
+              ))}
+                   </tbody>
         </table>
-  
-
-    {/* <div className='sbook'>
-         
-        {bookin.map((ele)=>{
-            return(
-            <div className='Sinner'>
-            <p> Type:{ele.Type} </p>
-            <p>Feature:{ele.Feature}</p>
-            <p>Customer_id:{ele.Customer} </p>
-            <p>Customer:{ele.Customer}</p>
-        
+  <div className="abu-pagination">
+          <button onClick={() => setCurrentPage(currentPage - 1)}>
+            Previous
+          </button>
+            <span>
+            {currentPage} of {Math.ceil(booking.length / itemsPerPage)}
+          </span>
+            <button onClick={() => setCurrentPage(currentPage + 1)}>Next</button>
             </div>
-            )
-        })}
-       
-       </div> */}
+            </div>
+
     </>
-  )
-  
+  );
 };
 
-export default booking
+
+export default Booking;
+
