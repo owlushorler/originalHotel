@@ -1,78 +1,125 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+.abu-reserve-parent {
+  background-image: linear-gradient(to right bottom, rgba(54, 48, 30, 0.699), #77777788), url("../../../imagesfolder/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  min-height: 100vh;
+  max-width: 100vw;
 }
-  .Sh{
-    text-align: center;
-    margin: 10px;
-    font-size: 25px;
-    margin: 15px;
+  .abu-reservation {
+    font-size: 30px;
+    margin-bottom: 20px;
+color: #ccc;
+  margin-left: 5rem;
   }
-   .Stable{
+   .abu-tabularForm {
      width: 100%;
      border-collapse: collapse;
-     margin-bottom: 10px;
+     border: 1px solid #ccc;
    }
-    tr:nth-child(even){
-      background-color:#fff2cd;
+    
+.abu-tabular-head th {
+      background-color: #d4af37;
+  color: black;
 
     }
-    tr:nth-child(odd){
+    
+.abu-tabular-head th:hover {
+  background-color: #efece3;
+}
+th,
+td {
+  padding: 13px 6px;
+  text-align: center;
+  border: 1px solid #ccc;
+
+}
+thead th {
+  background-color: #efece3;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #fff1cb;
+  transition: background-color 0.2s;
+}
+
+tr:nth-child(even):hover {
       background-color: #f5f5f5;
     }
-     th,td{
-        padding: 12px 6px ;
-        text-align: center;
-        border: 1px solid;
+     
+tr:nth-child(odd) {
+  background-color: #f5f5f5;
+  transition: background-color 0.2s;
      }
-      thead,th{
-       background-color: #d4af37; 
-    }
-     thead th:hover{
-      background-color:#f5f5f5;
-     }
-     thead th:hover(odd){
-      background-color:#fff2cd;
-     }
-     /* .Shead,th:hover{
-        cursor: pointer;
-        background-color:navy;
-        transition: 2s ease-out;
-     }  */
-/* .sh{ */
-    /* font-size: 40px;
-    text-align: center;
-    
-    background-color: rgb(10, 10, 61);
-    color: white;
-} */
-/* .sbook{
-    display: flex;
-    flex-wrap: wrap; */
-     /* background-image: url('banner3.jpg'); */
-    /* background-color: rgb(231, 201, 127);
-     */
+      
+tr:nth-child(odd):hover {
+  background-color: #fef4d9;
+}
+.abu-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  color: #ccc;
+  font-weight: bolder;
+}
 
-/* } */
-/* .Sinner{
-   background-color: white;
-   width: 24vw;
-   height: 35vh;
-   margin: 30px 55px;
-   text-align: center;
-   border-radius: 5px;
-   padding: 15px;
-   margin-top: 5rem;
-   overflow: hidden;
-   box-shadow: 0 0 10px 5px rgba(8, 11, 11, 0.5);
+.abu-pagination button {
+  margin: 0 15px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+       background-color: #d4af37; 
+transition: background-color 0.2s;
+    }
+     
+.abu-pagination button:hover {
+      background-color: #efece3;
+     }
+     @media screen and (max-width: 1274px) {
+
+  th,
+  td {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 6px;
+    font-size: 20px;
+     }
+         
+    .abu-reservation {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  th,
+  td {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 6px;
+    font-size: 14px;
+  }
+
+.abu-reservation {
+    font-size: 20px;
+  }
    
 
-} */
-/* .Sinner:hover{
-  background-color:gold;
-  transition: .5s ease-in-out;
-} */
+}
 
+@media screen and (max-width: 480px) {
 
+th,
+  td {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+
+  .abu-reservation {
+    font-size: 18px;
+  }
+}
