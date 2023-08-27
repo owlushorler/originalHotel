@@ -1,23 +1,40 @@
 const data = require("../models/check")
 
 
-function Pay (req,res){
-    const {checkin,checkout,price} = req.body
-    const mana = new data({
-        checkin, checkout , price
-    })
+ async function pay  (req,res){
+    //if(!fullName, !email || !price || !checkin || !checkout || !TypeOfroom || !roomID || !features || !capacity){
+      //  res.status(404).json({msg:"all the field must be filled"})
+  //  }
 
-    mana.save()
-  
-    console.log(mana)
+   try{
+    //const {fullName,email,price,checkInDate,checkOutDate,type,roomID,features,createdAt, totalDays } = req.body
+        const {fullName,email,price,checkInDate,checkOutDate,room, roomID,totalDays,totalAmount, createdAt}=req.body
+   const man = new data({
+    fullName,
+    email:"dd",
+    price,
+    checkInDate,
+    checkOutDate,
+    room,
+    roomID,
+    totalDays,
+    totalAmount,
+   createdAt: Date()
+  })
+   res.status(200).json({msg:"your paymeny is being  process"})
+  // man.save()
+  console.log(man)
+  console.log("kol")
+}catch(e){
+    console.log(e)
+}
+    
+
+
+    
 }
 
-function   last(req,res){
-   const yoo= data.find()
-   res.status(200).json 
-
-}
 
 
 
-module.exports = {Pay, last}
+module.exports = pay

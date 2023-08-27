@@ -1,6 +1,8 @@
+
 import React, { useState, useEffect } from "react";
  import "./booking.css";
-        
+
+       
 const Booking = () => {
   const [booking, setBooking] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,6 +26,7 @@ const Booking = () => {
          <div className="abu-reserve-parent">
         <h1 className="abu-reservation">View Booking</h1>
         <table className="abu-tabularForm">
+
        <thead>
          <tr className="abu-tabular-head">
             <th>Room ID</th>
@@ -68,8 +71,11 @@ const Booking = () => {
             <button onClick={() => setCurrentPage(currentPage + 1)}>Next</button>
             </div>
             </div>
+
     </>
   );
 };
 
+
 export default Booking;
+
