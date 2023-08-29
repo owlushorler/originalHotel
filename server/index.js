@@ -25,20 +25,8 @@ app.use(route)
 const uri = process.env.uri
 const port = process.env.port || 3000
 
-// app.listen(port, ()=>{
-//     mongoose.connect("mongodb+srv://owlushorler:Shola3819@owlushorler.2hspzcb.mongodb.net/?retryWrites=true&w=majority", {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true
-//     }).then(()=>{
-//         console.log("mongo connected")
-//     }).catch((error) => {
-//         console.log(error.message)
-//     })
-//     console.log(`Server listening on ${port}`)
-// })
-
 app.listen(port, ()=>{
-    mongoose.connect(uri, {
+    mongoose.connect("mongodb+srv://owlushorler:Shola3819@owlushorler.2hspzcb.mongodb.net/?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }).then(()=>{
@@ -46,7 +34,19 @@ app.listen(port, ()=>{
     }).catch((error) => {
         console.log(error.message)
     })
-    
     console.log(`Server listening on ${port}`)
 })
+
+// app.listen(port, ()=>{
+//     mongoose.connect(uri, {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true
+//     }).then(()=>{
+//         console.log("mongo connected")
+//     }).catch((error) => {
+//         console.log(error.message)
+//     })
+    
+//     console.log(`Server listening on ${port}`)
+// })
 

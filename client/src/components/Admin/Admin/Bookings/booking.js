@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from "react";
  import "./booking.css";
+import Navbar from "../Primary Page/navbar";
+import { Link } from 'react-router-dom';
 
        
 const Booking = () => {
@@ -12,7 +14,7 @@ const Booking = () => {
     fetch("http://localhost:5002/api/bookings")
       .then((response) => response.json())
       .then((booking) => {
-        console.log(booking[0].totalAmount);
+        console.log(booking[0]);
         setBooking(booking);
         setItemsPerPage(booking.length);
       })
@@ -24,7 +26,8 @@ const Booking = () => {
   return (
        <>
          <div className="abu-reserve-parent">
-        <h1 className="abu-reservation">View Booking</h1>
+          <Navbar />
+        <h1 className="abu-reservation">VIEW BOOKINGS</h1>
         <table className="abu-tabularForm">
 
        <thead>
@@ -48,7 +51,7 @@ const Booking = () => {
                 )
             .map((book) => (
                 <tr key={book._id}>
-                  <td>{book.fullName}</td>
+                  <td>{book.roomId}</td>
                   <td>{book.fullName}</td>
                   <td>{book.email}</td>
                   <td>{book.checkInDate}</td>
@@ -70,6 +73,7 @@ const Booking = () => {
           </span>
             <button onClick={() => setCurrentPage(currentPage + 1)}>Next</button>
             </div>
+            <button className='addbookingBtn'><Link style={{textDecoration: "none", color: "#fff"}} to="/makeReservation">Make Reservation</Link></button>
             </div>
 
     </>

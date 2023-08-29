@@ -6,7 +6,7 @@ const room = require("../models/roomSchema")
 
 
 const addBooking = async (req, res) =>{
-    // console.log(req.body)
+    console.log(req.body)
     const {error, value} = bookingJoi.validate(req.body)
     if(error) return res.status(http.StatusCodes.BAD_REQUEST).json(error.message)
     try {

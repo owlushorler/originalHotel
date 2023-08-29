@@ -1,39 +1,40 @@
 .emailInput {
-    /* background-color: white; */
-    /* border-bottom: 2px solid #d4af37; */
-    /* border-radius: 10px; */
-    width: 30vw;
-    fill: none;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #d4af37;
-    font-size: 18px;
-    margin-bottom: 26px;
-    color: #fff;
+  /* background-color: white; */
+  /* border-bottom: 2px solid #d4af37; */
+  /* border-radius: 10px; */
+  width: 30vw;
+  fill: none;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #d4af37;
+  font-size: 18px;
+  margin-bottom: 26px;
+  color: #fff;
+  padding-left: 1rem;
 }
 
 .usernameInput {
-    /* background-color: white; */
-    /* border-bottom: 2px solid #d4af37; */
-    /* border-radius: 10px; */
-    width: 30vw;
-    fill: none;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #d4af37;
-    font-size: 18px;
-    margin-bottom: 26px;
-    color: #cfcbcb;
+  /* background-color: white; */
+  /* border-bottom: 2px solid #d4af37; */
+  /* border-radius: 10px; */
+  width: 30vw;
+  fill: none;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #d4af37;
+  font-size: 18px;
+  margin-bottom: 26px;
+  color: #cfcbcb;
 }
 
 .usernameInput::placeholder {
-    /* color: #fff; */
-    color: #cfcbcb;
+  /* color: #fff; */
+  color: #cfcbcb;
 }
 
 .emailInput::placeholder {
-    /* color: #fff; */
-    color: #cfcbcb;
+  /* color: #fff; */
+  color: #cfcbcb;
 }
 
 
@@ -57,10 +58,14 @@
 
 /* Media query for screens with a maximum width of 768px */
 @media (max-width: 768px) {
+
   .emailInput,
   .usernameInput {
-    width: 80vw; /* Adjust the width for smaller screens */
-    font-size: 16px; /* Adjust font size for smaller screens */
-    margin-bottom: 20px; /* Adjust margin for smaller screens */
+    width: 80vw;
+    /* Adjust the width for smaller screens */
+    font-size: 16px;
+    /* Adjust font size for smaller screens */
+    margin-bottom: 20px;
+    /* Adjust margin for smaller screens */
   }
 }

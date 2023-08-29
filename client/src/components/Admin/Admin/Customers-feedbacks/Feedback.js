@@ -10,6 +10,7 @@ function Feedback (){
         try{
         const response = await axios.get('http://localhost:5002/api/submit')
         setData(response.data)
+        console.log(response.data)
     } catch (error){
         console.error("Error fetching data:", error.message)
     }
@@ -32,13 +33,16 @@ function Feedback (){
                 </tr>
             </thead>
             <tbody>
-                {(data === []) ? data.map((item)=>{
-                       <tr key={item.id}>
+                {data ? data.map((item)=>{
+                    return(
+                //    {console.log(item.name)}
+                       <tr key={item._id}>
                             <td>{item.name}</td>
                             <td>{item.email}</td>
                             <td>{item.subject}</td>
                             <td>{item.message}</td>
-                       </tr>                        
+                       </tr>    
+                    )                    
                     }) : (<h4 className="dataAvailable">No data available</h4>)
                 }
                 </tbody>

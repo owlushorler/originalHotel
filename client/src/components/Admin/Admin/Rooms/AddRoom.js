@@ -96,10 +96,10 @@ function AddRooms() {
 axios.post("http://localhost:5002/api/rooms", formData)
 .then((res)=> {
   if(res.status === 201){
-    // console.log(res)
+    console.log(res.data)
     setReply(res.data)
     console.log(reply)
-    alert(reply)
+    alert(res.data)
     navigate('/rooms')
   } else {
     setReply(res.data)

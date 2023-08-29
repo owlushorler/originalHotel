@@ -44,16 +44,14 @@ function Reservations() {
                 setPrice(response.data.price)
                 setRoomId(response.data.roomID)
 
+            }else {
+                setError("No Available Room."); // Generic error message for other errors
             }
         } catch (error) {
             if (error.response && error.response.status === 400) {
                 console.log(error.response.data)
                 setError(error.response.data); // Assuming the error message is in the response data
             }
-             else {
-                setError("No Available Room."); // Generic error message for other errors
-            }
-            
         }
         
     }
@@ -61,7 +59,7 @@ function Reservations() {
         fetchData()
     }, [room])
     
-    const totalAmount = totalDays ? (price * totalDays) : 0;
+    const totalAmount = price ? (price * totalDays) : 0;
     // console.log(totalDays * )
     // console.log(totalAmount)
     console.log(room)
@@ -86,7 +84,7 @@ function Reservations() {
       const response = await axios.post("http://localhost:5002/api/bookings", bookingData)
       if (response.status === 201) {
         console.log("Booking successfully submitted!");
-        alert(response.data.message)
+        alert("Booking successfully submitted!")
 
         navigate("/getBookings");
       } 
