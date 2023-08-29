@@ -30,5 +30,6 @@ const formSchema = new mongoose.Schema({
     
 });
 
-const message = mongoose.model('message', formSchema);
-module.exports = message;
+const feedback = mongoose.model('message', formSchema);
+
+module.exports = feedback;

@@ -7,6 +7,7 @@ import bin from "../../../imagesfolder/icons8-bin-50.png"
 import Navbar from '../Primary Page/navbar';
 import jwt from "jwt-decode"
 import Cookies from 'js-cookie'
+import image from "../../../imagesfolder/deluxe-room-king-1-2000px.jpg"
 
 
 
@@ -73,11 +74,14 @@ function ViewRooms() {
     <>
       <div className='yunContainer'>
       <Navbar />
+      <h1 className='roomHead'>ROOMS</h1>
     {data ? (
       <div className='yunContain'>
       {data.map((item) => (
         <div className="roomCard" key={item._id}>
-          <img src={item.images} className='roomImage' alt='room image'/>
+          {console.log(item.images)}
+          <img src={`${item.images}`} className='roomImage' alt='room image'/>
+          {/* <img src={image} className='roomImage' alt='room image'/> */}
           <div className='roomText'>
           <h4>Name: {item.name}</h4>
           <p>ID: {item.roomID}</p>

@@ -44,7 +44,7 @@ const ContactPage = () => {
       e.preventDefault();
 
        try{
-        const response = await axios.post('http://localhost:8000/api/submit', formData);
+        const response = await axios.post('http://localhost:5002/api/submit', formData);
         console.log(response.data);
         alert(response.data.message)
        } catch (error) {
@@ -64,7 +64,7 @@ const ContactPage = () => {
           e.preventDefault();
 
           try {
-             const response = await axios.post('http://localhost:8000/api/subscribe', {email: emailData});
+             const response = await axios.post('http://localhost:5002/api/subscribe', {email: emailData});
 
               console.log('Subscription email sent successfully:', emailData);
               alert(response.data.message)
@@ -142,7 +142,8 @@ const ContactPage = () => {
                   <h6>Send us a Message </h6>
                   <form onSubmit={handleSubmit} className='form-1'>
                    <input type="text" name='name' value={formData.name} onChange={handleChange} className='text' placeholder='Your Name'/>
-                   <input type="email" name='email' value={formData.email} onChange={handleChange} className='text'placeholder='Your Email'/> <br/>
+                    <br/>
+                   <input type="email" name='email' value={formData.email} onChange={handleChange} className='text' placeholder='Your Email'/> <br/>
                    <input type="text" name= 'subject' value={formData.subject} onChange={handleChange} className='subject text' placeholder='Subject'/> <br />
                     <textarea name='message' value={formData.message} onChange={handleChange} className="text area" id="" cols="30" rows="10" placeholder='Your Message'></textarea> <br />
                     <button type="submit" className='text submit'>Submit Now</button>    

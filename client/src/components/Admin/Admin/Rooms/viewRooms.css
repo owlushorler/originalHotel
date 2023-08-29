@@ -84,3 +84,10 @@
     /* border: 1px solid; */
     width: 90%
 }
+
+.roomHead {
+    margin: auto;
+    color: #d4af37;
+    /* border: 1px solid; */
+    width: 15vw
+}

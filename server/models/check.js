@@ -20,7 +20,7 @@ checkOutDate: {
       room:{
         type:String || Array
       },
-      roomID:{
+      roomId:{
         type:String
       },
       totalDays:{

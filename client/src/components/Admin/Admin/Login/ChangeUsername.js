@@ -82,7 +82,7 @@ function ChangePassword() {
     <>
     {isLoggedIn ? (
     <div className="major">
-      <h4 className="ploginTitle">Forget Password</h4>
+      <h4 className="ploginTitle">Change Password</h4>
     <div className="plogin">
       <form className="loginForm" onSubmit={handleChangePassword}>
         <label className="white">Old Password</label>

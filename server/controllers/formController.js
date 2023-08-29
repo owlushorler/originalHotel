@@ -1,14 +1,16 @@
- const form = require('../models/formSchema');
+ const feedback = require('../models/formSchema');
 
  const submitForm = async (req,res) => {
     try {
+     console.log(req.body)
           const{ name,email,subject,message} = req.body;
 
-          const newMessage = new form({
+          const newMessage = new feedback({
               name,
               email,
               subject,
               message,
+              createdAt: Date()
           });
 
            await newMessage.save();

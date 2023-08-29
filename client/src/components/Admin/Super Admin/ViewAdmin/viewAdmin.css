@@ -101,6 +101,10 @@
     border: 3px solid;
 } */
 
+.employee-details h2{
+    color: #d4af37;
+}
+
 .addAdminBtn {
     width: 8rem;
     height: 2rem;
