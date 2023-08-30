@@ -5,18 +5,47 @@
     font-size: 1.5vw;
     background-color:  whitesmoke;
     align-items: center;
-color: white;
+color: black;
 
 
 
     
     
-}
+} 
 
 .ko{
     color: white;
     display: grid;
-    grid-template-columns: 15vw  18vw 20vw 15vw 15vw 15vw;
+    grid-template-columns: 10vw  20vw 26vw 10vw 10vw 20vw;
     align-items: center;
     font-size: 1vw;
+}
+.abu-sub-card {
+    /* border: 1px solid blue; */
+    height: 35vh;
+    /* width: auto; */
+}
+.abu-book-heart1{
+/* border: 1px solid blue; */
+padding-bottom: 10px;
+
+}
+.gold-icon1 {
+    /* border: 1px solid black; */
+    margin-left: 5vw;
+    /* margin-bottom: 5px; */
+}
+.abu-book-heart{
+    /* border: 1px solid black; */
+    padding-bottom: 5px ;
+}
+/* .cart-gold-icon{
+    width: 2vw; 
+    margin-left:5vw;
+} */
+.gold-icon {
+    color: #d4af37;
+    /* width: 2vw; */
+    margin-left: 5vw;
+    /* margin-bottom: 30px; */
 }
